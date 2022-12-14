@@ -1,0 +1,75 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <div class="slider container-fluid">
+        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="{{ asset('assets/img/carousel/1.jpg') }}" class="d-block w-100" alt="coucher du soleil">
+                </div>
+                <div class="carousel-item">
+                    <img src="{{ asset('assets/img/carousel/2.jpg') }}" class="d-block w-100" alt="palmier">
+                </div>
+                <div class="carousel-item">
+                    <img src="{{ asset('assets/img/carousel/3.jpg') }}" class="d-block w-100" alt="tournesol">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="container">
+            <div class="row text-center saison">
+                <h1>La saison 2022 - 2023</h1>
+            </div>
+            <div class="row justify-content-between">
+                <div class="card text-center" style="width: 15rem;">
+                    <img class="card-img-top" src="{{ asset('assets/img/spectacles/1.jpg') }}" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a href="#" class="btn btn-outline-danger">En savoir plus</a>
+                    </div>
+                </div>
+                <div class="card text-center" style="width: 15rem;">
+                    <img class="card-img-top" src="{{ asset('assets/img/spectacles/2.jpg') }}" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a href="#" class="btn btn-outline-danger">En savoir plus</a>
+                    </div>
+                </div>
+                <div class="card text-center" style="width: 15rem;">
+                    <img class="card-img-top" src="{{ asset('assets/img/spectacles/3.jpg') }}" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a href="#" class="btn btn-outline-danger">En savoir plus</a>
+                    </div>
+                </div>
+                <div class="card text-center" style="width: 15rem;">
+                    <img class="card-img-top" src="{{ asset('assets/img/spectacles/4.jpg') }}" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a href="#" class="btn btn-outline-danger">En savoir plus</a>
+                    </div>
+                </div>
+                <div class="card text-center" style="width: 15rem;">
+                    <img class="card-img-top" src="{{ asset('assets/img/spectacles/5.jpg') }}" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a href="#" class="btn btn-outline-danger">En savoir plus</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

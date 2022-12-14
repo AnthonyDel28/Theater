@@ -1,0 +1,72 @@
+
+body .container-fluid {
+    background-color: whitesmoke;
+}
+
+.navbar {
+    background-color: whitesmoke;
+}
+
+.nav a {
+    color: black;
+}
+
+.main-title {
+    font-family: 'PT Serif', serif;
+    font-weight: bold;
+    font-size: 3.5rem;
+    margin-bottom: 0;
+}
+
+.navbar hr {
+    border: none;
+    height: 3px;
+    width: 50%;
+    border-top: 2px solid #000000;
+}
+
+.order-button {
+    background:    #cc0000;
+    border-radius: 11px;
+    padding:       10px 30px;
+    color:         #ffffff;
+    display:       inline-block;
+    font:          normal bold 17px/1 "Open Sans", sans-serif;
+    text-align:    center;
+    text-decoration: none;
+}
+
+.vl {
+    border-left: 1px solid black;
+    height: 25px;
+}
+
+.order-button:hover {
+    background: #6e0404;
+    color:         #ffffff;
+
+}
+
+
+/*-----------------------------------------------------*/
+
+.slider img {
+    display: block;
+    width: 100%;
+    height: 500px;
+    object-fit: cover; /* or object-fit: contain; */
+    --bs-gutter-x: 0;
+}
+
+.saison h1 {
+    font-family: 'PT Serif', serif;
+    font-weight: bold;
+    font-size: 2rem;
+    margin-bottom: 25px;
+    margin-top: 25px;
+}
+
+.card-img-top {
+    height: 30%;
+    object-fit: cover;
+}
