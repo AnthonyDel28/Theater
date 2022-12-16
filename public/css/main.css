@@ -1,9 +1,13 @@
-
-body .container-fluid {
+html,
+body,
+body .container-fluid,
+body .container {
     background-color: whitesmoke;
 }
 
-.navbar {
+.navbar,
+.slider,
+.season {
     background-color: whitesmoke;
 }
 
@@ -16,6 +20,7 @@ body .container-fluid {
     font-weight: bold;
     font-size: 3.5rem;
     margin-bottom: 0;
+    margin-top: 0;
 }
 
 .navbar hr {
@@ -58,15 +63,79 @@ body .container-fluid {
     --bs-gutter-x: 0;
 }
 
-.saison h1 {
+body h1 {
     font-family: 'PT Serif', serif;
     font-weight: bold;
-    font-size: 2rem;
+    font-size: 2.5rem;
     margin-bottom: 25px;
     margin-top: 25px;
+}
+
+
+.card {
+    padding: 0;
 }
 
 .card-img-top {
     height: 30%;
     object-fit: cover;
+}
+
+.season {
+    background-image: url("../assets/img/sections/season_section.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+}
+
+#season-section {
+    background: none;
+}
+
+.news {
+    background-image: url("../assets/img/sections/news_section.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.news-main-title {
+    font-family: 'PT Serif', serif;
+    font-weight: bold;
+    font-size: 2.5rem;
+    margin-bottom: 25px;
+    margin-top: 25px;
+    color: white;
+}
+
+#news-row {
+    background: none;
+}
+
+#news-card {
+    background: rgba(74, 74, 74, 0.49);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(9.3px);
+    -webkit-backdrop-filter: blur(9.3px);
+    border: 1px solid rgba(74, 74, 74, 0.3);
+    transition: transform .5s ease;
+}
+
+#news-card:hover {
+    transform: scale(1.1);
+}
+
+#news-card .card-body {
+    background: rgba(74, 74, 74, 0.49);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(9.3px);
+    -webkit-backdrop-filter: blur(9.3px);
+    border: 1px solid rgba(74, 74, 74, 0.3);
+}
+
+#news-card h5,
+#news-card p,
+#news-card .text-muted,
+#news-card .card-footer,
+#news-card .card-footer .text-muted {
+    color: white;
 }
