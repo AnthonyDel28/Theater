@@ -55,15 +55,21 @@ body .container {
 
 /*-----------------------------------------------------*/
 
+.slider {
+    border-radius: 50px;
+}
+
 .slider img {
     display: block;
     width: 100%;
     height: 500px;
     object-fit: cover; /* or object-fit: contain; */
     --bs-gutter-x: 0;
+    border-radius: 50px;
 }
 
-body h1 {
+body h1,
+#moments-title {
     font-family: 'PT Serif', serif;
     font-weight: bold;
     font-size: 2.5rem;
@@ -72,7 +78,7 @@ body h1 {
 }
 
 
-.card {
+#season-card {
     padding: 0;
 }
 
@@ -90,6 +96,11 @@ body h1 {
 
 #season-section {
     background: none;
+}
+
+
+#season-button {
+    margin-bottom: 20px;
 }
 
 .news {
@@ -112,12 +123,12 @@ body h1 {
 }
 
 #news-card {
-    background: rgba(74, 74, 74, 0.49);
+    background: rgba(255, 255, 255, 0.77);
+    border-radius: 16px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(9.3px);
-    -webkit-backdrop-filter: blur(9.3px);
-    border: 1px solid rgba(74, 74, 74, 0.3);
-    transition: transform .5s ease;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.68);
 }
 
 #news-card:hover {
@@ -125,11 +136,16 @@ body h1 {
 }
 
 #news-card .card-body {
-    background: rgba(74, 74, 74, 0.49);
+    background: rgba(255, 255, 255, 0.77);
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(9.3px);
-    -webkit-backdrop-filter: blur(9.3px);
-    border: 1px solid rgba(74, 74, 74, 0.3);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.68);
+}
+
+#news-card .card-img-top {
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
 }
 
 #news-card h5,
@@ -137,5 +153,6 @@ body h1 {
 #news-card .text-muted,
 #news-card .card-footer,
 #news-card .card-footer .text-muted {
-    color: white;
+    color: black;
 }
+
