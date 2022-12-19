@@ -156,3 +156,29 @@ body h1,
     color: black;
 }
 
+.footer-links a {
+    text-decoration: none;
+}
+
+.media-icons a {
+    font-size: 18px;
+    line-height: 30px;
+    border-radius: 36px;
+    background-color: #222222;
+    color: #fff;
+    padding: 10px 10px 10px 12px;
+    text-decoration: none;
+}
+
+.media-icons a i {
+    color: white;
+}
+
+footer h6 {
+    font-family: 'PT Serif', serif;
+    font-weight: bold;
+}
+
+footer {
+    border-radius: 25px;
+}
