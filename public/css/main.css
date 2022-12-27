@@ -1,6 +1,22 @@
+.header {
+    overflow: hidden;
+    width: 100%;
+}
+
+body {
+    width: 100%;
+}
+
 .nav-bar {
     height: 70px;
     background-color: black;
+    position: -webkit-sticky;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 100;
+    padding: 0;
+    margin: 0;
 }
 
 .nav-title {
@@ -28,6 +44,7 @@
 /*---------------------------------------------------------------*/
 
 .slider {
+    margin-top: 70px;
     height: 500px;
     background-image: url("../assets/img/carousel/slider1.JPG");
     background-size: cover;
@@ -171,6 +188,18 @@
     background-size: cover;
 }
 
+.twin-content {
+    margin-top: 200px;
+}
+
+.twin-text {
+    text-shadow: 1px 1px 1px black, 0 0 1em black, 0 0 0.2em black;
+    font-family: 'EB Garamond', serif;
+    color: white;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
 .news {
     background-color: whitesmoke;
 }
@@ -178,12 +207,11 @@
 .news-main-title {
     font-family: 'EB Garamond', serif;
     color: black;
-    font-size: 2.5rem;
+    font-size: 3.5rem;
 }
 
 .news-card {
     margin: 20px;
-    height: 550px;
     background-color: black;
     padding: 0;
 }
@@ -227,4 +255,52 @@
     padding: 10px 30px;
     border: none;
     border-radius: 50px;
+}
+
+.news-btn:hover {
+    font-family: 'EB Garamond', serif;
+    color: white;
+    font-size: 14px;
+    background-color: #0c0c0c;
+    padding: 10px 30px;
+    border-radius: 50px;
+}
+
+.news-bottom a {
+    text-decoration: none;
+    color: whitesmoke;
+}
+
+.quote {
+    height: 500px;
+    background-image: url("../assets/img/sections/subscribe_section.jpg");
+    background-size: cover;
+    background-position: 25% 68%;
+}
+
+.quote-content {
+    font-family: 'EB Garamond', serif;
+    color: white;
+    font-size: 1.8rem;
+    margin-top: 200px;
+}
+
+.quote-fx {
+    font-size: 50px;
+    color: white;
+}
+
+.sponsors {
+    height: 10%;
+    background-color: black;
+}
+
+.sponsor1 {
+    background-image: url("../assets/img/sponsors/sponsor1.jpg");
+    background-size: contain;
+}
+
+.sponsor2 {
+    background-image: url("../assets/img/sponsors/sponsor2.jpg");
+    background-size: contain;
 }
