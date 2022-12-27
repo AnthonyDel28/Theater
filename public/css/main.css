@@ -1,197 +1,230 @@
-html,
-body,
-body .container-fluid,
-body .container {
-    background-color: whitesmoke;
+.nav-bar {
+    height: 70px;
+    background-color: black;
 }
 
-.navbar,
-.slider,
-.season {
-    background-color: whitesmoke;
+.nav-title {
+    font-family: 'EB Garamond', serif;
+    color: white;
+    font-size: 1.7rem;
 }
 
-.nav a {
-    color: black;
+.nav-menu ul,
+.nav-menu ul li,
+.nav-right-items ul,
+.nav-right-items ul li{
+    display: inline-block;
+    list-style-type: none;
+    margin-right: 15px;
 }
 
-.main-title {
-    font-family: 'PT Serif', serif;
-    font-weight: bold;
-    font-size: 3.5rem;
-    margin-bottom: 0;
-    margin-top: 0;
-}
-
-.navbar hr {
-    border: none;
-    height: 3px;
-    width: 50%;
-    border-top: 2px solid #000000;
-}
-
-.order-button {
-    background:    #cc0000;
-    border-radius: 11px;
-    padding:       10px 30px;
-    color:         #ffffff;
-    display:       inline-block;
-    font:          normal bold 17px/1 "Open Sans", sans-serif;
-    text-align:    center;
+.nav-menu a,
+.nav-right-items a {
+    color: white;
     text-decoration: none;
+    font-family: 'EB Garamond', serif;
 }
 
-.vl {
-    border-left: 1px solid black;
-    height: 25px;
-}
-
-.order-button:hover {
-    background: #6e0404;
-    color:         #ffffff;
-
-}
-
-
-/*-----------------------------------------------------*/
+/*---------------------------------------------------------------*/
 
 .slider {
-    border-radius: 20px;
-}
-
-.slider img {
-    display: block;
-    width: 100%;
     height: 500px;
-    object-fit: cover; /* or object-fit: contain; */
-    --bs-gutter-x: 0;
-    border-radius: 20px;
-}
-
-body h1,
-#moments-title {
-    font-family: 'PT Serif', serif;
-    font-weight: bold;
-    font-size: 2.5rem;
-    margin-bottom: 25px;
-    margin-top: 25px;
-}
-
-
-#season-card {
-    padding: 0;
-}
-
-.card-img-top {
-    height: 30%;
-    object-fit: cover;
-}
-
-.season {
-    background-image: url("../assets/img/sections/season_section.png");
-    background-repeat: no-repeat;
-    background-position: center center;
+    background-image: url("../assets/img/carousel/slider1.JPG");
     background-size: cover;
+    background-position: center;
 }
 
-#season-section {
-    background: none;
+.slide-item {
+    margin-top: 150px;
 }
 
-
-#season-button {
-    margin-bottom: 20px;
-}
-
-.news {
-    background-image: url("../assets/img/sections/news_section.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    border-radius: 16px;
-}
-
-.news-main-title {
-    font-family: 'PT Serif', serif;
-    font-weight: bold;
-    font-size: 2.5rem;
-    margin-bottom: 25px;
-    margin-top: 25px;
+.slide-item-main-title {
+    font-family: 'EB Garamond', serif;
     color: white;
+    font-weight: bold;
+    font-size: 5rem;
+    margin-bottom: 0;
 }
 
-#news-row {
-    background: none;
+.slide-item-sub-title {
+    font-family: 'EB Garamond', serif;
+    color: white;
+    font-weight: bold;
+    font-size: 3rem;
 }
 
-#news-card {
-    background: rgba(255, 255, 255, 0.77);
-    border-radius: 16px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
-    border: 1px solid rgba(255, 255, 255, 0.68);
+.slide-sub-title {
+    height: 60px;
+    background-color: black;
 }
 
-#news-card:hover {
-    transform: scale(1.1);
+.slide-sub-title-text {
+    font-family: 'EB Garamond', serif;
+    color: white;
+    font-weight: bold;
+    font-size: 1.2rem;
 }
 
-#news-card .card-body {
-    background: rgba(255, 255, 255, 0.77);
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
-    border: 1px solid rgba(255, 255, 255, 0.68);
-}
-
-#news-card .card-img-top {
-    border-top-left-radius: 16px;
-    border-top-right-radius: 16px;
-}
-
-#news-card h5,
-#news-card p,
-#news-card .text-muted,
-#news-card .card-footer,
-#news-card .card-footer .text-muted {
-    color: black;
-}
-
-.memory-img {
-    transition: transform 1s;
+.season-container {
+    height: 260px;
+    width: 20%;
+    padding: 0;
     overflow: hidden;
-    object-fit: cover;
+    position: relative;
 }
 
-.memory-img:hover {
-    -ms-transform: scale(1.2); /* IE 9 */
-    -webkit-transform: scale(1.2); /* Safari 3-8 */
+.show1 {
+    width: 100%;
+    height: 100%;
+    background-image: url("../assets/img/season/show1.jpg");
+    background-size: cover;
+    filter: grayscale(40%);
+    transition: all 1s;
+}
+
+.show2 {
+    width: 100%;
+    height: 100%;
+    background-image: url("../assets/img/season/show2.jpg");
+    background-size: cover;
+    filter: grayscale(40%);
+    transition: all 1s;
+}
+
+.show3 {
+    width: 100%;
+    height: 100%;
+    background-image: url("../assets/img/season/show3.jpg");
+    background-size: cover;
+    filter: grayscale(40%);
+    transition: all 1s;
+}
+
+.show4 {
+    width: 100%;
+    height: 100%;
+    background-image: url("../assets/img/season/show4.jpg");
+    background-size: cover;
+    filter: grayscale(40%);
+    transition: all 1s;
+}
+
+.show5 {
+    width: 100%;
+    height: 100%;
+    background-image: url("../assets/img/season/show5.jpg");
+    background-size: cover;
+    filter: grayscale(40%);transition: all 1s;
+}
+
+.show1:hover,
+.show2:hover,
+.show3:hover,
+.show4:hover,
+.show5:hover {
     transform: scale(1.2);
 }
 
-.footer-links a {
-    text-decoration: none;
+.season-card-content {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
 }
 
-.media-icons a {
-    font-size: 18px;
-    line-height: 30px;
-    border-radius: 36px;
-    background-color: #222222;
-    color: #fff;
-    padding: 10px 10px 10px 12px;
-    text-decoration: none;
+.season-card-content h1 {
+    text-shadow: 1px 1px 2px black, 0 0 1em black, 0 0 0.2em black;
+    font-family: 'EB Garamond', serif;
+    color: white;
+    font-weight: bold;
+    font-size: 2rem;
 }
 
-.media-icons a i {
+.season-card-content h3 {
+    text-shadow: 1px 1px 2px black, 0 0 1em black, 0 0 0.2em black;
+    font-family: 'EB Garamond', serif;
+    color: white;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.on-air {
+    background:    #ff0000;
+    border-radius: 7px;
+    padding:       2px 9px;
+    color:         #ffffff;
+    display:       inline-block;
+    font:          normal bold 11px/1 "Open Sans", sans-serif;
+    text-align:    center;
+}
+
+.twin1 {
+    height: 500px;
+    background-image: url("../assets/img/twins/twin1.jpg");
+    background-size: cover;
+}
+
+.twin2 {
+    height: 500px;
+    background-image: url("../assets/img/twins/twin2.jpg");
+    background-size: cover;
+}
+
+.news {
+    background-color: whitesmoke;
+}
+
+.news-main-title {
+    font-family: 'EB Garamond', serif;
+    color: black;
+    font-size: 2.5rem;
+}
+
+.news-card {
+    margin: 20px;
+    height: 550px;
+    background-color: black;
+    padding: 0;
+}
+
+.news-card-img {
+    height: 40%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.news-card-img img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.news-content {
+    padding: 15px;
+}
+
+.news-title {
+    font-family: 'EB Garamond', serif;
+    color: white;
+    font-size: 1.8rem;
+}
+
+.news-text {
     color: white;
 }
 
-footer h6 {
-    font-family: 'PT Serif', serif;
-    font-weight: bold;
+.news-date {
+    color: darkgrey;
+    font-size: 0.6rem;
 }
 
-footer {
-    border-radius: 25px;
+.news-btn {
+    font-family: 'EB Garamond', serif;
+    color: black;
+    font-size: 14px;
+    background-color: #FFFFFF;
+    padding: 10px 30px;
+    border: none;
+    border-radius: 50px;
 }

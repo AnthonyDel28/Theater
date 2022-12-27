@@ -1,241 +1,138 @@
 {% extends 'base.html.twig' %}
 {% block body %}
-    <div class="slider">
-       <div class="container">
-           <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-               <div class="carousel-inner">
-                   <div class="carousel-item active">
-                       <img src="{{ asset('assets/img/carousel/1.jpg') }}" class="d-block w-100" alt="coucher du soleil">
-                       <div class="carousel-caption d-none d-md-block">
-                           <h5></h5>
-                           <p></p>
+    <section class="body">
+        <div class="container-fluid slide">
+            <div class="row slider">
+                <div class="container">
+                    <div class="row d-flex flex-row-reverse">
+                        <div class="col-5 slide-item text-center">
+                            <p class="slide-item-main-title">La Revue 2023</p>
+                            <p class="slide-item-sub-title">"Mieux vaut Qatar que jamais"</p>
+                            <button type="button" class="btn btn-outline-light m-2"><i
+                                        class="icofont-info-circle"></i> En savoir plus</button>
+                            <button type="button" class="btn btn-danger m-2"><i class="icofont-ticket"></i> Réserver
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid sub-slide-title">
+            <div class="row slide-sub-title text-center">
+                <p class="slide-sub-title-text mt-3">La Saison 2022-2023</p>
+            </div>
+        </div>
+        <div class="container-fluid season-slide">
+            <div class="row">
+                <div class="season-container">
+                    <div class="show1 text-center">
+                        <div class="season-card-content">
+                            <h1>Piège pour un homme seul</h1>
+                            <h3>du 30/09 au 16/10</h3>
+                        </div>
+                    </div>
+                </div>
+               <div class="season-container">
+                   <div class="show2 text-center">
+                       <div class="season-card-content">
+                           <h1>La dégustation</h1>
+                           <h3>du 11/11 au 27/11</h3>
                        </div>
                    </div>
-                   <div class="carousel-item">
-                       <img src="{{ asset('assets/img/carousel/2.jpg') }}" class="d-block w-100" alt="palmier">
-                   </div>
-                   <div class="carousel-item">
-                       <img src="{{ asset('assets/img/carousel/3.jpg') }}" class="d-block w-100" alt="tournesol">
+               </div>
+                <div class="season-container">
+                    <div class="show3 text-center">
+                        <div class="season-card-content">
+                            <h1>La Revue 2023</h1>
+                            <h3>du 30/12 au 22/01/2023</h3>
+                            <div class="on-air">
+                                En ce moment!
+                            </div>
+                        </div>
+                    </div>
+                </div>
+               <div class="season-container">
+                   <div class="show4 text-center">
+                       <div class="season-card-content">
+                           <h1>Sur un air de tango</h1>
+                           <h3>du 17/03 au 02/04</h3>
+                       </div>
                    </div>
                </div>
-               <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-                   <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                   <span class="visually-hidden">Previous</span>
-               </button>
-               <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-                   <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                   <span class="visually-hidden">Next</span>
-               </button>
-           </div>
-       </div>
-   </div>
-    <div class="season">
-        <div class="container">
-            <div class="container-fluid pt-5 pb-5" id="season-section">
-                <div class="row text-center saison">
-                    <h1>La saison 2022 - 2023</h1>
-                </div>
-                <div class="row justify-content-evenly">
-                    <div class="card col-8 col-lg-2 col-md-4 col-sm-6" id="season-card">
-                        <img class="card-img-top" src="{{ asset('assets/img/spectacles/1.jpg') }}" alt="Card image cap">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" class="btn btn-outline-danger">Go somewhere</a>
+                <div class="season-container">
+                    <div class="show5 text-center">
+                        <div class="season-card-content">
+                            <h1>La nuit des dupes</h1>
+                            <h3>du 19/05 au 11/06</h3>
                         </div>
-                    </div>
-                    <div class="card col-8 col-lg-2 col-md-4 col-sm-6" id="season-card">
-                        <img class="card-img-top" src="{{ asset('assets/img/spectacles/2.jpg') }}" alt="Card image cap">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" class="btn btn-outline-danger">Go somewhere</a>
-                        </div>
-                    </div>
-                    <div class="card col-8 col-lg-2 col-md-4 col-sm-6" id="season-card" >
-                        <img class="card-img-top" src="{{ asset('assets/img/spectacles/3.jpg') }}" alt="Card image cap">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" class="btn btn-outline-danger">Go somewhere</a>
-                        </div>
-                    </div>
-                    <div class="card col-8 col-lg-2 col-md-4 col-sm-6" id="season-card">
-                        <img class="card-img-top" src="{{ asset('assets/img/spectacles/4.jpg') }}" alt="Card image cap">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" class="btn btn-outline-danger">Go somewhere</a>
-                        </div>
-                    </div>
-                    <div class="card col-8 col-lg-2 col-md-4 col-sm-6" id="season-card">
-                        <img class="card-img-top" src="{{ asset('assets/img/spectacles/5.jpg') }}" alt="Card image cap">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" class="btn btn-outline-danger">Go somewhere</a>
-                        </div>
-                    </div>
-            </div>
-        </div>
-    </div>
-    <div class="container news">
-        <div class="container-fluid pt-5 pb-5" id="news-row">
-            <div class="row text-center saison">
-                <h1 class="news-main-title">Actualités</h1>
-            </div>
-            <div class="row justify-content-evenly">
-                <div class="card" style="width: 20rem; padding: 0; height: 400px;" id="news-card">
-                    <img class="card-img-top" src="{{ asset('assets/img/news/news1.jpg') }}" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                    </div>
-                    <div class="card-footer d-flex justify-content-between align-items-center">
-                        <small class="text-muted">Last updated 3 mins ago</small>
-                        <button type="button" class="btn btn-danger">Lire l'article</button>
-                    </div>
-                </div>
-                <div class="card" style="width: 20rem; padding: 0; height: 400px;" id="news-card">
-                    <img class="card-img-top" src="{{ asset('assets/img/news/news2.jpg') }}" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                    </div>
-                    <div class="card-footer d-flex justify-content-between align-items-center">
-                        <small class="text-muted">Last updated 3 mins ago</small>
-                        <button type="button" class="btn btn-danger">Lire l'article</button>
-                    </div>
-                </div>
-                <div class="card" style="width: 20rem; padding: 0; height: 400px;" id="news-card">
-                    <img class="card-img-top" src="{{ asset('assets/img/news/news3.jpg') }}" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                    </div>
-                    <div class="card-footer d-flex justify-content-between align-items-center">
-                        <small class="text-muted">Last updated 3 mins ago</small>
-                        <button type="button" class="btn btn-danger">Lire l'article</button>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="container text-center justify-content-center">
-
-        <h1 class="mt-5" id="moments-title">Des moments inoubliables</h1>
-
-        <hr class="mt-2 mb-5">
-
-        <div class="row text-center text-lg-start">
-
-            <div class="col-lg-3 col-md-4 col-6 memory">
-                <a class="d-block mb-4 h-100">
-                    <img class="img-fluid img-thumbnail memory-img" src="{{ asset('assets/img/gallery/1.jpg') }}"
-                         alt="">
-                </a>
-            </div>
-            <div class="col-lg-3 col-md-4 col-6 memory">
-                <a  class="d-block mb-4 h-100">
-                    <img class="img-fluid img-thumbnail memory-img" src="{{ asset('assets/img/gallery/2.jpg') }}" alt="">
-                </a>
-            </div>
-            <div class="col-lg-3 col-md-4 col-6 memory">
-                <a  class="d-block mb-4 h-100">
-                    <img class="img-fluid img-thumbnail memory-img" src="{{ asset('assets/img/gallery/3.jpg') }}" alt="">
-                </a>
-            </div>
-            <div class="col-lg-3 col-md-4 col-6 memory">
-                <a  class="d-block mb-4 h-100">
-                    <img class="img-fluid img-thumbnail memory-img" src="{{ asset('assets/img/gallery/4.jpg') }}" alt="">
-                </a>
-            </div>
-            <div class="col-lg-3 col-md-4 col-6 memory">
-                <a  class="d-block mb-4 h-100">
-                    <img class="img-fluid img-thumbnail memory-img" src="{{ asset('assets/img/gallery/5.jpg') }}" alt="">
-                </a>
-            </div>
-            <div class="col-lg-3 col-md-4 col-6 memory">
-                <a class="d-block mb-4 h-100">
-                    <img class="img-fluid img-thumbnail memory-img" src="{{ asset('assets/img/gallery/6.jpg') }}"
-                         alt="">
-                </a>
-            </div>
-            <div class="col-lg-3 col-md-4 col-6 memory">
-                <a class="d-block mb-4 h-100">
-                    <img class="img-fluid img-thumbnail memory-img" src="{{ asset('assets/img/gallery/7.jpg') }}" alt="">
-                </a>
-            </div>
-            <div class="col-lg-3 col-md-4 col-6 memory">
-                <a class="d-block mb-4 h-100">
-                    <img class="img-fluid img-thumbnail memory-img" src="{{ asset('assets/img/gallery/8.jpg') }}" alt="">
-                </a>
-            </div>
-            <div class="col-lg-3 col-md-4 col-6 memory">
-                <a class="d-block mb-4 h-100">
-                    <img class="img-fluid img-thumbnail memory-img" src="{{ asset('assets/img/gallery/9.jpg') }}" alt="">
-                </a>
-            </div>
-            <div class="col-lg-3 col-md-4 col-6 memory" style="object-fit: cover">
-                <a class="d-block mb-4 h-100" style="object-fit: cover">
-                    <img class="img-fluid img-thumbnail memory-img" src="{{ asset('assets/img/gallery/10.jpg') }}" alt=""
-                         style="object-fit: cover">
-                </a>
-            </div>
-            <div class="col-lg-3 col-md-4 col-6 memory">
-                <a class="d-block mb-4 h-100">
-                    <img class="img-fluid img-thumbnail memory-img" src="{{ asset('assets/img/gallery/12.jpg') }}" alt="">
-                </a>
-            </div>
-            <div class="col-lg-3 col-md-4 col-6 memory">
-                <a class="d-block mb-4 h-100">
-                    <img class="img-fluid img-thumbnail memory-img" src="{{ asset('assets/img/gallery/11.jpg') }}" alt="">
-                </a>
-            </div>
-        </div>
-
-    </div>
-    <div class="container">
-        <div class="container quotes">
+        <div class="container-fluid twins">
             <div class="row">
-                    <div class="container py-5 h-100">
-                        <div class="row d-flex align-items-center justify-content-evenly h-100">
-                            <div class="col col-lg-4 mb-4 mb-lg-0">
-                                <figure class="text-center bg-white py-5 px-4 shadow-2" style="border-radius: .75rem;">
-                                    <i class="far fa-gem fa-lg mb-4" style="color: #f9a169;"></i>
-                                    <blockquote class="blockquote pb-2">
-                                        <p>
-                                            <i class="fas fa-angle-double-left" style="color: #f9a169;"></i>
-                                            <span class="lead font-italic">
-                                                 " La vie est pièce de théâtre : ce qui compte, ce n'est pas qu'elle
-                                                dure longtemps, mais qu'elle soit bien jouée. "
-                                            </span>
-                                            <i class="fas fa-angle-double-right" style="color: #f9a169;"></i>
-                                        </p>
-                                    </blockquote>
-                                </figure>
+                <div class="twin1 col-6">
+
+                </div>
+                <div class="twin2 col-6">
+
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid news">
+            <div class="row">
+                <div class="container">
+                    <div class="row text-center news-section">
+                        <p class="news-main-title mt-3">Actualités</p>
+                    </div>
+                    <div class="row justify-content-center">
+                       <div class="col-2 news-card">
+                           <div class="news-card-img">
+                               <img src="{{ asset('assets/img/news/1.jpg') }}" alt="">
+                               <div class="news-content">
+                                   <p class="news-title">Lorem ipsum dolor sit.</p>
+                                   <p class="news-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores culpa deleniti eos harum laborum nam. Adipisci dignissimos, et eveniet ex impedit, iste molestiae nesciunt placeat reiciendis repudiandae rerum soluta, vel!</p>
+                                   <p class="news-date">Publié le 27/12/1999</p>
+                                   <button class="btn news-btn">En savoir plus</button>
+                               </div>
+                           </div>
+                       </div>
+                        <div class="col-2 news-card">
+                            <div class="news-card-img">
+                                <img src="{{ asset('assets/img/news/2.jpg') }}" alt="">
+                                <div class="news-content">
+                                    <p class="news-title">Lorem ipsum dolor sit.</p>
+                                    <p class="news-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores culpa deleniti eos harum laborum nam. Adipisci dignissimos, et eveniet ex impedit, iste molestiae nesciunt placeat reiciendis repudiandae rerum soluta, vel!</p>
+                                    <p class="news-date">Publié le 27/12/1999</p>
+                                    <button class="btn news-btn">En savoir plus</button>
+                                </div>
                             </div>
-                            <div class="col col-lg-4">
-                                <figure class="text-center bg-white py-5 px-4 shadow-2" style="border-radius: .75rem;">
-                                    <i class="far fa-gem fa-lg mb-4" style="color: #f36f63;"></i>
-                                    <blockquote class="blockquote pb-2">
-                                        <p>
-                                            <i class="fas fa-angle-double-left" style="color: #f36f63;"></i>
-                                            <span class="lead font-italic">Be less curious about people and more curious about ideas.</span>
-                                            <i class="fas fa-angle-double-right" style="color: #f36f63;"></i>
-                                        </p>
-                                    </blockquote>
-                                    <figcaption class="blockquote-footer mb-0 font-italic">
-                                        Marie Skłodowska Curie
-                                    </figcaption>
-                                </figure>
+                        </div>
+                        <div class="col-2 news-card">
+                            <div class="news-card-img">
+                                <img src="{{ asset('assets/img/news/3.jpg') }}" alt="">
+                                <div class="news-content">
+                                    <p class="news-title">Lorem ipsum dolor sit.</p>
+                                    <p class="news-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores culpa deleniti eos harum laborum nam. Adipisci dignissimos, et eveniet ex impedit, iste molestiae nesciunt placeat reiciendis repudiandae rerum soluta, vel!</p>
+                                    <p class="news-date">Publié le 27/12/1999</p>
+                                    <button class="btn news-btn">En savoir plus</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-2 news-card">
+                            <div class="news-card-img">
+                                <img src="{{ asset('assets/img/news/4.png') }}" alt="">
+                                <div class="news-content">
+                                    <p class="news-title">Lorem ipsum dolor sit.</p>
+                                    <p class="news-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores culpa deleniti eos harum laborum nam. Adipisci dignissimos, et eveniet ex impedit, iste molestiae nesciunt placeat reiciendis repudiandae rerum soluta, vel!</p>
+                                    <p class="news-date">Publié le 27/12/1999</p>
+                                    <button class="btn news-btn">En savoir plus</button>
+                                </div>
                             </div>
                         </div>
                     </div>
+                </div>
             </div>
         </div>
-    </div>
-
-
-
+    </section>
 {% endblock %}
