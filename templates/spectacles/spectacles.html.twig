@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container-fluid season">
+        <div class="row justify-content-center text-center spectacles-content">
+            <h1 class="display-1 main-title">La saison 2022 - 2023</h1>
+            <h3 class="main-sub-title"><em>La saison du réchauffement zygomatique</em></h3>
+            <img src="{{ asset('assets/img/sections/divider.png') }}" class="col-6 divider">
+        </div>
+        <div class="container">
+            <div class="row shows justify-content-center text-center">
+                {% set index = 1 %}
+                {% for show in spectacles %}
+                    <div class="card{{ index }} card mb-3 ">
+                        <img class="card-img-top" src="{{ asset('assets/img/spectacles/' ~ show.imageName) }}"
+                             alt="Card image cap">
+                        <div class="card-body">
+                            <h2 class="card-title">{{ show.titre }}</h2>
+                            <p class="card-text" style="margin: 0">de {{ show.author }}</p>
+                            <h4 class="card-date">{{ show.period }}</h4>
+                            <p class="card-text">{{ show.description }}</p>
+                            <div class="container">
+                                <div class="row casting">
+                                    <h4>Comédiens</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% set index = index + 1 %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

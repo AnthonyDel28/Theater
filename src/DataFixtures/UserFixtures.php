@@ -24,11 +24,12 @@ class UserFixtures extends Fixture
                 $user->setFirstName($this->data[$index][0]);
                 $user->setLastName($this->data[$index][1]);
                 $user->setEmail($this->data[$index][2]);
-                $user->setPassword($this->data[$index][3]);
+                $user->setPassword($this->hasher->hashPassword($user, 'password'));
                 $user->setCreatedAt(new \DateTimeImmutable());
                 $user->setUpdatedAt(new \DateTimeImmutable());
                 $user->setImageName($slugify->slugify($this->data[$index][0] . ' ' . $this->data[$index][1] . '.jpg'));
                 $user->setSlug($slugify->slugify($this->data[$index][0] . ' ' . $this->data[$index][1]));
+                $user->setRoles(['ROLE_SUPER_ADMIN']);
                 $user->setActive(TRUE);
                 $manager->persist($user);
                 $index++;

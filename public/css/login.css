@@ -1,0 +1,28 @@
+/* CSS FILE for the login Page */
+
+.login {
+    background-image: url("../assets/img/sections/news_section.jpg");
+    background-size: cover;
+    background-position: 50% 65%;
+    font-family: 'EB Garamond', serif;
+    color: whitesmoke;
+}
+
+.login-form {
+    padding-top: 200px;
+    padding-bottom: 200px;
+}
+
+.divider img {
+    width: 150%;
+}
+
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: black;
+    color: white;
+    text-align: center;
+}

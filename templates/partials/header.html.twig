@@ -10,8 +10,8 @@
                 </div>
                 <div class="col-12 col-xl-4 col-lg-4 nav-menu mt-xl-4 mt-lg-4">
                     <ul>
-                        <li><a href="#">Accueil</a></li>
-                        <li><a href="#">Spectacles</a></li>
+                        <li><a href="{{ path('home') }}">Accueil</a></li>
+                        <li><a href="{{ path('app_spectacles') }}">Spectacles</a></li>
                         <li><a href="#">Historique</a></li>
                         <li><a href="#">Contact</a></li>
                         <li><a href="#">Réservation</a></li>
@@ -19,7 +19,7 @@
                 </div>
                 <div class="col-12 col-xl-4 col-lg-4 nav-right-items mt-xl-4 mt-lg-4">
                     <ul>
-                        <li><a href=""><i class="icofont-login"></i> Connexion</a></li>
+                        <li><a href="{{ path('app_login') }}"><i class="icofont-login"></i> Connexion</a></li>
                         <li><a href=""><i class="icofont-search-2"></i></a></li>
                     </ul>
                 </div>

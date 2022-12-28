@@ -1,0 +1,41 @@
+/* CSS FILE FOR THE SHOWS PAGE */
+
+
+.season {
+    margin-top: 150px;
+    font-family: 'EB Garamond', serif;
+}
+
+
+.season .divider {
+    margin-top: -65px;
+}
+
+@media (max-width: 1400px) {
+    .season .divider {
+        margin-top: -40px;
+    }
+}
+
+@media (max-width: 999px) {
+    .season .divider {
+        margin-top: -20px;
+    }
+}
+
+.card {
+    padding: 0;
+}
+
+.shows .card .card-img-top {
+    height: 300px;
+    object-fit: cover;
+}
+
+.shows .card3 .card-img-top {
+    object-position: 50% 20%;
+}
+
+.card-date {
+    color: #737373;
+}

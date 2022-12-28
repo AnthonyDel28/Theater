@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" href="{{ asset('assets/img/icons/masks.png') }}">
+    <link rel="stylesheet" href="{{ asset('css/main.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/login.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/utils/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/utils/icofont.min.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,700;1,800&display=swap" rel="stylesheet">
+    <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
+    <title>Se connecter</title>
+
+    {% block javascripts %}
+        <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
+    {% endblock %}
+</head>
+<body>
+{% include 'partials/header.html.twig' %}
+{% block body %}
+    <main class="container-fluid login">
+        <div class="row justify-content-center text-center">
+            <div class="col-md-5 login-form">
+                <h2 class="display-4 my-1">S'identifier</h2>
+                <div class="row divider">
+                    <img src="{{ asset('assets/img/sections/divider.png') }}" alt="">
+                </div>
+                {% if error %}
+                    <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                {% endif %}
+                <div class="row form text-center justify-content-center">
+                    <div class="col-md-6">
+                        <form action="{{ path('app_login') }}" method="post">
+                            <div class="form-group">
+                                <label for="email" class="form-label">Adresse e-mail:</label>
+                                <input type="text" id="email" name="_username" class="form-control" value="{{ last_username }}">
+                            </div>
+                            <div class="form-group my-3">
+                                <label for="password" class="form-label">Mot de passe:</label>
+                                <input type="password" id="password" name="_password" class="form-control">
+                            </div>
+                            <div class="form-group my-3">
+                                <button type="submit" class="form-control btn btn-outline-secondary">Se connecter</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="container-fluid">
+        <div class="text-center p-5 bg-black">
+            © Copyright 2022-2023: Le Petit Théatre de la Ruelle (Développé par
+            <a class="text-white" target="_blank" href="https://github.com/AnthonyDel28">A.Delmeire</a>)
+        </div>
+    </footer>
+{% endblock %}
+</body>
+
+<script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+<script>
+    function init() {
+        document.getElementById("author").value = "";
+        document.getElementById("content").value = "";
+    }
+    window.onload = init;
+</script>
+</html>
+

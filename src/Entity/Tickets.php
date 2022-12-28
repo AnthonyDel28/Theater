@@ -15,11 +15,11 @@ class Tickets
 
     #[ORM\ManyToOne(inversedBy: 'tickets')]
     #[ORM\JoinColumn(nullable: false)]
-    private ?user $user = null;
+    private ?User $user = null;
 
     #[ORM\ManyToOne(inversedBy: 'tickets')]
     #[ORM\JoinColumn(nullable: false)]
-    private ?spectacles $spectacle = null;
+    private ?Spectacles $spectacle = null;
 
     #[ORM\Column]
     private ?float $price = null;
