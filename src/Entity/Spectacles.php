@@ -43,9 +43,13 @@ class Spectacles
     #[ORM\Column(length: 255)]
     private ?string $imageName = null;
 
+    #[ORM\ManyToMany(targetEntity: Actors::class, inversedBy: 'spectacles')]
+    private Collection $actors;
+
     public function __construct()
     {
         $this->tickets = new ArrayCollection();
+        $this->actors = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -175,6 +179,30 @@ class Spectacles
     public function setImageName(string $imageName): self
     {
         $this->imageName = $imageName;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, actors>
+     */
+    public function getActors(): Collection
+    {
+        return $this->actors;
+    }
+
+    public function addActor(actors $actor): self
+    {
+        if (!$this->actors->contains($actor)) {
+            $this->actors->add($actor);
+        }
+
+        return $this;
+    }
+
+    public function removeActor(actors $actor): self
+    {
+        $this->actors->removeElement($actor);
 
         return $this;
     }

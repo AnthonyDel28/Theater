@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\ActorsRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -31,6 +33,14 @@ class Actors
 
     #[ORM\Column(type: Types::TEXT)]
     private ?string $biography = null;
+
+    #[ORM\ManyToMany(targetEntity: Spectacles::class, inversedBy: 'actors')]
+    private Collection $spectacles;
+
+    public function __construct()
+    {
+        $this->spectacles = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -105,6 +115,33 @@ class Actors
     public function setBiography(string $biography): self
     {
         $this->biography = $biography;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Spectacles>
+     */
+    public function getSpectacles(): Collection
+    {
+        return $this->spectacles;
+    }
+
+    public function addSpectacle(Spectacles $spectacle): self
+    {
+        if (!$this->spectacles->contains($spectacle)) {
+            $this->spectacles->add($spectacle);
+            $spectacle->addActor($this);
+        }
+
+        return $this;
+    }
+
+    public function removeSpectacle(Spectacles $spectacle): self
+    {
+        if ($this->spectacles->removeElement($spectacle)) {
+            $spectacle->removeActor($this);
+        }
 
         return $this;
     }

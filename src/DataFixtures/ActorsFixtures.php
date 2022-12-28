@@ -3,6 +3,7 @@
 namespace App\DataFixtures;
 
 use App\Entity\Actors;
+use App\Entity\Spectacles;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 use Cocur\Slugify\Slugify;
@@ -20,7 +21,7 @@ class ActorsFixtures extends Fixture
             $actor->setLastName($this->data[$index][1]);
             $actor->setBiography($this->data[$index][2]);
             $actor->setSlug($slugify->slugify($this->data[$index][0] . ' ' . $this->data[$index][1]));
-            $actor->setImageName($slugify->slugify($this->data[$index][0] . ' ' . $this->data[$index][1] . '.jpg'));
+            $actor->setImageName(($this->data[$index][0] . '-' . $this->data[$index][1] . '.jpg'));
             $actor->setActive(TRUE);
             $manager->persist($actor);
             $index++;

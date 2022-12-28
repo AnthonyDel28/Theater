@@ -20,8 +20,18 @@
                             <h4 class="card-date">{{ show.period }}</h4>
                             <p class="card-text">{{ show.description }}</p>
                             <div class="container">
-                                <div class="row casting">
+                                <div class="row casting text-center justify-content-center">
                                     <h4>Comédiens</h4>
+                                    <div class="row justify-content-center">
+                                        {% for actor in show.actors %}
+                                            <div class="col-2">
+                                                <img src="{{ asset('assets/img/actors/' ~ actor.imageName) }}"
+                                                     class="actor-profile-img"><br>
+                                                {{ actor.firstName }}
+                                                {{ actor.lastName }}
+                                            </div>
+                                        {% endfor %}
+                                    </div>
                                 </div>
                             </div>
                         </div>

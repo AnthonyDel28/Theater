@@ -2,6 +2,7 @@
 
 namespace App\DataFixtures;
 
+use App\Entity\Actors;
 use App\Entity\Spectacles;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
@@ -12,9 +13,15 @@ class SpectaclesFixtures extends Fixture
 {
     public function load(ObjectManager $manager): void
     {
+
+        /*---------------------- GET EACH ACTORS OBJECTS TO IMPLEMENTS IN THE SHOWS -----------------*/
+        $actors = $manager->getRepository(Actors::class)->findAll();
+
+
+
         $faker = Faker\Factory::create('fr_FR');
         $slugify = new Slugify();
-
+        $actors = $manager->getRepository(Actors::class)->findAll();
         $index = 0;
         while($index < 5){
             $spectacle = new Spectacles();
@@ -26,6 +33,10 @@ class SpectaclesFixtures extends Fixture
             $spectacle->setEndDate(date_create_from_format('d/m/Y', $this->data[$index][5]));
             $spectacle->setSlug($slugify->slugify($this->data[$index][0]));
             $spectacle->setImageName($slugify->slugify($this->data[$index][0]) . '.jpg');
+            $spectacle->addActor($actors[mt_rand(0, 14)]);
+            $spectacle->addActor($actors[mt_rand(0, 14)]);
+            $spectacle->addActor($actors[mt_rand(0, 14)]);
+            $spectacle->addActor($actors[mt_rand(0, 14)]);
             $index++;
             $manager->persist($spectacle);
         }
