@@ -5,10 +5,11 @@
 
 body {
     width: 100%;
+    background-color: black;
 }
 
 .nav-bar {
-    height: 70px;
+    height: auto;
     background-color: black;
     position: -webkit-sticky;
     position: fixed;
@@ -22,7 +23,8 @@ body {
 .nav-title {
     font-family: 'EB Garamond', serif;
     color: white;
-    font-size: 1.7rem;
+    margin-top: 1rem;
+    margin-bottom: 0;
 }
 
 .nav-menu ul,
@@ -59,7 +61,7 @@ body {
     font-family: 'EB Garamond', serif;
     color: white;
     font-weight: bold;
-    font-size: 5rem;
+    font-size: 5vw;
     margin-bottom: 0;
 }
 
@@ -67,7 +69,7 @@ body {
     font-family: 'EB Garamond', serif;
     color: white;
     font-weight: bold;
-    font-size: 3rem;
+    font-size: 2.5vw;
 }
 
 .slide-sub-title {
@@ -82,12 +84,23 @@ body {
     font-size: 1.2rem;
 }
 
-.season-container {
-    height: 260px;
-    width: 20%;
-    padding: 0;
-    overflow: hidden;
-    position: relative;
+@media (max-width: 1139px) {
+    .season-container {
+        height: 260px;
+        padding: 0;
+        overflow: hidden;
+        position: relative;
+    }
+}
+
+@media (min-width: 1140px) {
+    .season-container {
+        height: 260px;
+        width: 20%;
+        padding: 0;
+        overflow: hidden;
+        position: relative;
+    }
 }
 
 .show1 {
@@ -196,7 +209,6 @@ body {
     text-shadow: 1px 1px 1px black, 0 0 1em black, 0 0 0.2em black;
     font-family: 'EB Garamond', serif;
     color: white;
-    font-size: 2rem;
     font-weight: bold;
 }
 
@@ -281,7 +293,6 @@ body {
 .quote-content {
     font-family: 'EB Garamond', serif;
     color: white;
-    font-size: 1.8rem;
     margin-top: 200px;
 }
 
