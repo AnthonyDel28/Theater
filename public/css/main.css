@@ -23,8 +23,12 @@ body {
 .nav-title {
     font-family: 'EB Garamond', serif;
     color: white;
-    margin-top: 1rem;
+    margin-top: 0.8rem;
     margin-bottom: 0;
+}
+
+.nav-title img {
+    margin-top: -10px;
 }
 
 .nav-menu ul,
@@ -252,6 +256,7 @@ body {
 
 .news-text {
     color: white;
+    font-family: 'EB Garamond', serif;
 }
 
 .news-date {
@@ -314,4 +319,9 @@ body {
 .sponsor2 {
     background-image: url("../assets/img/sponsors/sponsor2.jpg");
     background-size: contain;
+}
+
+footer * {
+    font-family: 'EB Garamond', serif;
+    color: white;
 }
