@@ -12,7 +12,7 @@ body {
     background-color: black;
     position: -webkit-sticky;
     position: fixed;
-    width: 100%;
+    width: 105%;
     top: 0;
     z-index: 100;
     padding: 0;
