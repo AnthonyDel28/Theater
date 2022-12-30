@@ -3,12 +3,13 @@
 namespace App\DataFixtures;
 use App\Entity\User;
 use Cocur\Slugify\Slugify;
+use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Faker;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
-class UserFixtures extends Fixture
+class UserFixtures extends Fixture implements OrderedFixtureInterface
 {
     private object $hasher;
     public function __construct(UserPasswordHasherInterface $hasher) {
@@ -35,6 +36,11 @@ class UserFixtures extends Fixture
                 $index++;
             }
             $manager->flush();
+    }
+
+    public function getOrder()
+    {
+        return 1;
     }
 
 
