@@ -9,6 +9,13 @@
     padding-top: 50px;
 }
 
+@media (max-width: 990px) {
+    .news {
+        margin-top: 120px;
+        padding-top: 120px;
+    }
+}
+
 .news .divider {
     margin-top: -65px;
     margin-bottom: 60px;
@@ -49,6 +56,18 @@
 
 .news-post-card {
     height: 350px;
-    background-color: red;
     margin-bottom: 25px;
+    background-color: red;
+    position: relative;
+    overflow: hidden;
+}
+
+.news-post-card img {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.all-news-container {
+    padding-right: 0;
 }
