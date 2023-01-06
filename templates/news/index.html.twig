@@ -1,45 +1,73 @@
 
-    {% extends 'base.html.twig' %}
+{% extends 'base.html.twig' %}
     {% block title %}Actualités{% endblock %}
     {% block body %}
-        <div class="container-fluid news">
-            <div class="row justify-content-center text-center news-content">
+        <div class="container news-main-container">
+            <div class="row justify-content-center text-center news-main-title">
                 <h1 class="display-1 main-title">Actualités</h1>
-                <img src="{{ asset('assets/img/sections/divider.png') }}" class="col-6 divider">
+                <h3 class="main-sub-title"><em>Les dernières nouvelles du Petit Théâtre</em></h3>
+                <img src="{{ asset('assets/img/sections/divider.png') }}" class="col-12 col-md-8 col-lg-6 col-sm-8
+                news-divider">
             </div>
-            <div class="container news-container text-center">
-                <h3 class="news-head-subtitle">
-                    À la une
-                </h3>
-                <div class="row first-header-news justify-content-center">
-                    <div class="col-10 big-news-header">
 
+            <div class="row first-header-news justify-content-center">
+                <h2 class="text-center">À la une</h2>
+                <div class="col-10 big-news-header card">
+                    <img src="{{ asset('assets/img/news/2.jpg') }}" alt="">
+                    <div class="card-img-overlay main-news-overlay h-100 d-flex flex-column justify-content-end
+                    text-left p-5">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                        <p class="card-text">Last updated 3 mins ago</p>
                     </div>
                 </div>
-                <div class="row second-header-news justify-content-center mb-4">
-                        <div class="row col-10 justify-content-between p-0">
-                            <div class="twins-news-header col-5"></div>
-                            <div class="twins-news-header col-5"></div>
+            </div>
+            <div class="row second-header-news justify-content-center mb-4">
+                <div class="row col-10 justify-content-between p-0">
+                    <div class="card bg-dark text-white twins-news-header">
+                        <img class="card-img" src="{{ asset('assets/img/news/2.jpg') }}" alt="Card image">
+                        <div class="card-img-overlay main-news-overlay h-100 d-flex flex-column justify-content-end
+                        p-4">
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                            <p class="card-text">Last updated 3 mins ago</p>
                         </div>
+                    </div>
+                    <div class="card bg-dark text-white twins-news-header">
+                        <img class="card-img" src="{{ asset('assets/img/news/2.jpg') }}" alt="Card image">
+                        <div class="card-img-overlay main-news-overlay h-100 d-flex flex-column justify-content-end
+                        text-left p-4">
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                            <p class="card-text">Last updated 3 mins ago</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="container-fluid text-center mt-5 all-news-container">
-                    <div class="row justify-content-center text-center">
-                        <h3 class="news-head-subtitle">
-                            Toutes les actualités
-                        </h3>
-                        <div class="row all-news">
-                            <div class="row col-12 all-news-row justify-content-center">
-                                {% for post in news %}
-                                    <div class="news-post-cell col-10 col-xl-4 col-md-6 col-sm-10">
-                                        <div class="news-post-card">
-                                            <img src="{{ asset('assets/img/news/' ~ post.imageName) }}" alt="">
+            </div>
+            <div class="container-fluid text-center mt-5 all-news-container">
+                <div class="row justify-content-center">
+                    <h2 class="news-head-subtitle">
+                        Toutes les actualités
+                    </h2>
+                    <div class="row all-news">
+                        <div class="row col-12 all-news-row justify-content-center text-left">
+                            {% for post in news %}
+                                <div class="news-post-cell col-12 col-xl-4 col-md-6 col-sm-10">
+                                    <div class="news-post-card">
+                                        <img src="{{ asset('assets/img/news/' ~ post.imageName) }}" alt="">
+                                        <div class="card-img-overlay all-news-overlay h-100 d-flex flex-column
+                                        justify-content-end text-left p-5">
+                                            <h5 class="card-title">Card title</h5>
+                                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                                            <p class="card-text">Last updated 3 mins ago</p>
                                         </div>
                                     </div>
-                                {% endfor %}
-                            </div>
+                                </div>
+                            {% endfor %}
                         </div>
                     </div>
                 </div>
             </div>
+
         </div>
     {% endblock %}

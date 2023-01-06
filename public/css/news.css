@@ -1,73 +1,89 @@
 /* CSS FILE FOR THE NEWS PAGE */
 
+.news-main-title {
+    margin-top: 200px;
+}
 
-.news {
+.news-divider {
+    margin-top: -30px;
+}
+@media (min-width: 992px) {
+    .news-main-title {
+        margin-top: 110px;
+    }
+}
+@media (min-width: 1400px) {
+     .news-divider {
+        margin-top: -50px;
+    }
+}
+
+.first-header-news h2,
+.news-head-subtitle{
     font-family: 'EB Garamond', serif;
-    background-color: white;
-    color: black;
-    margin-top: 65px;
-    padding-top: 50px;
 }
 
-@media (max-width: 990px) {
-    .news {
-        margin-top: 120px;
-        padding-top: 120px;
-    }
-}
-
-.news .divider {
-    margin-top: -65px;
-    margin-bottom: 60px;
-}
-
-@media (max-width: 1400px) {
-    .news .divider {
-        margin-top: -40px;
-    }
-}
-
-@media (max-width: 999px) {
-    .news .divider {
-        margin-top: -20px;
-    }
-}
-
-.news-container {
-    margin-top: -120px;
-}
 
 .big-news-header {
     height: 450px;
-    background-color: green;
+    border-radius: 15px;
+    color: #FFFFFF;
 }
 
-@media (min-width: 950px) {
+.twins-news-header {
+    border-radius: 15px;
+    height: 300px;
+    width: 49%;
+    background-color: #1f5b83;
+}
+
+.big-news-header,
+.twins-news-header {
+    padding: 0;
+}
+
+@media (max-width: 950px) {
     .twins-news-header {
-        height: 300px;
-        width: 49%;
-        background-color: #1f5b83;
+        width: 100%;
+        margin-bottom: 25px;
     }
 }
 
 .second-header-news {
     margin-top: 20px;
+    border-radius: 15px;
 }
 
 .news-post-card {
     height: 350px;
     margin-bottom: 25px;
-    background-color: red;
+    color: #FFFFFF;
     position: relative;
     overflow: hidden;
+    border-radius: 15px;
 }
 
-.news-post-card img {
+.news-post-card img,
+.big-news-header img,
+.twins-news-header img{
     position: relative;
     width: 100%;
     height: 100%;
     object-fit: cover;
+    border-radius: 15px;
 }
+
 .all-news-container {
     padding-right: 0;
+}
+
+.main-news-overlay {
+    background: rgb(0,0,0);
+    background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.24693627450980393) 79%, rgba(0,0,0,0.6699054621848739) 100%);
+}
+
+
+.all-news-overlay {
+    background: rgb(0,0,0);
+    background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.24693627450980393) 28%, rgba(0,0,0,0.8743872549019608) 100%);
 }
