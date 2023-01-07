@@ -49,6 +49,20 @@ body {
     margin-top: -10px;
 }
 
+.nav-bar .dropdown-toggle {
+    padding: 15px;
+}
+
+
+
+.nav-bar .dropdown-toggle p {
+    padding: 15px;
+}
+
+.nav-bar .dropdown-toggle img {
+    margin-top: -10px;
+}
+
 .nav-bar .dropdown-toggle img,
 .nav-bar .dropdown-toggle p {
     display: inline;
