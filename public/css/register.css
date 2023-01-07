@@ -1,14 +1,40 @@
-/* CSS FILE FOR THE REGISTRATION PAGE */
+/* CSS FILE for the login Page */
 
-.register {
-    background-image: url("../assets/img/sections/news_section.jpg");
+body, html {
+    background-color: black;
+}
+
+.login {
+    background-image: url("../assets/img/sections/register.jpg");
     background-size: cover;
-    background-position: 50% 65%;
+    background-position: 50% 50%;
     font-family: 'EB Garamond', serif;
     color: whitesmoke;
 }
 
-.register-form-content {
-    margin-top: 200px;
-    margin-bottom: 100px;
+.login-form {
+    padding-top: 200px;
+    padding-bottom: 200px;
+}
+
+.divider img {
+    width: 150%;
+    margin-top: -30px;
+}
+
+@media (min-width: 1200px) {
+    .divider img {
+        margin-top: -50px;
+    }
+}
+
+
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: black;
+    color: white;
+    text-align: center;
 }

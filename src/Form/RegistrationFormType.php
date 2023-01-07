@@ -24,21 +24,21 @@ class RegistrationFormType extends AbstractType
                 'label' => 'Votre prénom',
                 'attr'  => [
                     'placeholder' => 'Votre prénom',
-                    'class' => 'form-control',
+                    'class' => 'form-control mb-3',
                 ]
             ])
             ->add('lastName', TextType::class, [
                 'label' => 'Votre prénom',
                 'attr'  => [
                     'placeholder' => 'Votre prénom',
-                    'class' => 'form-control',
+                    'class' => 'form-control mb-3',
                 ]
             ])
             ->add('email', EmailType::class, [
                 'label' => 'Votre Email',
                 'attr' => [
                     'placeholder' => 'Votre Email',
-                    'class' => 'form-control',
+                    'class' => 'form-control mb-3',
                 ]
             ])
             ->add('plainPassword', PasswordType::class, [
@@ -48,7 +48,7 @@ class RegistrationFormType extends AbstractType
                 'label' => 'Votre mot de passe',
                 'attr' => ['autocomplete' => 'new-password',
                     'placeholder' => 'Votre mot de passe',
-                    'class' => 'form-control',
+                    'class' => 'form-control mb-3',
                 ],
                 'constraints' => [
                     new NotBlank([
@@ -65,6 +65,7 @@ class RegistrationFormType extends AbstractType
             ->add('agreeTerms', CheckboxType::class, [
                 'mapped' => false,
                 'label' => 'Termes et conditions',
+                'attr' => ['class' => 'mb-3'],
                 'constraints' => [
                     new IsTrue([
                         'message' => 'Vous devez accepter nos conditions.',
