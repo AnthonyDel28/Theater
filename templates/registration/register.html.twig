@@ -3,17 +3,17 @@
 {% block title %}Register{% endblock %}
 
 {% block body %}
-    <div class="container">
-        <section class="row">
-            <div class="col-md-8 offset-2">
-                <h2 class="display-4 my-4">S'enregistrer</h2>
-                {{ form_start(registrationForm) }}
-                {{ form_widget(registrationForm) }}
-                <button type="submit" class="btn btn-outline-secondary">S'enregistrer</button>
+    <div class="container-fluid register">
+            <section class="row justify-content-center register-form">
+                <div class="col-6 register-form-content">
+                    <h2 class="display-4 my-4">S'enregistrer</h2>
+                    {{ form_start(registrationForm) }}
+                    {{ form_widget(registrationForm) }}
+                    <button type="submit" class="btn btn-outline-secondary">S'enregistrer</button>
 
-                {{ form_end(registrationForm) }}
-            </div>
-        </section>
+                    {{ form_end(registrationForm) }}
+                </div>
+            </section>
     </div>
 
 {% endblock %}

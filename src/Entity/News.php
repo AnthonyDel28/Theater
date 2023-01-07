@@ -44,6 +44,9 @@ class News
     #[ORM\JoinColumn(nullable: false)]
     private ?User $author = null;
 
+    #[ORM\Column(length: 255)]
+    private ?string $small_description = null;
+
     public function __construct()
     {
         $this->comments = new ArrayCollection();
@@ -176,6 +179,18 @@ class News
     public function setAuthor(?User $author): self
     {
         $this->author = $author;
+
+        return $this;
+    }
+
+    public function getSmallDescription(): ?string
+    {
+        return $this->small_description;
+    }
+
+    public function setSmallDescription(string $small_description): self
+    {
+        $this->small_description = $small_description;
 
         return $this;
     }

@@ -1,0 +1,14 @@
+/* CSS FILE FOR THE REGISTRATION PAGE */
+
+.register {
+    background-image: url("../assets/img/sections/news_section.jpg");
+    background-size: cover;
+    background-position: 50% 65%;
+    font-family: 'EB Garamond', serif;
+    color: whitesmoke;
+}
+
+.register-form-content {
+    margin-top: 200px;
+    margin-bottom: 100px;
+}

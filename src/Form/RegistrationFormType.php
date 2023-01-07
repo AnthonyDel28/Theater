@@ -24,27 +24,22 @@ class RegistrationFormType extends AbstractType
                 'label' => 'Votre prénom',
                 'attr'  => [
                     'placeholder' => 'Votre prénom',
+                    'class' => 'form-control',
                 ]
             ])
             ->add('lastName', TextType::class, [
                 'label' => 'Votre prénom',
                 'attr'  => [
                     'placeholder' => 'Votre prénom',
+                    'class' => 'form-control',
                 ]
             ])
             ->add('email', EmailType::class, [
                 'label' => 'Votre Email',
                 'attr' => [
                     'placeholder' => 'Votre Email',
+                    'class' => 'form-control',
                 ]
-            ])
-            ->add('imageFile', VichImageType::class, [
-                'required' => false,
-                'allow_delete' => true,
-                'delete_label' => '...',
-                'download_label' => '...',
-                'download_uri' => true,
-                'image_uri' => true,
             ])
             ->add('plainPassword', PasswordType::class, [
                 // instead of being set onto the object directly,
@@ -53,6 +48,7 @@ class RegistrationFormType extends AbstractType
                 'label' => 'Votre mot de passe',
                 'attr' => ['autocomplete' => 'new-password',
                     'placeholder' => 'Votre mot de passe',
+                    'class' => 'form-control',
                 ],
                 'constraints' => [
                     new NotBlank([

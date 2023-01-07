@@ -33,11 +33,11 @@ class RegistrationController extends AbstractController
                     $form->get('plainPassword')->getData()
                 )
             );
-            if(empty($user->getImageFile()))  $user->setImageName('default.jpg');
             $user   ->setCreatedAt(new \DateTimeImmutable())
                 ->setUpdatedAt(new \DateTimeImmutable())
                 ->setRoles(['ROLE_USER'])
                 ->setActive(TRUE)
+                ->setImageName('default.jpg')
                 ->setSlug($slugify->slugify($user->getFirstName() . ' ' . $user->getLastName()));
             $entityManager->persist($user);
             $entityManager->flush();
