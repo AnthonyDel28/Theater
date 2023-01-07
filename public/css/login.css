@@ -1,11 +1,12 @@
 /* CSS FILE for the login Page */
 
+
 .login {
     background-image: url("../assets/img/sections/news_section.jpg");
-    background-size: cover;
     background-position: 50% 65%;
     font-family: 'EB Garamond', serif;
     color: whitesmoke;
+    height: 100vh;
 }
 
 .login-form {
@@ -15,9 +16,16 @@
 
 .divider img {
     width: 150%;
+    margin-top: -30px;
 }
 
-footer {
+@media (min-width: 1200px) {
+    .divider img {
+        margin-top: -50px;
+    }
+}
+
+.footer {
     position: fixed;
     left: 0;
     bottom: 0;

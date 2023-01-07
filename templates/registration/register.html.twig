@@ -24,15 +24,15 @@
     <main class="container-fluid login">
         <div class="row justify-content-center">
             <div class="col-10 col-lg-6 login-form">
-                <h2 class="display-4 my-1 text-center">Inscription</h2>
+                <h1 class="my-1 text-center">Inscription</h1>
                 <div class="row divider">
                     <img src="{{ asset('assets/img/sections/divider.png') }}" alt="">
                 </div>
                 <section class="row justify-content-center register-form">
-                    <div class="col-12 col-lg-8 col-sm-12 col-xl-8 register-form-content">
+                    <div class="col-12 col-lg-6 col-sm-12 col-xl-6 register-form-content">
                         {{ form_start(registrationForm) }}
                         {{ form_widget(registrationForm) }}
-                        <button type="submit" class="btn btn-outline-secondary text-center">S'enregistrer</button>
+                        <button type="submit" class="btn btn-outline-light text-center" style="width: 100%">S'enregistrer</button>
 
                         {{ form_end(registrationForm) }}
                     </div>
@@ -40,12 +40,12 @@
             </div>
         </div>
     </main>
-    <footer class="container-fluid">
+    <div class="container-fluid footer">
         <div class="text-center p-5 bg-black">
             © Copyright 2022-2023: Le Petit Théatre de la Ruelle (Développé par
             <a class="text-white" target="_blank" href="https://github.com/AnthonyDel28">A.Delmeire</a>)
         </div>
-    </footer>
+    </div>
 {% endblock %}
 </body>
 

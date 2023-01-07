@@ -1,8 +1,5 @@
 /* CSS FILE for the login Page */
 
-body, html {
-    background-color: black;
-}
 
 .login {
     background-image: url("../assets/img/sections/register.jpg");
@@ -10,11 +7,18 @@ body, html {
     background-position: 50% 50%;
     font-family: 'EB Garamond', serif;
     color: whitesmoke;
+    height: 100vh;
 }
 
 .login-form {
-    padding-top: 200px;
+    padding-top: 150px;
     padding-bottom: 200px;
+}
+
+@media (max-width: 1000px) {
+    .login-form {
+        padding-top: 200px;
+    }
 }
 
 .divider img {
@@ -29,7 +33,7 @@ body, html {
 }
 
 
-footer {
+.footer {
     position: fixed;
     left: 0;
     bottom: 0;

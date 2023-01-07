@@ -19,8 +19,27 @@
                 </div>
                 <div class="col-12 col-xl-4 col-lg-4 nav-right-items mt-xl-4 mt-lg-4">
                     <ul>
-                        <li><a href="{{ path('app_login') }}"><i class="icofont-login"></i> Connexion</a></li>
-                        <li><a href="{{ path('app_register') }}"><i class="icofont-ui-note"> Inscription</i></a></li>
+                        {% if not app.user %}
+                            <a href="{{ path('app_login') }}"><i class="icofont-login"></i> Connexion</a>
+                            <a href="{{ path('app_register') }}"><i class="icofont-ui-note"> Inscription</i></a>
+                        {% else %}
+                            <div class="dropdown" style="padding-right: 25px;">
+                                <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <img src="{{asset('assets/img/user/') ~ app.user.imageName }}" class="img-avatar">&nbsp;&nbsp;{{ app.user.firstName }} {{ app.user.lastName }}
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="">Voir profil</a></li>
+                                    <li><a class="dropdown-item" href="">Modifier profil</a></li>
+                                    <li><a class="dropdown-item" href="#">Modifier password</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    {% if is_granted('ROLE_ADMIN') %}
+                                        <li><a href="" class="dropdown-item">Administration</a></li>
+                                        <li><hr class="dropdown-divider"></li>
+                                    {% endif %}
+                                    <li><a href="{{path('app_logout')}}" class="dropdown-item">Se déconnecter</a></li>
+                                </ul>
+                            </div>
+                        {% endif %}
                     </ul>
                 </div>
             </div>

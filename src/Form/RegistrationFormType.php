@@ -23,21 +23,21 @@ class RegistrationFormType extends AbstractType
             ->add('firstName', TextType::class, [
                 'label' => 'Votre prénom',
                 'attr'  => [
-                    'placeholder' => 'Votre prénom',
+                    'placeholder' => 'Prénom',
                     'class' => 'form-control mb-3',
                 ]
             ])
             ->add('lastName', TextType::class, [
-                'label' => 'Votre prénom',
+                'label' => 'Votre nom',
                 'attr'  => [
-                    'placeholder' => 'Votre prénom',
+                    'placeholder' => 'Nom',
                     'class' => 'form-control mb-3',
                 ]
             ])
             ->add('email', EmailType::class, [
                 'label' => 'Votre Email',
                 'attr' => [
-                    'placeholder' => 'Votre Email',
+                    'placeholder' => 'Email',
                     'class' => 'form-control mb-3',
                 ]
             ])
@@ -47,16 +47,16 @@ class RegistrationFormType extends AbstractType
                 'mapped' => false,
                 'label' => 'Votre mot de passe',
                 'attr' => ['autocomplete' => 'new-password',
-                    'placeholder' => 'Votre mot de passe',
+                    'placeholder' => 'Mot de passe',
                     'class' => 'form-control mb-3',
                 ],
                 'constraints' => [
                     new NotBlank([
-                        'message' => 'Please enter a password',
+                        'message' => 'Veuillez entrer un mot de passe',
                     ]),
                     new Length([
                         'min' => 6,
-                        'minMessage' => 'Your password should be at least {{ limit }} characters',
+                        'minMessage' => 'Votre mot de passe doit être d\'au moins {{ limit }} caractères!',
                         // max length allowed by Symfony for security reasons
                         'max' => 4096,
                     ]),
@@ -64,7 +64,7 @@ class RegistrationFormType extends AbstractType
             ])
             ->add('agreeTerms', CheckboxType::class, [
                 'mapped' => false,
-                'label' => 'Termes et conditions',
+                'label' => 'Conditions générales d\'utilisation',
                 'attr' => ['class' => 'mb-3'],
                 'constraints' => [
                     new IsTrue([
