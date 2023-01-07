@@ -45,6 +45,31 @@ body {
     font-family: 'EB Garamond', serif;
 }
 
+.nav-bar .dropdown {
+    margin-top: -10px;
+}
+
+.nav-bar .dropdown-toggle img,
+.nav-bar .dropdown-toggle p {
+    display: inline;
+}
+
+
+.nav-bar .dropdown-account-username {
+
+}
+
+.nav-bar .img-avatar {
+    width: 30px;
+    height: 30px;
+    object-fit: cover;
+    border-radius: 50px;
+}
+
+.nav-bar .dropdown-menu {
+    background-color: black;
+}
+
 /*---------------------------------------------------------------*/
 
 .slider {
