@@ -2,6 +2,11 @@
     <section class="header">
         <div class="container-fluid p-0">
             <div class="row nav-bar justify-content-between text-center">
+                {% for message in app.flashes('success') %}
+                    <div class="alert alert-success text-center">
+                        {{ message }}
+                    </div>
+                {% endfor %}
                 <div class="col-12 col-xl-4 col-lg-4 align-middle mb-xl-2">
                     <h2 class="nav-title">
                         <img src="{{ asset('assets/img/icons/masks2.png') }}" alt="" style="width: 6%">
@@ -17,20 +22,26 @@
                         <li><a href="#">Réservation</a></li>
                     </ul>
                 </div>
-                <div class="col-12 col-xl-4 col-lg-4 nav-right-items mt-xl-4 mt-lg-4 my-1">
+                <div class="col-12 col-xl-4 col-lg-4 nav-right-items mt-3">
                         {% if not app.user %}
                             <a href="{{ path('app_login') }}" type="button" class="btn btn-outline-light btn-sm"><i class="icofont-sign-in"></i> S'identifier</a>
                             <a href="{{path('app_register')}}" class="btn btn-outline-light btn-sm"><i class="icofont-user-alt-4"></i> S'enregistrer</a>
                         {% else %}
                             <div class="dropdown show">
                                 <a class="btn btn-outline-light dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <img src="{{ asset('assets/img/user/' ~ app.user.imageName) }}" alt="" class="img-avatar mx-1">
+                                    <img src="{{ asset('assets/img/user/' ~ app.user.imageName) }}" alt=""
+                                         class="img-avatar">
                                     <p>{{ app.user.firstName }} {{ app.user.lastName }}</p>
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                    <a class="dropdown-item" href="#">Action</a>
-                                    <a class="dropdown-item" href="#">Another action</a>
-                                    <a class="dropdown-item" href="#">Something else here</a>
+                                    <a class="dropdown-item" href="{{ path('app_profile') }}">Mon profil</a>
+                                    <a class="dropdown-item" href="#">Éditer profil</a>
+                                    <a class="dropdown-item" href="#">Changer mon mot de passe</a>
+                                    {% if is_granted('ROLE_ADMIN') or is_granted('ROLE_SUPER_ADMIN') %}
+                                        <a class="dropdown-item" href="#" style="color: green;"><b>Administration</b></a>
+                                    {% endif %}
+                                    <a class="dropdown-item" href="{{path('app_logout')}}" style="color:
+                                    red;"><b>Déconnexion</b></a>
                                 </div>
                             </div>
                         {% endif %}

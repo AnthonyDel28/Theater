@@ -28,7 +28,7 @@ class UserFixtures extends Fixture implements OrderedFixtureInterface
                 $user->setPassword($this->hasher->hashPassword($user, 'password'));
                 $user->setCreatedAt(new \DateTimeImmutable());
                 $user->setUpdatedAt(new \DateTimeImmutable());
-                $user->setImageName($slugify->slugify($this->data[$index][0] . ' ' . $this->data[$index][1] . '.jpg'));
+                $user->setImageName($this->data[$index][0] . '-' . $this->data[$index][1] . '.jpg');
                 $user->setSlug($slugify->slugify($this->data[$index][0] . ' ' . $this->data[$index][1]));
                 $user->setRoles(['ROLE_SUPER_ADMIN']);
                 $user->setActive(TRUE);

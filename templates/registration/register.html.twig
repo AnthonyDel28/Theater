@@ -12,6 +12,11 @@
     <link rel="stylesheet" href="{{ asset('css/utils/icofont.min.css') }}">
     <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,700;1,800&display=swap" rel="stylesheet">
     <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('js/modal.js') }}"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+
     <title>Se connecter</title>
 
     {% block javascripts %}
@@ -31,8 +36,67 @@
                 <section class="row justify-content-center register-form">
                     <div class="col-12 col-lg-6 col-sm-12 col-xl-6 register-form-content">
                         {{ form_start(registrationForm) }}
-                        {{ form_widget(registrationForm) }}
-                        <button type="submit" class="btn btn-outline-light text-center" style="width: 100%">S'enregistrer</button>
+                            {{ form_row(registrationForm.firstName) }}
+                            {{ form_row(registrationForm.lastName) }}
+                            {{ form_row(registrationForm.email) }}
+                            {{ form_row(registrationForm.plainPassword) }}
+                        <button data-toggle="modal" data-target="#modal_aside_right" class="btn btn-outline-light" type="button">
+                            Afficher les conditions d'utilisation  </button>
+
+                        <div id="modal_aside_right" class="modal fixed-right fade" tabindex="-1" role="dialog">
+                            <div class="modal-dialog modal-dialog-aside" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title">Conditions générales d'utilisation</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p>
+
+                                            <b>1. Acceptation des conditions d'utilisation</b><br>
+                                            L'utilisation de ce site web est soumise à l'acceptation des présentes conditions d'utilisation. En utilisant ce site web, vous acceptez de vous conformer à ces conditions. Si vous n'acceptez pas ces conditions, veuillez ne pas utiliser ce site web.
+                                            <br>
+                                            <b>2. Contenu du site web</b><br>
+                                            Le contenu de ce site web est protégé par les lois relatives au droit d'auteur et à la propriété intellectuelle. Il est interdit de reproduire, de modifier, de diffuser ou d'utiliser à d'autres fins le contenu de ce site web sans l'autorisation écrite préalable de l'administrateur du site web.
+                                            <br>
+                                            <b>3. Responsabilité de l'utilisateur</b><br>
+                                            L'utilisateur est seul responsable de l'utilisation qu'il fait de ce site web et de ses contenus. L'administrateur du site web ne saurait être tenu responsable des dommages causés par l'utilisation illicite, inappropriée ou erronée de ce site web.
+                                            <br>
+                                            <b> 4. Liens vers d'autres sites web</b><br>
+                                            Ce site web peut contenir des liens vers des sites web de tiers. L'administrateur du site web ne saurait être tenu responsable du contenu de ces sites web ou de l'utilisation qui pourrait en être faite.
+                                            <br>
+                                            <b>5. Modifications des conditions d'utilisation</b><br>
+                                            L'administrateur du site web se réserve le droit de modifier à tout moment les présentes conditions d'utilisation. Il est de la responsabilité de l'utilisateur de se tenir informé des éventuelles modifications en consultant régulièrement cette page.
+                                        </p>
+                                        <hr>
+                                        <p>
+
+                                            <b>Mentions légales</b><br>
+                                            Nom : Petit Théatre de la Ruelle <br>
+                                            Lieu : Rue des Platicheus, 6042 Lodelinsart, Belgique <br>
+                                            Email : contact@petittheatredelaruelle.be <br>
+
+                                            <b>Responsable de la publication</b><br>
+                                            Le responsable de la publication du site web est l'équipe des Molières et
+                                            Mocassins, cette plateforme a été développée par A.Delmeire.
+
+                                            <b>Hébergement</b><br>
+                                            Le site web est hébergé par lws.com sur des serveurs situés en France.
+
+                                        </p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-primary">Save changes</button>
+                                    </div>
+                                </div>
+                            </div> <!-- modal-bialog .// -->
+                        </div> <!-- modal.// -->
+                            {{ form_row(registrationForm.agreeTerms) }}
+
+                            <button type="submit" class="btn btn-outline-light text-center" style="width: 100%">S'enregistrer</button>
 
                         {{ form_end(registrationForm) }}
                     </div>
@@ -48,14 +112,4 @@
     </div>
 {% endblock %}
 </body>
-
-<script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-<script>
-    function init() {
-        document.getElementById("author").value = "";
-        document.getElementById("content").value = "";
-    }
-    window.onload = init;
-</script>
 </html>

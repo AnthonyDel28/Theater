@@ -21,6 +21,12 @@ class LoginController extends AbstractController
         ]);
     }
 
+    #[Route('login_message', name: 'app_login_redirect')]
+    public function loginMessage(){
+        $this->addFlash('success', "Vous êtes maintenant connecté!");
+        return $this->redirectToRoute('home');
+    }
+
     #[Route('/logout', name: 'app_logout', methods: ['GET'])]
     public function logout()
     {
