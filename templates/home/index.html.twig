@@ -97,74 +97,25 @@
                         <p class="news-main-title mt-3">Actualités</p>
                     </div>
                     <div class="row justify-content-center mb-5">
-                       <div class="col-10 col-xl-2 col-lg-4 col-md-4 news-card h-100">
-                           <div class="news-card-img">
-                               <img src="{{ asset('assets/img/news/1.jpg') }}" alt="">
-                               <div class="news-content">
-                                   <p class="news-title">Lorem ipsum dolor sit.</p>
-                                   <p class="news-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores culpa deleniti eos harum laborum nam. Adipisci dignissimos, et eveniet ex impedit, iste molestiae nesciunt placeat reiciendis repudiandae rerum soluta, vel!</p>
-                                   <p class="news-date">Publié le 27/12/1999</p>
-                                   <div class="container-fluid news-bottom">
-                                           <button class="btn news-btn">Lire l'article</button>
-                                       <a href="" class="float-end mt-1">
-                                           <i class="icofont-like"></i>
-                                           12
-                                       </a>
-                                   </div>
-                               </div>
-                           </div>
-                       </div>
-                        <div class="col-10 col-xl-2 col-lg-4 col-md-4 news-card h-100">
-                            <div class="news-card-img">
-                                <img src="{{ asset('assets/img/news/2.jpg') }}" alt="">
-                                <div class="news-content">
-                                    <p class="news-title">Lorem ipsum dolor sit.</p>
-                                    <p class="news-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores culpa deleniti eos harum laborum nam. Adipisci dignissimos, et eveniet ex impedit, iste molestiae nesciunt placeat reiciendis repudiandae rerum soluta, vel!</p>
-                                    <p class="news-date">Publié le 27/12/1999</p>
-                                    <div class="container-fluid news-bottom">
-                                        <button class="btn news-btn">Lire l'article</button>
-                                        <a href="" class="float-end mt-1">
-                                            <i class="icofont-like"></i>
-                                            7
-                                        </a>
+                        {% for post in news %}
+                            <div class="col-10 col-xl-2 col-lg-4 col-md-4 news-card h-100">
+                                <div class="news-card-img">
+                                    <img src="assets/img/news/{{ post.imageName }}" alt="">
+                                    <div class="news-content">
+                                        <p class="news-title">{{ post.title }}</p>
+                                        <p class="news-text">{{ post.smallDescription[:80] ~ '...' }}</p>
+                                        <p class="news-date">Publié le {{ post.createdAt|date('Y/m/d') }}</p>
+                                        <div class="container-fluid news-bottom">
+                                            <button class="btn news-btn">Lire l'article</button>
+                                            <a href="" class="float-end mt-1">
+                                                <i class="icofont-like"></i>
+                                                12
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-10 col-xl-2 col-lg-4 col-md-4 news-card h-100">
-                            <div class="news-card-img">
-                                <img src="{{ asset('assets/img/news/3.jpg') }}" alt="">
-                                <div class="news-content">
-                                    <p class="news-title">Lorem ipsum dolor sit.</p>
-                                    <p class="news-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores culpa deleniti eos harum laborum nam. Adipisci dignissimos, et eveniet ex impedit, iste molestiae nesciunt placeat reiciendis repudiandae rerum soluta, vel!</p>
-                                    <p class="news-date">Publié le 27/12/1999</p>
-                                    <div class="container-fluid news-bottom">
-                                        <button class="btn news-btn">Lire l'article</button>
-                                        <a href="" class="float-end mt-1">
-                                            <i class="icofont-like"></i>
-                                            14
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-10 col-xl-2 col-lg-4 col-md-4 news-card h-100">
-                            <div class="news-card-img">
-                                <img src="{{ asset('assets/img/news/4.jpg') }}" alt="">
-                                <div class="news-content">
-                                    <p class="news-title">Lorem ipsum dolor sit.</p>
-                                    <p class="news-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores culpa deleniti eos harum laborum nam. Adipisci dignissimos, et eveniet ex impedit, iste molestiae nesciunt placeat reiciendis repudiandae rerum soluta, vel!</p>
-                                    <p class="news-date">Publié le 27/12/1999</p>
-                                    <div class="container-fluid news-bottom">
-                                        <button class="btn news-btn">Lire l'article</button>
-                                        <a href="" class="float-end mt-1">
-                                            <i class="icofont-like"></i>
-                                            4
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        {% endfor %}
                     </div>
                 </div>
             </div>

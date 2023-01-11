@@ -47,6 +47,9 @@ class News
     #[ORM\Column(length: 255)]
     private ?string $small_description = null;
 
+    #[ORM\Column]
+    private ?int $important = null;
+
     public function __construct()
     {
         $this->comments = new ArrayCollection();
@@ -194,4 +197,17 @@ class News
 
         return $this;
     }
+
+    public function getImportant(): ?int
+    {
+        return $this->important;
+    }
+
+    public function setImportant(int $important): self
+    {
+        $this->important = $important;
+
+        return $this;
+    }
+
 }

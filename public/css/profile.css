@@ -3,7 +3,7 @@
 .profile {
     background-image: url("../assets/img/sections/register.jpg");
     background-repeat: no-repeat;
-    background-color: black;
+    background-size: cover;
     color: whitesmoke;
     font-family: 'EB Garamond', serif;
     margin-bottom: -50px;
@@ -22,9 +22,30 @@
     }
 }
 
-.img-profile img {
+.img-profile {
     border-radius: 50%;
     object-fit: cover;
     height: 400px;
     width: 400px;
+}
+
+.profile-picture button {
+    display: block;
+    margin: auto;
+}
+
+.profile-picture {
+    height: auto;
+}
+
+.profile-data {
+    height: auto;
+}
+
+footer .newsletter {
+    display: none;
+}
+
+.footer-socials {
+    margin-top: 50px;
 }

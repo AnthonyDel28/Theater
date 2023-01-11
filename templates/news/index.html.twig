@@ -13,35 +13,32 @@
             <div class="row first-header-news justify-content-center">
                 <h2 class="text-center">À la une</h2>
                 <div class="col-10 big-news-header card">
-                    <img src="{{ asset('assets/img/news/2.jpg') }}" alt="">
+                    {% for post in big_header_news %}
+                    <img src="{{ asset('assets/img/news/' ~ post.imageName) }}" alt="">
                     <div class="card-img-overlay main-news-overlay h-100 d-flex flex-column justify-content-end
                     text-left p-5">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                        <p class="card-text">Last updated 3 mins ago</p>
+                        <h2 class="card-title">{{ post.title }}</h2>
+                        <p class="card-text">{{ post.smallDescription }}</p>
+                        <p class="card-text">Publication: {{ post.createdAt|date('Y/m/d h:m') }}</p>
+                        <a href="#"><button class="btn btn-outline-light">Lire la suite</button></a>
                     </div>
+                    {% endfor %}
                 </div>
             </div>
             <div class="row second-header-news justify-content-center mb-4">
                 <div class="row col-10 justify-content-between p-0">
-                    <div class="card bg-dark text-white twins-news-header">
-                        <img class="card-img" src="{{ asset('assets/img/news/2.jpg') }}" alt="Card image">
-                        <div class="card-img-overlay main-news-overlay h-100 d-flex flex-column justify-content-end
-                        p-4">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                            <p class="card-text">Last updated 3 mins ago</p>
-                        </div>
-                    </div>
-                    <div class="card bg-dark text-white twins-news-header">
-                        <img class="card-img" src="{{ asset('assets/img/news/2.jpg') }}" alt="Card image">
-                        <div class="card-img-overlay main-news-overlay h-100 d-flex flex-column justify-content-end
+                    {% for post in twins_header_news %}
+                        <div class="card bg-dark text-white twins-news-header">
+                            <img class="card-img" src="{{ asset('assets/img/news/' ~ post.imageName) }}" alt="Card image">
+                            <div class="card-img-overlay main-news-overlay h-100 d-flex flex-column justify-content-end
                         text-left p-4">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                            <p class="card-text">Last updated 3 mins ago</p>
+                                <h2 class="card-title">{{ post.title }}</h2>
+                                <p class="card-text">{{ post.smallDescription }}</p>
+                                <p class="card-text">Publication: {{ post.createdAt|date('Y/m/d h:m') }}</p>
+                                <a href="#"><button class="btn btn-outline-light">Lire la suite</button></a>
+                            </div>
                         </div>
-                    </div>
+                    {% endfor %}
                 </div>
             </div>
             <div class="container-fluid text-center mt-5 all-news-container">
@@ -53,15 +50,18 @@
                         <div class="row col-12 all-news-row justify-content-center text-left">
                             {% for post in news %}
                                 <div class="news-post-cell col-12 col-xl-4 col-md-6 col-sm-10">
-                                    <div class="news-post-card">
-                                        <img src="{{ asset('assets/img/news/' ~ post.imageName) }}" alt="">
-                                        <div class="card-img-overlay all-news-overlay h-100 d-flex flex-column
-                                        justify-content-end text-left p-5">
-                                            <h5 class="card-title">Card title</h5>
-                                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                            <p class="card-text">Last updated 3 mins ago</p>
+                                    <a href="">
+                                        <div class="news-post-card">
+                                            <img src="{{ asset('assets/img/news/' ~ post.imageName) }}" alt="">
+                                            <div class="card-img-overlay all-news-overlay h-100 d-flex flex-column
+                                        justify-content-end text-left p-2">
+                                                <h3 class="card-title"><b>{{ post.title }}</b></h3>
+                                                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                                                    <p class="card-text">{{ post.createdAt|date('Y/m/d h:m') }}</p>
+                                                    <button class="btn btn-outline-light">Lire l'article</button>
+                                            </div>
                                         </div>
-                                    </div>
+                                    </a>
                                 </div>
                             {% endfor %}
                         </div>
