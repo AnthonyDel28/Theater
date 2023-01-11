@@ -15,9 +15,10 @@ class AdminActorsController extends AbstractController
     public function actors(ActorsRepository $actorsRepository, SpectaclesRepository $spectaclesRepository): Response
     {
         $comedians = $actorsRepository->findAll();
-
+        $spectacles = $spectaclesRepository->findAll();
         return $this->render('admin/actors/actors.html.twig', [
             'actors' => $comedians,
+            'spectacles' => $spectacles,
         ]);
     }
 }
