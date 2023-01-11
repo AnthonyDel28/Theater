@@ -1,0 +1,43 @@
+{% extends 'admin/base.html.twig' %}
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/admin/home.css') }}">
+{% endblock %}
+{% block title %}Administration - Petit Théatre{% endblock %}
+
+{% block body %}
+<div class="col-12 col-sm-12 col-md-10 col-lg-10 col-xl-10">
+    <div class="row justify-content-center mt-5">
+        <h1 class="text-center display-1">Accueil</h1>
+        <hr>
+        <p class="text-center">
+            Bienvenue sur la page d'administration du Petit Théâtre de la Ruelle. <br>
+            Sur cette page, vous pouvez gérer le contenu du site web www.petittheatredelaruelle.be <br>
+            Vous pouvez gérer les spectacles, les news, les commentaires, ect... <br>
+            <p style="color: red;" class="text-center">Faites attention en modifiant le contenu de ce site, des mauvaises manipulations pourraient impacter le bon fonctionnement de ce dernier!</p>
+        </p>
+        <div class="row justify-content-center text-center">
+            <div class="col-12">
+                <span class="clock text-center"></span>
+            </div>
+        </div>
+    </div>
+    <div class="row home-stats">
+            <h3 class="text-center mt-5">Statistiques</h3>
+        <hr>
+        <div class="col-6">
+            <h4><b>Utilisateurs enregistrés: </b>{{ users }}</h4>
+            <h4><b>Nombre total d'actualités: </b>{{ news }}</h4>
+            <h4><b>Nombre total de commentaires</b>: </b>{{ comments }}</h4>
+        </div>
+        <div class="col-6">
+            <h4><b>Nombre de spectacles de cette saison: </b>{{ spectacles }}</h4>
+            <h4><b>Nombre de comédiens répertoriés: </b>{{ actors }}</h4>
+            <h4><b>Administrateurs: </b> {{ admins_count }} <br>
+                {% for users in admins %}
+                {{ users.firstName}} {{ users.lastName }} <br>
+                {% endfor %}
+            </h4>
+        </div>
+    </div>
+</div>
+{% endblock %}

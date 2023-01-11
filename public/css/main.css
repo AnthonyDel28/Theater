@@ -7,6 +7,10 @@ body {
     width: 100%;
 }
 
+html a:hover {
+    color: #b48413;
+}
+
 .nav-bar {
     height: auto;
     background-color: black;
