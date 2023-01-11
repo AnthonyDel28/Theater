@@ -196,7 +196,6 @@ class Spectacles
         if (!$this->actors->contains($actor)) {
             $this->actors->add($actor);
         }
-
         return $this;
     }
 

@@ -22,19 +22,16 @@
             </tr>
             </thead>
             <tbody>
-            {% for post in actors %}
+            {% for actor in actors %}
                 <tr>
-                    <td><img src="{{ asset('assets/img/actors/') ~ post.imageName }}"  class="admin-spectacle-img"></td>
-                    <td>{{ post.firstName }} {{ post.lastName }}</td>
-                    <td>{{ post.biography[:20] ~ '...' }}</td>
-                    <td>{{ post.active }}</td>
-                    <td>
-                        {% for show in post.spectacles %}
-
-                        
-
+                    <td><img src="{{ asset('assets/img/actors/') ~ actor.imageName }}"  class="admin-spectacle-img"></td>
+                    <td>{{ actor.firstName }} {{ actor.lastName }}</td>
+                    <td>{{ actor.biography[:20] ~ '...' }}</td>
+                    <td>{{ actor.active }}</td>
+                    <td>{% for spectacle in actor.spectacles %}
+                            x
+                        {% endfor %}
                     </td>
-
                     <td>
                         <a href="" class="btn btn-success"><i class="icofont-ui-edit"></i></a>&nbsp;
                         <a href="" class="btn btn-danger"><i class="icofont-ui-delete"></i></a>&nbsp;
