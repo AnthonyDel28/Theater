@@ -43,7 +43,13 @@
                     </td>
                     <td>
                         <a href="" class="btn btn-success"><i class="icofont-ui-edit"></i></a>&nbsp;
-                        <a href="" class="btn btn-danger"><i class="icofont-ui-delete"></i></a>&nbsp;
+                        <a href="{{ path('app_admin_delete_user', {'id': user.id}) }}" class="btn btn-danger">
+                            <i class="icofont-ui-delete"></i>
+                        </a>
+                            {% if 'ROLE_SUPER_ADMIN' in user.roles %}
+                            {% else %}
+
+                            {% endif %}
                     </td>
                 </tr>
             {% endfor %}

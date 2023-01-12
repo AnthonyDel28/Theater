@@ -1,0 +1,18 @@
+/* CSS FILE FOR A SPECTACLE PAGE */
+
+.spectacle-head-image {
+    height: 300px;
+    object-fit: cover;
+    border-radius: 30px;
+}
+
+.spectacle-actor-profile-img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.spectacle-content h2 {
+    margin-bottom: 25px;
+}

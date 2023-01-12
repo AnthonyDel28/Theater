@@ -31,6 +31,9 @@
                                                 {{ actor.lastName }}
                                             </div>
                                         {% endfor %}
+                                        <a href="{{ path('spectacle', {slug: show.slug}) }}">
+                                            <button class="btn btn-outline-light mt-4" style="color: black">En savoir plus</button>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
