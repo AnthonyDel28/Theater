@@ -21,7 +21,6 @@ class SpectaclesFixtures extends Fixture
 
         $faker = Faker\Factory::create('fr_FR');
         $slugify = new Slugify();
-        $actors = $manager->getRepository(Actors::class)->findAll();
         $index = 0;
         while($index < 5){
             $spectacle = new Spectacles();
@@ -33,12 +32,9 @@ class SpectaclesFixtures extends Fixture
             $spectacle->setEndDate(date_create_from_format('d/m/Y', $this->data[$index][5]));
             $spectacle->setSlug($slugify->slugify($this->data[$index][0]));
             $spectacle->setImageName($slugify->slugify($this->data[$index][0]) . '.jpg');
-            $spectacle->addActor($actors[mt_rand(0, 14)]);
-            $spectacle->addActor($actors[mt_rand(0, 14)]);
-            $spectacle->addActor($actors[mt_rand(0, 14)]);
-            $spectacle->addActor($actors[mt_rand(0, 14)]);
             $index++;
             $manager->persist($spectacle);
+            $this->addReference("show-".$index, $spectacle);
         }
         $manager->flush();
     }
@@ -95,4 +91,8 @@ class SpectaclesFixtures extends Fixture
         ]
     ];
 
+    public function getOrder(): int
+    {
+        return 1; // smaller means sooner
+    }
 }

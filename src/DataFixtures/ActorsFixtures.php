@@ -14,8 +14,9 @@ class ActorsFixtures extends Fixture
     public function load(ObjectManager $manager): void
     {
         $slugify = new Slugify();
+        $data_count = count($this->data);
         $index = 0;
-        while($index < 15){
+        while($index < $data_count){
             $actor = new Actors();
             $actor->setFirstName($this->data[$index][0]);
             $actor->setLastName($this->data[$index][1]);
@@ -24,6 +25,7 @@ class ActorsFixtures extends Fixture
             $actor->setImageName(($this->data[$index][0] . '-' . $this->data[$index][1] . '.jpg'));
             $actor->setActive(TRUE);
             $manager->persist($actor);
+            $this->addReference($this->data[$index][0] . ' ' . $this->data[$index][1], $actor);
             $index++;
         }
         $manager->flush();
@@ -107,4 +109,9 @@ class ActorsFixtures extends Fixture
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
         ],
     ];
+
+    public function getOrder(): int
+    {
+        return 2; // smaller means sooner
+    }
 }

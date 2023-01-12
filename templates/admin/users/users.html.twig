@@ -1,10 +1,10 @@
 {% extends 'admin/base.html.twig' %}
 {% block stylesheets %}
-    <link rel="stylesheet" href="{{ asset('css/admin/actors.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/admin/users.css') }}">
 {% endblock %}
 {% block body %}
     <div class="col-12 col-sm-12 col-lg-10 col-xl-10">
-        <h2 class="my-5 text-center">Gestion des comédiens</h2>
+        <h2 class="my-5 text-center">Gestion des utilisateurs</h2>
         <p class="text-center" style="color: red;">
             <i class="icofont-warning-alt"></i> Attention! <i class="icofont-warning-alt"></i> <br>
             La saison 2022 - 2023 est déjà insérée et complète. Il n'est donc pas utile de modifier ces spectacles!
@@ -13,29 +13,33 @@
         <table id="table-admin" class="table table-hover">
             <thead>
             <tr>
-                <th>Image</th>
+                <th>Photo</th>
                 <th>Nom</th>
-                <th>Biographie</th>
-                <th>Actif</th>
-                <th>Spectacles</th>
+                <th>Email</th>
+                <th>Date d'inscription</th>
+                <th>Dernière modification</th>
+                <th>Roles</th>
                 <th>Actions</th>
             </tr>
             </thead>
             <tbody>
-            {% for actor in actors %}
+            {% for user in users %}
                 <tr>
-                    <td><img src="{{ asset('assets/img/actors/') ~ actor.imageName }}"  class="admin-spectacle-img"></td>
-                    <td>{{ actor.firstName }} {{ actor.lastName }}</td>
-                    <td>{{ actor.biography[:20] ~ '...' }}</td>
-                    <td>{{ actor.active }}</td>
+                    <td><img src="{{ asset('assets/img/user/') ~ user.imageName }}"  class="admin-user-img"></td>
+                    <td>{{ user.firstName }} {{ user.lastName}} </td>
+                    <td>{{ user.email }}</td>
+                    <td>{{ user.createdAt|date('d/m/Y h:m') }}</td>
+                    <td>{{ user.updatedAt|date('d/m/Y h:m') }}</td>
                     <td>
-                        <ul>
-                            {% for spectacle in actor.spectacles %}
-                                <li>
-                                    {{ spectacle.titre }}
-                                </li>
-                            {% endfor %}
-                        </ul>
+                        {% for role in user.roles %}
+                            {% if role == 'ROLE_SUPER_ADMIN' %}
+                                Super Administrateur
+                                {% elseif role == 'ROLE_ADMIN' %}
+                                Administrateur
+                                {% elseif role == 'ROLE_USER' %}
+                                Utilisateur
+                            {% endif %}
+                        {% endfor %}
                     </td>
                     <td>
                         <a href="" class="btn btn-success"><i class="icofont-ui-edit"></i></a>&nbsp;

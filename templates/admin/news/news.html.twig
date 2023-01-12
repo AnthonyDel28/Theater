@@ -1,10 +1,10 @@
 {% extends 'admin/base.html.twig' %}
 {% block stylesheets %}
-    <link rel="stylesheet" href="{{ asset('css/admin/actors.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/admin/news.css') }}">
 {% endblock %}
 {% block body %}
     <div class="col-12 col-sm-12 col-lg-10 col-xl-10">
-        <h2 class="my-5 text-center">Gestion des comédiens</h2>
+        <h2 class="my-5 text-center">Gestion des actualités</h2>
         <p class="text-center" style="color: red;">
             <i class="icofont-warning-alt"></i> Attention! <i class="icofont-warning-alt"></i> <br>
             La saison 2022 - 2023 est déjà insérée et complète. Il n'est donc pas utile de modifier ces spectacles!
@@ -14,32 +14,24 @@
             <thead>
             <tr>
                 <th>Image</th>
-                <th>Nom</th>
-                <th>Biographie</th>
-                <th>Actif</th>
-                <th>Spectacles</th>
+                <th>Titre</th>
+                <th>Description</th>
+                <th>Date de parution</th>
+                <th>Date de modification</th>
                 <th>Actions</th>
             </tr>
             </thead>
             <tbody>
-            {% for actor in actors %}
+            {% for post in news %}
                 <tr>
-                    <td><img src="{{ asset('assets/img/actors/') ~ actor.imageName }}"  class="admin-spectacle-img"></td>
-                    <td>{{ actor.firstName }} {{ actor.lastName }}</td>
-                    <td>{{ actor.biography[:20] ~ '...' }}</td>
-                    <td>{{ actor.active }}</td>
-                    <td>
-                        <ul>
-                            {% for spectacle in actor.spectacles %}
-                                <li>
-                                    {{ spectacle.titre }}
-                                </li>
-                            {% endfor %}
-                        </ul>
-                    </td>
+                    <td><img src="{{ asset('assets/img/news/') ~ post.imageName }}"  class="admin-news-img"></td>
+                    <td>{{ post.title }} </td>
+                    <td>{{ post.content[:20] ~ '...' }}</td>
+                    <td>{{ post.createdAt|date('d/m/Y h:m') }}</td>
+                    <td>{{ post.updatedAt|date('d/m/Y h:m') }}</td>
                     <td>
                         <a href="" class="btn btn-success"><i class="icofont-ui-edit"></i></a>&nbsp;
-                        <a href="" class="btn btn-danger"><i class="icofont-ui-delete"></i></a>&nbsp;
+                        <a href="{{ path('app_delete_news', {'id': post.id}) }}" class="btn btn-danger"><i class="icofont-ui-delete"></i></a>&nbsp;
                     </td>
                 </tr>
             {% endfor %}

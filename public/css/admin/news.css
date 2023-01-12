@@ -1,0 +1,9 @@
+/* CSS FILE FOR THE ADMIN NEWS PAGE */
+
+
+.admin-news-img {
+    width: 50px;
+    border-radius: 10px;
+    height: 50px;
+    object-fit: cover;
+}
