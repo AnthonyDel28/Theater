@@ -264,69 +264,34 @@ html a:hover {
     font-size: 3.5rem;
 }
 
-.news-card {
-    margin: 20px;
-    background-color: black;
-    padding: 0;
-    border-radius: 10px;
-}
-
-.news-card-img {
+.card-img-top {
     height: 40%;
-    width: 100%;
     object-fit: cover;
 }
 
-.news-card-img img {
-    height: 250px;
-    width: 100%;
-    object-fit: cover;
-    border-radius: 10px;
+.home-news .card {
+    height: 600px;
 }
 
-.news-content {
-    padding: 15px;
-    height: 300px;
-}
-
-.news-title {
-    font-family: 'EB Garamond', serif;
+.card .card-home-news-body,
+.card .card-home-news-body-bottom {
+    background-color: black;
     color: white;
-    font-size: 1.8rem;
 }
 
-.news-text {
-    color: white;
+.card-home-news-body p
+{
+    font-size: 14px;
+}
+
+.card-home-news-body p,
+.card-home-news-body h3 {
     font-family: 'EB Garamond', serif;
 }
 
-.news-date {
+.card-home-news-body .card-home-news-date {
     color: darkgrey;
-    font-size: 0.6rem;
-}
-
-.news-btn {
-    font-family: 'EB Garamond', serif;
-    color: black;
-    font-size: 14px;
-    background-color: #FFFFFF;
-    padding: 10px 30px;
-    border: none;
-    border-radius: 50px;
-}
-
-.news-btn:hover {
-    font-family: 'EB Garamond', serif;
-    color: white;
-    font-size: 14px;
-    background-color: #0c0c0c;
-    padding: 10px 30px;
-    border-radius: 50px;
-}
-
-.news-bottom a {
-    text-decoration: none;
-    color: whitesmoke;
+    margin-bottom: 0;
 }
 
 .quote {

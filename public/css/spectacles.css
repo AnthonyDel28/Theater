@@ -27,6 +27,10 @@
     padding: 0;
 }
 
+.card .card-text {
+    font-size: 15px;
+}
+
 .shows .card .card-img-top {
     height: 300px;
     object-fit: cover;

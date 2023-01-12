@@ -4,6 +4,53 @@ body {
     font-family: 'EB Garamond', serif;
 }
 
+.disabled>.page-link,
+.active>.page-link {
+    background-color: black;
+    color: white;
+}
 
+.disabled>.page-link:hover,
+.active>.page-link:hover {
+    background-color: white;
+    color: black;
+}
+.page-link {
+    background-color: gray;
+}
 
+.page-link:hover {
+    background-color: black;
+    color: white;
+}
 
+.admin-nav-img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.admin-logout-link {
+    font-size: 14px;
+    color: red;
+}
+
+.admin-links {
+    padding-right: 40px;
+}
+
+.admin-links a {
+    text-decoration: none;
+}
+
+.admin-links .admin-logout-link:hover {
+    color: darkred;
+}
+
+.accordion-body a {
+    color: darkgoldenrod;
+}
+
+.accordion-body a:hover {
+    color: #311e0a;
+}

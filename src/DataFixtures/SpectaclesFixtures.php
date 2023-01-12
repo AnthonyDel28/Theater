@@ -66,7 +66,7 @@ class SpectaclesFixtures extends Fixture
         [
             "La Revue 2023",
             "Les Molières & Mocassins",
-            "du 30/12 au 22/01/2023",
+            "du 30/12 au 29/01/2023",
             "Voici la 25e édition qui s'annonce drôle, piquante et plus déjantée que jamais.
                         au travers d'une trentaine de numéros dansés et chantés, les comédiens du Petit Théâtre de la Ruelle de Lodelinsart feuillettent dans le rire et le délire l'actualité carolo de l'année écoulée.",
             "30/12/2022",
