@@ -1,0 +1,15 @@
+{% extends('base.html.twig') %}
+
+{% block body %}
+    <div class="container my-4">
+        <section class="row">
+            <div class="col-md-8 offset-md-2">
+                <h2 class="display-4">Modifier votre compte</h2>
+                {{ form_start(form) }}
+                {{ form_widget(form) }}
+                <button type="submit" class="btn btn-outline-dark">Enregistrer les modifications</button>
+                {{ form_end(form) }}
+            </div>
+        </section>
+    </div>
+{% endblock %}

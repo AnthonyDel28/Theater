@@ -12,10 +12,10 @@
                     <h1 class="text-center mt-3 mb-4">Votre profil</h1>
                     <hr>
                     <div class="row mb-5">
-                        <div class="col-12 col-sm-12 col-md-12 col-lg-5 col-xl-5 profile-picture justify-content-center text-center">
+                        <div class="col-12 col-sm-12 col-md-12 col-lg-5 col-xl-5 profile-picture
+                        justify-content-center text-center mt-4">
                             <img src="assets/img/user/{{ app.user.imageName }}" alt="{{ app.user.firstName }} {{ app
                             .user.lastName }} " class="img-profile">
-                            <button class="btn btn-outline-light mt-3">Changer ma photo de profil</button>
                         </div>
                         <div class="col-12 col-sm-12 col-md-12 col-lg-7 col-xl-7 profile-data">
                             <div class="col-12">
@@ -35,7 +35,8 @@
                                                 <i>Utilisateur standard</i>
                                             {% endif %}
                                         </h4>
-                                        <a href="#"><button class="btn btn-outline-light">Modifier mes informations</button></a>
+                                        <a href="{{ path('app_edit_profile') }}"><button class="btn btn-outline-light">Modifier mes
+                                                informations</button></a>
                                         <a href="#"><button class="btn btn-outline-light">Changer mon mot de passe</button></a>
                                     </div>
                                 </div>

@@ -2,18 +2,23 @@
 
 namespace App\Entity;
 
-use App\Repository\UserRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
-use Symfony\Component\Security\Core\User\UserInterface;
+use App\Repository\UserRepository;
 use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Vich\UploaderBundle\Mapping\Annotation\Uploadable;
+use Symfony\Component\Security\Core\User\UserInterface;
+use Vich\UploaderBundle\Mapping\Annotation\UploadableField;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
+use Serializable; // edit upload
 
 #[ORM\Entity(repositoryClass: UserRepository::class)]
+
 #[Vich\Uploadable]
-class User implements UserInterface, PasswordAuthenticatedUserInterface
+class User implements UserInterface, PasswordAuthenticatedUserInterface, Serializable
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -44,12 +49,11 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column]
     private ?\DateTimeImmutable $updatedAt = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $ImageName = null;
-
-
-    #[Vich\UploadableField(mapping: 'user', fileNameProperty: 'ImageName')]
+    #[Vich\UploadableField(mapping: 'user', fileNameProperty: 'imageName')]
     private ?File $imageFile = null;
+
+    #[ORM\Column(type: 'string')]
+    private ?string $imageName = null;
 
     #[ORM\Column(length: 255)]
     private ?string $slug = null;
@@ -183,6 +187,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
+
     public function setImageFile(?File $imageFile = null): void
     {
         $this->imageFile = $imageFile;
@@ -199,17 +204,19 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this->imageFile;
     }
 
+
     public function getImageName(): ?string
     {
-        return $this->ImageName;
+        return $this->imageName;
     }
 
-    public function setImageName(string $ImageName): self
+    public function setImageName(?string $imageName): self
     {
-        $this->ImageName = $ImageName;
+        $this->imageName = $imageName;
 
         return $this;
     }
+
 
     public function getSlug(): ?string
     {
@@ -263,5 +270,24 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         }
 
         return $this;
+    }
+
+    public function serialize()
+    {
+        // Propriétés du composant Security
+        return serialize([
+            $this->id,
+            $this->email,
+            $this->password,
+        ]);
+    }
+
+    public function unserialize(string $data)
+    {
+        [
+            $this->id,
+            $this->email,
+            $this->password,
+        ] = unserialize($data);
     }
 }
