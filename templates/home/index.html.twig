@@ -68,11 +68,14 @@
                     </div>
                     <div class="row justify-content-evenly mb-5 home-news">
                         {% for post in news %}
-                            <div class="card col-10 col-sm-8 col-md-5 col-lg-5 col-xl-2 mb-4 bg-black" style="border: none;">
+                            <div class="card col-10 col-sm-8 col-md-5 col-lg-5 col-xl-2 mb-4 bg-black card-news-home"
+                                 style="border: none;">
                                 <img class="card-img-top" src="assets/img/news/{{ post.imageName }}" alt="Card image cap">
                                 <div class="card-home-news-body p-3">
                                     <h3 class="card-home-news-title"><b>{{ post.title }}</b></h3>
-                                    <p class="card-home-news-text">{{ post.smallDescription }}</p>
+                                    <p class="card-home-news-text">
+                                    {{ post.content|slice(0, 250) }} ...
+                                    </p>
                                     <span class="card-home-news-date">{{ post.createdAt|date('d/m/Y') }}</span>
                                 </div>
                                 <div class="card-home-news-body-bottom p-3">

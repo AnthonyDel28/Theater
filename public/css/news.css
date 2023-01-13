@@ -1,5 +1,9 @@
 /* CSS FILE FOR THE NEWS PAGE */
 
+.news-main-container {
+    font-family: 'EB Garamond', serif;
+}
+
 .news-main-title {
     margin-top: 200px;
 }
@@ -86,4 +90,26 @@
 
 .card-text {
     font-size: 12px;
+}
+
+/*-------------------------------------------*/
+
+.post {
+    font-family: 'EB Garamond', serif;
+}
+
+.post-head-image {
+    height: 400px;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+@media (max-width: 992px){
+    .post .main-title {
+        margin-top: 250px;
+    }
+}
+
+.post .main-title {
+    margin-top: 150px;
 }

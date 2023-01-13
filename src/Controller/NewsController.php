@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\News;
 use App\Repository\NewsRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -19,6 +20,14 @@ class NewsController extends AbstractController
             'news' => $news,
             'big_header_news' => $big_header_news,
             'twins_header_news' => $twins_header_news,
+        ]);
+    }
+
+    #[Route('/news/{slug}', name: 'app_post')]
+    public function spectacle(News $news): Response
+    {
+        return $this->render('news/post.html.twig', [
+            'post'  => $news,
         ]);
     }
 }

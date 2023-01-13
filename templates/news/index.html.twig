@@ -18,9 +18,9 @@
                     <div class="card-img-overlay main-news-overlay h-100 d-flex flex-column justify-content-end
                     text-left p-5">
                         <h2 class="card-title">{{ post.title }}</h2>
-                        <p class="card-text">{{ post.smallDescription }}</p>
+                        <p class="card-text">{{ post.content[:150] ~ '...' }}</p>
                         <p class="card-text">Publication: {{ post.createdAt|date('Y/m/d h:m') }}</p>
-                        <a href="#"><button class="btn btn-outline-light">Lire la suite</button></a>
+                        <a href="{{ path('app_post', {slug: post.slug}) }}"><button class="btn btn-outline-light">Lire la suite</button></a>
                     </div>
                     {% endfor %}
                 </div>
@@ -33,41 +33,39 @@
                             <div class="card-img-overlay main-news-overlay h-100 d-flex flex-column justify-content-end
                         text-left p-4">
                                 <h2 class="card-title">{{ post.title }}</h2>
-                                <p class="card-text">{{ post.smallDescription }}</p>
+                                <p class="card-text">{{ post.content[:150] ~ '...' }}</p>
                                 <p class="card-text">Publication: {{ post.createdAt|date('Y/m/d h:m') }}</p>
-                                <a href="#"><button class="btn btn-outline-light">Lire la suite</button></a>
+                                <a href="{{ path('app_post', {slug: post.slug}) }}"><button class="btn btn-outline-light">Lire la suite</button></a>
                             </div>
                         </div>
                     {% endfor %}
                 </div>
             </div>
-            <div class="container-fluid text-center mt-5 all-news-container">
+            <div class="container-fluid mt-5 all-news-container">
                 <div class="row justify-content-center">
-                    <h2 class="news-head-subtitle">
+                    <h2 class="news-head-subtitle text-center">
                         Toutes les actualités
                     </h2>
                     <div class="row all-news">
                         <div class="row col-12 all-news-row justify-content-center text-left">
                             {% for post in news %}
                                 <div class="news-post-cell col-12 col-xl-4 col-md-6 col-sm-10">
-                                    <a href="">
                                         <div class="news-post-card">
                                             <img src="{{ asset('assets/img/news/' ~ post.imageName) }}" alt="">
                                             <div class="card-img-overlay all-news-overlay h-100 d-flex flex-column
-                                        justify-content-end text-left p-2">
+                                        justify-content-end text-left p-4">
                                                 <h3 class="card-title"><b>{{ post.title }}</b></h3>
-                                                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                                    <p class="card-text">{{ post.createdAt|date('Y/m/d h:m') }}</p>
-                                                    <button class="btn btn-outline-light">Lire l'article</button>
+                                                <p class="card-text">{{ post.content[:50] ~ '...' }}</p>
+                                                    <p class="card-text">{{ post.createdAt|date('Y/m/d h:m') }}</p><br>
+                                                <a href="{{ path('app_post', {slug: post.slug}) }}"><button class="btn
+                                                btn-outline-light">Lire l'article</button></a>
                                             </div>
                                         </div>
-                                    </a>
                                 </div>
                             {% endfor %}
                         </div>
                     </div>
                 </div>
             </div>
-
         </div>
     {% endblock %}

@@ -38,6 +38,10 @@
     height: auto;
 }
 
+.accordion-body label {
+    display: none;
+}
+
 .profile-data {
     height: auto;
 }

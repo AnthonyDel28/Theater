@@ -11,13 +11,35 @@
                 <div class="col-12 profile-section">
                     <h1 class="text-center mt-3 mb-4">Votre profil</h1>
                     <hr>
-                    <div class="row mb-5">
-                        <div class="col-12 col-sm-12 col-md-12 col-lg-5 col-xl-5 profile-picture
+                    <div class="row mb-5 justify-content-center">
+                        <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 profile-picture
                         justify-content-center text-center mt-4">
                             <img src="assets/img/user/{{ app.user.imageName }}" alt="{{ app.user.firstName }} {{ app
                             .user.lastName }} " class="img-profile">
+                            <div class="row justify-content-center">
+                                <div class="accordion col-6 mt-4" id="accordionExample">
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header" id="headingOne">
+                                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                                Modifier votre photo de profil
+                                            </button>
+                                        </h2>
+                                        <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                            <div class="accordion-body">
+                                                {{ form_start(profile_picture_form) }}
+                                                {{ form_row(profile_picture_form.imageFile) }}
+                                                <button type="submit" class="btn btn-outline-light mt-4"
+                                                        style="color: black">Enregistrer les
+                                                    modifications</button>
+                                                {{ form_end(profile_picture_form) }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="col-12 col-sm-12 col-md-12 col-lg-7 col-xl-7 profile-data">
+
+                        <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 profile-data">
                             <div class="col-12">
                                 <div class="row justify-content-center mt-5 mb-5">
                                     <h3 class="text-center">Informations</h3>
@@ -35,12 +57,38 @@
                                                 <i>Utilisateur standard</i>
                                             {% endif %}
                                         </h4>
-                                        <a href="{{ path('app_edit_profile') }}"><button class="btn btn-outline-light">Modifier mes
-                                                informations</button></a>
-                                        <a href="#"><button class="btn btn-outline-light">Changer mon mot de passe</button></a>
+                                        <a href="#"><button class="btn btn-outline-light mb-5">Changer mon mot de
+                                                passe</button></a>
+
+                                        <div class="accordion" id="accordionExample">
+                                            <div class="accordion-item">
+                                                <h2 class="accordion-header" id="headingTwo">
+                                                    <button class="accordion-button" type="button"
+                                                            data-bs-toggle="collapse" data-bs-target="#collapseTwo"
+                                                            aria-expanded="true" aria-controls="collapseTwo">
+                                                        Modifier vos informations
+                                                    </button>
+                                                </h2>
+                                                <div id="collapseTwo" class="accordion-collapse collapse"
+                                                     aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                                                    <div class="accordion-body">
+                                                        {{ form_start(form) }}
+                                                        {{ form_widget(form) }}
+                                                        <button type="submit" class="btn btn-outline-dark">Enregistrer les modifications</button>
+                                                        {{ form_end(form) }}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 profile-section">
+                            <h1 class="text-center mb-4" style="margin-top: -100px">Vos commentaires</h1>
+                            <hr>
                         </div>
                     </div>
                 </div>

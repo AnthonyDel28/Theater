@@ -7,8 +7,17 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Vich\UploaderBundle\Mapping\Annotation\Uploadable;
+use Symfony\Component\Security\Core\User\UserInterface;
+use Vich\UploaderBundle\Mapping\Annotation\UploadableField;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
+use Serializable; // edit upload
 
 #[ORM\Entity(repositoryClass: NewsRepository::class)]
+#[Vich\Uploadable]
 class News
 {
     #[ORM\Id]
@@ -28,6 +37,9 @@ class News
     #[ORM\Column(type: Types::TEXT)]
     private ?string $content = null;
 
+    #[Vich\UploadableField(mapping: 'news', fileNameProperty: 'imageName')]
+    private ?File $imageFile = null;
+
     #[ORM\Column(length: 255)]
     private ?string $imageName = null;
 
@@ -43,9 +55,6 @@ class News
     #[ORM\ManyToOne(inversedBy: 'news')]
     #[ORM\JoinColumn(nullable: false)]
     private ?User $author = null;
-
-    #[ORM\Column(length: 255)]
-    private ?string $small_description = null;
 
     #[ORM\Column]
     private ?int $important = null;
@@ -107,6 +116,23 @@ class News
 
         return $this;
     }
+
+    public function setImageFile(?File $imageFile = null): void
+    {
+        $this->imageFile = $imageFile;
+
+        if (null !== $imageFile) {
+            // It is required that at least one field changes if you are using doctrine
+            // otherwise the event listeners won't be called and the file is lost
+            $this->updatedAt = new \DateTimeImmutable();
+        }
+    }
+
+    public function getImageFile(): ?File
+    {
+        return $this->imageFile;
+    }
+
 
     public function getImageName(): ?string
     {
@@ -182,18 +208,6 @@ class News
     public function setAuthor(?User $author): self
     {
         $this->author = $author;
-
-        return $this;
-    }
-
-    public function getSmallDescription(): ?string
-    {
-        return $this->small_description;
-    }
-
-    public function setSmallDescription(string $small_description): self
-    {
-        $this->small_description = $small_description;
 
         return $this;
     }

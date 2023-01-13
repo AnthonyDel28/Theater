@@ -18,7 +18,9 @@ class HomeController extends AbstractController {
     public function home(NewsRepository $newsRepository, SpectaclesRepository $spectaclesRepository) :Response {
         $news = $newsRepository->findBy([], ['createdAt' => 'DESC'], 4);
         $spectacles = $spectaclesRepository->findAll();
+
         return $this->render('home/index.html.twig', [
+
             'news' => $news,
             'spectacles' => $spectacles,
         ]);

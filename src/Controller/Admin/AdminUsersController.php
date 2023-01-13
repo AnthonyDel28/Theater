@@ -68,4 +68,10 @@ class AdminUsersController extends AbstractController
         );
         return $this->redirectToRoute('app_admin_users');
     }
+
+    #[Route('/admin/edit-user/{id}', name: 'app_admin_edit_user')]
+    public function editUser(User $user, EntityManagerInterface $manager)
+    {
+        
+    }
 }
