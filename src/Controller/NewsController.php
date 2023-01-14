@@ -42,17 +42,25 @@ class NewsController extends AbstractController
         $comments = $commentsRepository->findBy(['news' => $postId]);
         $likes = $likeRepository->findBy(['news' => $postId]);
         $likes_count = count($likes);
-
+        $route_slug = $news->getSlug();
         $post = $manager->getRepository(News::class)->find($postId);
-        $user = $manager->getRepository(User::class)->find($this->getUser());
-        $is_liked = $likeRepository->findOneBy(['news' => $post, 'user' => $user]);
+        if($this->getUser()){
+            $user = $manager->getRepository(User::class)->find($this->getUser());
+            $is_liked = $likeRepository->findOneBy(['news' => $post, 'user' => $user]);
+        } else {
+            $is_liked = null;
+        }
         if($form->isSubmitted() && $form->isValid()){
             $comment->setUser($this->getUser());
             $comment->setNews($news);
             $comment->setCreatedAt(new \DateTimeImmutable());
             $manager->persist($comment);
             $manager->flush();
-            return $this->redirect($request->getUri());
+            $this->addFlash(
+                'success',
+                'Commentaire ajouté avec succès!'
+            );
+            return $this->redirect("/news/". $route_slug . "/#comment-anchor");
         }
         return $this->renderForm('news/post.html.twig', [
             'post'  => $news,
@@ -73,6 +81,7 @@ class NewsController extends AbstractController
         $user = $manager->getRepository(User::class)->find($this->getUser());
         $currentPost = $newsRepository->findOneBy(['id' => $post]);
         $is_liked = $likeRepository->findOneBy(['news' => $post, 'user' => $user]);
+        $route_slug = $currentPost->getSlug();
         if(!$is_liked){
             $like = new Like();
             $like->setUser($user);
@@ -82,6 +91,6 @@ class NewsController extends AbstractController
             $manager->remove($is_liked);
         }
         $manager->flush();
-        return $this->redirect($route);
+        return $this->redirect("/news/". $route_slug . "/#like-section");
     }
 }
