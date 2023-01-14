@@ -24,9 +24,10 @@ body {
     color: white;
 }
 
-.admin-nav-img {
+.admin-links img {
     width: 50px;
-    height: 50px;
+    height: 45px;
+    object-fit: cover;
     border-radius: 50%;
 }
 

@@ -3,6 +3,7 @@
 namespace App\Controller\Admin;
 
 use App\Entity\User;
+use App\Form\EditUserFormType;
 use App\Form\NewUserFormType;
 use App\Repository\UserRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -70,8 +71,24 @@ class AdminUsersController extends AbstractController
     }
 
     #[Route('/admin/edit-user/{id}', name: 'app_admin_edit_user')]
-    public function editUser(User $user, EntityManagerInterface $manager)
+    public function editUser(User $user, EntityManagerInterface $manager, Request $request)
     {
-        
+        $form = $this->createForm(EditUserFormType::class, $user);
+        $form->handleRequest($request);
+        if($form->isSubmitted() && $form->isValid()){
+            $slugify = new Slugify();
+            $user->setSlug($slugify->slugify($user->getFirstName() . ' ' . $user->getLastName()));
+            $user->setUpdatedAt(new \DateTimeImmutable());
+            $manager->persist($user);
+            $manager->flush();
+            $this->addFlash(
+                'success',
+                'Utilisateur modifiée avec succès!'
+            );
+            return $this->redirectToRoute('app_admin_users');
+        }
+        return $this->renderForm('admin/users/edit_user.html.twig', [
+            'form' => $form
+        ]);
     }
 }

@@ -22,9 +22,60 @@
                     </div>
 
                     <div class="fb-share-button" data-href="{{ app.request.uri }}" data-layout="button_count" data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Partager</a></div>
-
+                    <div class="accordion col-8 col-lg-4 col-xl-4 mb-5 mt-4" id="accordionExample">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingTwo">
+                                <button class="accordion-button" type="button"
+                                        data-bs-toggle="collapse" data-bs-target="#collapseTwo"
+                                        aria-expanded="true" aria-controls="collapseTwo">
+                                    Écrire un commentaire
+                                </button>
+                            </h2>
+                            <div id="collapseTwo" class="accordion-collapse collapse"
+                                 aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    {{ form_start(form) }}
+                                    {{ form_widget(form) }}
+                                    <button type="submit" class="btn btn-outline-dark mt-4">Enregistrer les
+                                        modifications</button>
+                                    {{ form_end(form) }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <h2 class="mt-3">Commentaires</h2>
-                    <p>Aucun commentaire pour le moment!</p>
+                    {% if comments %}
+                        <div class="container post-comments">
+                            <div class="row">
+                                {% for comment in comments %}
+                                    <div class="d-flex justify-content-center row">
+                                        <div class="col-md-12 mt-3">
+                                            <div class="d-flex flex-column comment-section">
+                                                <div class="bg-white p-2">
+                                                    <div class="d-flex flex-row user-info"><img
+                                                                class="comment-author-img" src="{{ asset
+                                                            ('assets/img/user/' ~ comment.user.imageName) }}"
+                                                                width="40">
+                                                        <div class="d-flex flex-column justify-content-start
+                                                        ml-2"><span class="d-block font-weight-bold
+                                                        name">{{ comment.user.firstName }} {{ comment.user.lastName
+                                                                    }}</span><span class="date
+                                                        text-black-50">{{ comment.createdAt|date('d/m/Y h:m')
+                                                                }}</span></div>
+                                                    </div>
+                                                    <div class="mt-2">
+                                                        <p class="comment-text">{{ comment.content|raw }}</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    {% else %}
+                        <p>Aucun commentaire pour le moment!</p>
+                    {% endif %}
                 </div>
             </div>
         </div>
