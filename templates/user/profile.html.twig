@@ -86,7 +86,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-12 profile-section">
+                        <div class="col-12 col-lg-6 profile-section">
                             <h1 class="text-center mb-4" style="margin-top: -100px">Vos commentaires</h1>
                             <hr>
                             {% for comment in comments %}
@@ -106,6 +106,36 @@
                                                 </div>
                                                 <div class="mt-2">
                                                     <p class="comment-text">{{ comment.content|raw }}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                        <div class="col-12 col-lg-6 profile-section">
+                            <h1 class="text-center mb-4" style="margin-top: -100px">Vos tickets</h1>
+                            <hr>
+                            {% for ticket in tickets %}
+                                <div class="justify-content-center row">
+                                    <div class="col-md-12 mt-3">
+                                        <div class="d-flex flex-column comment-section">
+                                            <div class="bg-black p-2">
+                                                <div class="col-12 flex-row user-info">
+                                                    <div class="d-flex flex-column justify-content-start ml-2">
+                                                        <a href="">
+                                                            <button class="btn btn-secondary btn-lg col-12">
+                                                                <i class="icofont-ticket display-2"></i>
+                                                                <span class="d-block font-weight-bold
+                                                        name"><b>{{ ticket.spectacle.titre }}</b>
+                                                        </span>
+                                                                <span
+                                                                        class="date
+                                                        text-white">{{ ticket.purchasedAt|date('d/m/Y h:m') }}
+                                                        </span>
+                                                            </button>
+                                                        </a>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>

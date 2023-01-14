@@ -1,0 +1,69 @@
+{% extends 'base.html.twig' %}
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/news.css') }}">
+{% endblock %}
+{% block body %}
+    <div class="container-fluid post">
+        <div class="row justify-content-center text-center spectacles-content">
+            <h1 class="display-1 main-title">Votre panier</h1>
+            <div class="col-8 mt-5">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>Spectacle</th>
+                        <th>Prix</th>
+                        <th>Quantité</th>
+                        <th>Total</th>
+                        <th>Billets</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for item in data %}
+                        <tr>
+                            <td>{{ item.spectacle.titre }}</td>
+                            <td>18€</td>
+                            <td>{{ item.amount }}</td>
+                            <td>{{ item.amount * 18 }}€</td>
+                            <td>
+                                <a href="{{ path('app_buy_ticket', {id: item.spectacle.id}) }}" class="btn
+                                btn-outline-light" style="color: black"><i class="icofont-ui-add"></i></a>
+                                <a href="{{ path('app_remove_ticket', {id: item.spectacle.id}) }}" class="btn
+                                btn-outline-light"
+                                   style="color: black"><i
+                                            class="icofont-ui-remove"></i></a>
+                                <a href="{{ path('app_delete_spectacle', {id: item.spectacle.id}) }}" class="btn
+                                btn-outline-light" style="color: red"><i class="icofont-error"></i></a>
+                            </td>
+                        </tr>
+                    {% else %}
+                        <tr>
+                            <td colspan="5" class="text-center">Vous n'avez pas de ticket pour le moment!</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                    <tfoot class="mt-5">
+                        <tr class="mt-5">
+                            <td colspan="3">Total</td>
+                            <td class="text-end">{{ total }}€</td>
+                           {% if data %}
+                                <td><a href="{{ path('app_delete_cart') }}" class="btn
+                                    btn-outline-light" style="color: red"><i class="icofont-error"></i> Supprimer
+                                        tous les tickets</a>
+                                </td>
+                            {% endif %}
+                        </tr>
+                    </tfoot>
+                </table>
+                <div class="row justify-content-center">
+                    <div class="col-3">
+                        <a href="{{ path('app_buy_cart') }}">
+                            <button class="btn btn-outline-light" style="color: black;"><i
+                                        class="icofont-check-circled"></i> Acheter ces tickets</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+

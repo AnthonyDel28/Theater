@@ -27,6 +27,7 @@ class Tickets
     #[ORM\Column]
     private ?\DateTimeImmutable $purchasedAt = null;
 
+
     public function getId(): ?int
     {
         return $this->id;
@@ -79,4 +80,5 @@ class Tickets
 
         return $this;
     }
+
 }

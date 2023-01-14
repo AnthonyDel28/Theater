@@ -13,7 +13,10 @@
         <div class="container">
             <div class="row justify-content-center mt-5">
                 <div class="spectacle-content col-10">
-                    <a href=""><button class="btn btn-danger btn-lg"><i class="icofont-ticket"></i> Acheter un
+                    <a href="{{ path('app_buy_ticket', {id: spectacle.id}) }}"><button class="btn btn-danger
+                    btn-lg"><i
+                                    class="icofont-ticket"></i>
+                            Acheter un
                             billet</button></a>
                     <h2 class="mt-5">Résumé</h2>
                     <p class="spectacle-resume mb-5">{{ spectacle.description }}</p>
