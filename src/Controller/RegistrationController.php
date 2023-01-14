@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 
+use App\Entity\Newsletter;
 use App\Entity\User;
 use App\Form\RegistrationFormType;
 use Doctrine\ORM\EntityManagerInterface;
@@ -24,15 +25,15 @@ class RegistrationController extends AbstractController
         $user = new User();
         $form = $this->createForm(RegistrationFormType::class, $user);
         $form->handleRequest($request);
-
+        $newsletter = new Newsletter();
         if ($form->isSubmitted() && $form->isValid()) {
-            // encode the plain password
             $user   ->setPassword(
                 $userPasswordHasher->hashPassword(
                     $user,
                     $form->get('plainPassword')->getData()
                 )
             );
+            $newsletter->setEmail($user->getEmail());
             $user   ->setCreatedAt(new \DateTimeImmutable())
                 ->setUpdatedAt(new \DateTimeImmutable())
                 ->setRoles(['ROLE_USER'])
@@ -40,8 +41,9 @@ class RegistrationController extends AbstractController
                 ->setImageName('default.jpg')
                 ->setSlug($slugify->slugify($user->getFirstName() . ' ' . $user->getLastName()));
             $entityManager->persist($user);
+            $entityManager->persist($newsletter);
             $entityManager->flush();
-            // do anything else you need here, like send an email
+
 
 
             $this->addFlash(

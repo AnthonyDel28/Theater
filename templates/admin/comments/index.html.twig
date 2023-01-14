@@ -30,7 +30,8 @@
                     <td>{{ post.content[:25] ~ '...' }}</td>
                     <td>{{ post.createdAt|date('d/m/Y h:m') }}</td>
                     <td>
-                        <a href="{{ path('app_delete_comment', {'id': post.id}) }}" class="btn btn-danger"><i
+                        <a href="{{ path('app_delete_comment', {'id': post.id}) }}" class="btn btn-outline-light"
+                           style="color: red"><i
                                     class="icofont-ui-delete"></i></a>&nbsp;
                     </td>
                 </tr>

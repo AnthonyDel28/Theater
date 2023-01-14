@@ -38,9 +38,11 @@
                         </ul>
                     </td>
                     <td>
-                        <a href="{{ path('app_admin_edit_actor', {id: actor.id}) }}" class="btn btn-success"><i
+                        <a href="{{ path('app_admin_edit_actor', {id: actor.id}) }}" class="btn btn-outline-light"
+                           style="color: black"><i
                                     class="icofont-ui-edit"></i></a>&nbsp;
-                        <a href="" class="btn btn-danger"><i class="icofont-ui-delete"></i></a>&nbsp;
+                        <a href="" class="btn btn-outline-light"
+                           style="color: red"><i class="icofont-ui-delete"></i></a>&nbsp;
                     </td>
                 </tr>
             {% endfor %}
