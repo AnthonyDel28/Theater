@@ -20,8 +20,20 @@
                     <div class="test-new">
                         <p>{{ post.content|raw }}</p>
                     </div>
+                    <hr>
+                    <p>{{ likes }} likes</p>
+                    {% if is_liked %}
+                        <a href="{{ path('app_like', {id: post.id}) }}"><button class="btn
+                    btn-outline-light mb-3" style="color: black;"><i class="icofont-like"></i> Disliker</button></a>
+                        {% else %}
+                            <a href="{{ path('app_like', {id: post.id}) }}"><button class="btn
+                    btn-outline-light mb-3" style="color: black;"><i class="icofont-like"></i> Liker</button></a>
+                    {% endif %}
+                    <br>
+                    <div class="fb-share-button" data-href="{{ app.request.uri }}" data-layout="button_count"
+                         data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Partager</a></div>
+                    <br>
 
-                    <div class="fb-share-button" data-href="{{ app.request.uri }}" data-layout="button_count" data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Partager</a></div>
                     <div class="accordion col-8 col-lg-4 col-xl-4 mb-5 mt-4" id="accordionExample">
                         <div class="accordion-item">
                             <h2 class="accordion-header" id="headingTwo">

@@ -89,6 +89,29 @@
                         <div class="col-12 profile-section">
                             <h1 class="text-center mb-4" style="margin-top: -100px">Vos commentaires</h1>
                             <hr>
+                            {% for comment in comments %}
+                                <div class="d-flex justify-content-center row">
+                                    <div class="col-md-10 mt-3">
+                                        <div class="d-flex flex-column comment-section">
+                                            <div class="bg-black p-2">
+                                                <div class="d-flex flex-row user-info"><img
+                                                            class="comment-author-img" src="{{ asset
+                                                        ('assets/img/news/' ~ comment.news.imageName) }}"
+                                                            width="40">
+                                                    <div class="d-flex flex-column justify-content-start
+                                                        ml-2"><span class="d-block font-weight-bold
+                                                        name"><b>{{ comment.news.title }}</b> </span><span class="date
+                                                        text-white">{{ comment.createdAt|date('d/m/Y h:m')
+                                                            }}</span></div>
+                                                </div>
+                                                <div class="mt-2">
+                                                    <p class="comment-text">{{ comment.content|raw }}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endfor %}
                         </div>
                     </div>
                 </div>

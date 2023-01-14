@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Form\EditProfileFormType;
 use App\Form\EditProfilePictureType;
 use App\Form\EditProfileType;
+use App\Repository\CommentsRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -14,11 +15,15 @@ use Symfony\Component\Routing\Annotation\Route;
 class UserController extends AbstractController
 {
     #[Route('/profile', name: 'app_profile')]
-    public function profile(\Symfony\Component\HttpFoundation\Request $request, EntityManagerInterface $manager): Response
+    public function profile(\Symfony\Component\HttpFoundation\Request $request, EntityManagerInterface $manager,
+                            CommentsRepository $commentsRepository):
+    Response
     {
         $user = $this->getUser();
+        $user_id = $user->getId();
         $form = $this->createForm(EditProfileType::class, $user);
         $form->handleRequest($request);
+        $comments = $commentsRepository->findBy(['user' => $user_id]);
         $profile_picture_form = $this->createForm(EditProfilePictureType::class, $user);
         $profile_picture_form->handleRequest($request);
         if($form->isSubmitted() && $form->isValid()) {
@@ -39,6 +44,7 @@ class UserController extends AbstractController
         return $this->renderForm('user/profile.html.twig', [
             'form' => $form,
             'profile_picture_form' => $profile_picture_form,
+            'comments' => $comments,
         ]);
     }
 
