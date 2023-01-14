@@ -41,6 +41,7 @@ class AdminNewsController extends AbstractController
                 ->setCreatedAt(new \DateTimeImmutable())
                 ->setUpdatedAt(new \DateTimeImmutable())
                 ->setIsPublished(TRUE)
+                ->setDescription(substr($post->getContent(), 0, 200))
                 ->setSlug($slugify->slugify($post->getTitle()))
                 ->setImageName('test.jpg')
                 ->setImportant(0);

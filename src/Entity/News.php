@@ -62,6 +62,9 @@ class News
     #[ORM\OneToMany(mappedBy: 'news', targetEntity: Like::class)]
     private Collection $likes;
 
+    #[ORM\Column(length: 255)]
+    private ?string $description = null;
+
     public function __construct()
     {
         $this->comments = new ArrayCollection();
@@ -254,6 +257,18 @@ class News
                 $like->setNews(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(string $description): self
+    {
+        $this->description = $description;
 
         return $this;
     }

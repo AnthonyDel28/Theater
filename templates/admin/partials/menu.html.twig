@@ -11,7 +11,7 @@
                     <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample" style="">
                         <div class="accordion-body">
                             <a href="{{ path('app_admin_spectacles') }}">Gestion des spectacles</a><br>
-                            <a href="">Ajouter un spectacle</a>
+                            <a href="" aria-disabled="true">Ajouter un spectacle</a>
                         </div>
                     </div>
                 </div><div class="accordion-item">
@@ -23,7 +23,7 @@
                     <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix" data-bs-parent="#accordionExample" style="">
                         <div class="accordion-body">
                             <a href="{{ path('app_admin_actors') }}">Gestion des comédiens</a><br>
-                            <a href="">Ajouter un comédien</a>
+                            <a href="{{ path('app_admin_new_actor') }}">Ajouter un comédien</a>
                         </div>
                     </div>
                 </div>
@@ -48,7 +48,7 @@
                     </h2>
                     <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample" style="">
                         <div class="accordion-body">
-                            <a href="">Gestion des commentaires</a>
+                            <a href="{{ path('app_admin_comments') }}">Gestion des commentaires</a>
                         </div>
                     </div>
                 </div>

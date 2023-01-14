@@ -32,6 +32,7 @@ class SpectaclesFixtures extends Fixture
             $spectacle->setEndDate(date_create_from_format('d/m/Y', $this->data[$index][5]));
             $spectacle->setSlug($slugify->slugify($this->data[$index][0]));
             $spectacle->setImageName($slugify->slugify($this->data[$index][0]) . '.jpg');
+            $spectacle->setUpdatedAt(new \DateTimeImmutable());
             $index++;
             $manager->persist($spectacle);
             $this->addReference("show-".$index, $spectacle);

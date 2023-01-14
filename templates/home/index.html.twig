@@ -74,12 +74,15 @@
                                 <div class="card-home-news-body p-3">
                                     <h3 class="card-home-news-title"><b>{{ post.title }}</b></h3>
                                     <p class="card-home-news-text">
-                                    {{ post.content|slice(0, 250) }} ...
+                                    {{ post.description|raw }} ...
                                     </p>
                                     <span class="card-home-news-date">{{ post.createdAt|date('d/m/Y') }}</span>
                                 </div>
                                 <div class="card-home-news-body-bottom p-3">
-                                    <a href="#" class="card-home-news-link"><button class="btn btn-outline-light">Lire l'article</button></a>
+                                    <a href="{{ path('app_post', {slug:post.slug}) }}"
+                                       class="card-home-news-link"><button
+                                                class="btn
+                                    btn-outline-light">Lire l'article</button></a>
                                 </div>
                             </div>
                         {% endfor %}

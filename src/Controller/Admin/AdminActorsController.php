@@ -4,6 +4,7 @@ namespace App\Controller\Admin;
 
 use App\Entity\Actors;
 use App\Form\ActorFormType;
+use App\Form\NewActorFormType;
 use App\Repository\ActorsRepository;
 use App\Repository\SpectaclesRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -40,11 +41,34 @@ class AdminActorsController extends AbstractController
             $manager->flush();
             $this->addFlash(
                 'success',
-                'L\'utilisateur ' . $actors->getFirstName() . ' ' . $actors->getLastName() . ' a été modifié avec succès!'
+                'Le comédien ' . $actors->getFirstName() . ' ' . $actors->getLastName() . ' a été modifié avec succès!'
             );
             return $this->redirectToRoute('app_admin_actors');
         }
         return $this->renderForm('admin/actors/edit.html.twig', [
+            'form' => $form
+        ]);
+    }
+
+    #[Route('/admin/newactor/', name: 'app_admin_new_actor')]
+    public function newActor(EntityManagerInterface $manager, Request $request) :Response
+    {
+        $actor = new Actors();
+        $form = $this->createForm(NewActorFormType::class, $actor);
+        $form->handleRequest($request);
+        if($form->isSubmitted() && $form->isValid()) {
+            $slugify = new Slugify();
+            $actor->setSlug($slugify->slugify($actor->getFirstName() . ' ' . $actor->getFirstName()));
+            $actor->setActive(TRUE);
+            $manager->persist($actor);
+            $manager->flush();
+            $this->addFlash(
+                'success',
+                'Le comédien ' . $actor->getFirstName() . ' ' . $actor->getLastName() . ' a été ajouté avec succès!'
+            );
+            return $this->redirectToRoute('app_admin_actors');
+        }
+        return $this->renderForm('admin/actors/newactor.html.twig', [
             'form' => $form
         ]);
     }

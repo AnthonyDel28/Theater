@@ -1,0 +1,41 @@
+{% extends 'admin/base.html.twig' %}
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/admin/news.css') }}">
+{% endblock %}
+{% block body %}
+    <div class="col-12 col-sm-12 col-lg-10 col-xl-10">
+        <h2 class="my-5 text-center">Gestion des commentaires</h2>
+        <p class="text-center" style="color: red;">
+            <i class="icofont-warning-alt"></i> Attention! <i class="icofont-warning-alt"></i> <br>
+            La saison 2022 - 2023 est déjà insérée et complète. Il n'est donc pas utile de modifier ou supprimer des spectacles ou des comédiens pour le moment!
+            <br>Une suppression peut engendrer des répercussions sur l'intégrité des données du site !
+        </p>
+        <table id="table-admin" class="table table-hover">
+            <thead>
+            <tr>
+                <th>Profil</th>
+                <th>Nom</th>
+                <th>Post</th>
+                <th>Commentaire</th>
+                <th>Date de publication</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for post in comments %}
+                <tr>
+                    <td><img src="{{ asset('assets/img/user/') ~ post.user.imageName }}"  class="admin-news-img"></td>
+                    <td>{{ post.user.firstName }} {{ post.user.lastName }}</td>
+                    <td>{{ post.news.title }} </td>
+                    <td>{{ post.content[:25] ~ '...' }}</td>
+                    <td>{{ post.createdAt|date('d/m/Y h:m') }}</td>
+                    <td>
+                        <a href="{{ path('app_delete_comment', {'id': post.id}) }}" class="btn btn-danger"><i
+                                    class="icofont-ui-delete"></i></a>&nbsp;
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

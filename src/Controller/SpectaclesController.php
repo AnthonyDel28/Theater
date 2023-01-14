@@ -30,4 +30,5 @@ class SpectaclesController extends AbstractController
             'spectacle'  => $spectacles,
         ]);
     }
+
 }

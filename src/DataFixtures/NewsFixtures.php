@@ -28,6 +28,7 @@ class NewsFixtures extends Fixture implements OrderedFixtureInterface
             $news->setUpdatedAt(new \DateTimeImmutable());
             $news->setContent($faker->words(mt_rand(55, 100), true));
             $news->setImageName($index . '.jpg');
+            $news->setDescription(substr($news->getContent(), 0, 200));
             $news->setIsPublished(TRUE);
             $news->setSlug($slugify->slugify($title));
             $news->setImportant(mt_rand(0, 2));

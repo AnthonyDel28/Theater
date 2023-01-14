@@ -30,7 +30,8 @@
                     <td>{{ post.endDate|date('d/m/Y') }}</td>
                     <td><img src="{{ asset('assets/img/spectacles/') ~ post.imageName }}"  class="admin-spectacle-img"></td>
                     <td>
-                        <a href="" class="btn btn-success"><i class="icofont-ui-edit"></i></a>&nbsp;
+                        <a href="{{ path('app_admin_edit_spectacle', { id: post.id }) }}" class="btn btn-success"><i
+                                    class="icofont-ui-edit"></i></a>&nbsp;
                         <a href="" class="btn btn-danger"><i class="icofont-ui-delete"></i></a>&nbsp;
                     </td>
                 </tr>

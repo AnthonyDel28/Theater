@@ -22,3 +22,21 @@ vich_uploader:
                 inject_on_load: false
                 delete_on_update: false
                 delete_on_remove: false
+
+            spectacles:
+                uri_prefix: /assets/img/spectacles
+                upload_destination: '%kernel.project_dir%/public/assets/img/spectacles'
+                namer: Vich\UploaderBundle\Naming\SmartUniqueNamer
+
+                inject_on_load: false
+                delete_on_update: false
+                delete_on_remove: false
+
+            actors:
+                uri_prefix: /assets/img/actors
+                upload_destination: '%kernel.project_dir%/public/assets/img/actors'
+                namer: Vich\UploaderBundle\Naming\SmartUniqueNamer
+
+                inject_on_load: false
+                delete_on_update: false
+                delete_on_remove: false
