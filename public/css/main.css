@@ -87,6 +87,16 @@ html a:hover {
 
 /*---------------------------------------------------------------*/
 
+.slide {
+    padding: 0;
+}
+
+.carousel-item img {
+    height: 500px;
+    object-fit: cover;
+}
+
+
 .slider {
     margin-top: 68px;
     height: 500px;
