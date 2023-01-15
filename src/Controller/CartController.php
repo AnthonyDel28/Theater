@@ -7,9 +7,13 @@ use App\Entity\Tickets;
 use App\Repository\SpectaclesRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
+use Symfony\Component\HttpKernel\KernelInterface;
 use Symfony\Component\Routing\Annotation\Route;
+use Dompdf\Dompdf;
+use Dompdf\Options;
 
 class CartController extends AbstractController
 {
@@ -93,9 +97,13 @@ class CartController extends AbstractController
     }
 
     #[Route('/buyCart', name: 'app_buy_cart')]
-    public function buyTickets(SessionInterface $session, EntityManagerInterface $manager)
+    public function buyTickets(SessionInterface $session, EntityManagerInterface $manager, Request $request,
+                               KernelInterface $kernel)
     {
         $cart = $session->get("cart", []);
+        $pdfOptions = new Options();
+        $pdfOptions->set('isRemoteEnabled',true);
+        $dompdf = new Dompdf($pdfOptions);
         if($this->getUser()){
             foreach($cart as $id => $amount){
                 $spectacle = $manager->getRepository(Spectacles::class)->find($id);
@@ -104,6 +112,27 @@ class CartController extends AbstractController
                 $ticket->setSpectacle($spectacle);
                 $ticket->setUser($this->getUser());
                 $ticket->setPurchasedAt(new \DateTimeImmutable());
+                $html = $this->renderView('tickets/ticket' . $ticket->getId() .'.html.twig', [
+                    'spectacle' => $ticket->getSpectacle()->getTitre(),
+                    'img' => $ticket->getSpectacle()->getImageName() ,
+                    'user' => $ticket->getUser()->getFirstName() . ' ' . $ticket->getUser()->getLastName(),
+                    'date' => $ticket->getSpectacle()->getPeriod(),
+                ]);
+
+                $dompdf->loadHtml($html);
+                $dompdf->setPaper('A4', 'portrait');
+                $dompdf->render();
+                $output = $dompdf->output();
+
+                // In this case, we want to write the file in the public directory
+                $publicDirectory = $kernel->getProjectDir() . '/public/tickets';
+                // e.g /var/www/project/public/mypdf.pdf
+                $pdfFilepath = $publicDirectory . '/ticket'. $ticket->getUser()->getId() .'.pdf';
+
+                // Write file to the desired path
+                file_put_contents($pdfFilepath, $output);
+
+                // Send some text response
                 $manager->persist($ticket);
                 $manager->flush();
                 $session->remove("cart");

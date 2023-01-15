@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Ticket</title>
+    <style>
+        /* Mise en page globale */
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        /* Mise en forme de la table */
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        /* Style des cellules de la table */
+        td {
+            border: 1px solid #ccc;
+            padding: 8px;
+        }
+
+        /* Style de l'en-tête de la table */
+        th {
+            background-color: #f2f2f2;
+            border: 1px solid #ccc;
+            padding: 8px;
+            text-align: left;
+        }
+
+        /* Style du numéro de ticket */
+        .ticket-number {
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+<table>
+    <tr>
+        <th colspan="2">Ticket</th>
+    </tr>
+    <tr>
+        <td>Numéro de ticket :</td>
+        <td>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Qrcode_wikipedia_fr_v2clean.png" alt=""
+                 style="width: 300px">
+        </td>
+    </tr>
+    <tr>
+        <td>Nom :</td>
+        <td>{{ user }}</td>
+    </tr>
+    <tr>
+        <td>Date :</td>
+        <td>{{ date }}</td>
+    </tr>
+</table>
+</body>
+</html>
