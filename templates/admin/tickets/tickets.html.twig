@@ -1,0 +1,29 @@
+{% extends 'admin/base.html.twig' %}
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/admin/spectacles.css') }}">
+{% endblock %}
+{% block body %}
+    <div class="col-12 col-sm-12 col-lg-10 col-xl-10">
+        <h2 class="my-5 text-center">Liste des tickets</h2>
+        <table id="table-admin" class="table table-hover">
+            <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Date d'achat</th>
+                <th>Spectacle</th>
+                <th>Prix</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for post in tickets %}
+                <tr>
+                    <td>{{ post.user.firstName }} {{ post.user.lastName }}</td>
+                    <td>{{ post.purchasedAt|date('d/m/Y h:m') }}</td>
+                    <td>{{ post.spectacle.titre }}</td>
+                    <td>{{ post.price }}€</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

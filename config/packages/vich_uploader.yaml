@@ -40,3 +40,12 @@ vich_uploader:
                 inject_on_load: false
                 delete_on_update: false
                 delete_on_remove: false
+
+            slider:
+                uri_prefix: /assets/img/slider
+                upload_destination: '%kernel.project_dir%/public/assets/img/slider'
+                namer: Vich\UploaderBundle\Naming\SmartUniqueNamer
+
+                inject_on_load: false
+                delete_on_update: false
+                delete_on_remove: false
