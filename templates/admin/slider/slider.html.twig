@@ -1,0 +1,49 @@
+{% extends 'admin/base.html.twig' %}
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/admin/slider.css') }}">
+{% endblock %}
+{% block body %}
+    <div class="col-12 col-sm-12 col-lg-10 col-xl-10">
+        <h2 class="my-5 text-center">Gestion des sliders</h2>
+        <p class="text-center" style="color: red;">
+            <i class="icofont-warning-alt"></i> Attention! <i class="icofont-warning-alt"></i> <br>
+        </p>
+        <table id="table-admin" class="table table-hover">
+            <thead>
+            <tr>
+                <th>Photo</th>
+                <th>Titre</th>
+                <th>Sous-Titre</th>
+                <th>Date de modification</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for slider in sliders %}
+                <tr>
+                    <td><img src="{{ asset('assets/img/slider/') ~ slider.imageName }}"
+                             class="admin-slider-img"></td>
+                    <td>{{ slider.title }} </td>
+                    <td>{{ slider.subTitle }}</td>
+                    <td>{{ slider.updatedAt|date('d/m/Y h:m') }}</td>
+                    <td>
+                        <a href="{{ path('app_edit_slider', {id: slider.id}) }}" class="btn btn-outline-light"
+                           style="color: black">
+                            <i class="icofont-ui-edit"></i>
+                        </a>
+                        <a href="{{ path('app_delete_slider', {id: slider.id}) }}" class="btn btn-outline-light"
+                           style="color: red">
+                            <i class="icofont-ui-delete"></i>
+                        </a>
+                        {% if slider.active == 0 %}
+                        <a href="{{ path('app_change_active_slider', {id: slider.id}) }}">
+                            <button class="btn btn-outline-light" style="color: green"><i class="icofont-star"></i></button>
+                        </a>
+                        {% endif %}
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

@@ -82,7 +82,7 @@ class AdminNewsController extends AbstractController
     }
 
     #[Route('/admin/deleteNews/{id}', name: 'app_delete_news')]
-    public function delCourse(News $news, EntityManagerInterface $manager) :response {
+    public function deletePost(News $news, EntityManagerInterface $manager) :response {
         $manager->remove($news);
         $manager->flush();
         $this->addFlash(

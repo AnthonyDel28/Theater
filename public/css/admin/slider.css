@@ -1,0 +1,7 @@
+/* CSS FILE FOR THE SLIDER ADMIN PAGE */
+
+
+.admin-slider-img  {
+    width: 100px;
+    object-fit: cover;
+}

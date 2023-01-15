@@ -32,6 +32,12 @@ class Slider
     #[ORM\Column]
     private ?\DateTimeImmutable $updatedAt = null;
 
+    #[ORM\Column]
+    private ?bool $active = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $textPosition = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -97,6 +103,30 @@ class Slider
     public function setUpdatedAt(\DateTimeImmutable $updatedAt): self
     {
         $this->updatedAt = $updatedAt;
+
+        return $this;
+    }
+
+    public function isActive(): ?bool
+    {
+        return $this->active;
+    }
+
+    public function setActive(bool $active): self
+    {
+        $this->active = $active;
+
+        return $this;
+    }
+
+    public function getTextPosition(): ?string
+    {
+        return $this->textPosition;
+    }
+
+    public function setTextPosition(string $textPosition): self
+    {
+        $this->textPosition = $textPosition;
 
         return $this;
     }
