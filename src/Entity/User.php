@@ -278,7 +278,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface, Seriali
 
     public function serialize()
     {
-        // Propriétés du composant Security
+
         return serialize([
             $this->id,
             $this->email,
