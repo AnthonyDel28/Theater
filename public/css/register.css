@@ -11,14 +11,8 @@
 }
 
 .login-form {
-    padding-top: 50px;
+    padding-top: 30px;
     padding-bottom: 150px;
-}
-
-@media (max-width: 1000px) {
-    .login-form {
-        padding-top: 200px;
-    }
 }
 
 .divider img {

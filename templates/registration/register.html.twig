@@ -42,7 +42,6 @@
                             {{ form_row(registrationForm.plainPassword) }}
                         <button data-toggle="modal" data-target="#modal_aside_right" class="btn btn-outline-light" type="button">
                             Afficher les conditions d'utilisation  </button>
-
                         <div id="modal_aside_right" class="modal fixed-right fade" tabindex="-1" role="dialog">
                             <div class="modal-dialog modal-dialog-aside" role="document">
                                 <div class="modal-content">
@@ -91,8 +90,14 @@
                             </div> <!-- modal-bialog .// -->
                         </div> <!-- modal.// -->
                             {{ form_row(registrationForm.agreeTerms) }}
+                        {{ form_row(registrationForm.recaptcha) }}
+                        {# must be the same name of this put on the FormBuilder #}
 
-                            <button type="submit" class="btn btn-outline-light text-center" style="width: 100%">S'enregistrer</button>
+                        {{ form_errors(registrationForm.recaptcha) }}
+                        {# That will display the error of the captcha to user #}
+
+                            <button type="submit" class="btn btn-outline-light text-center mt-3" style="width:
+                            100%">S'enregistrer</button>
 
                         {{ form_end(registrationForm) }}
                     </div>
