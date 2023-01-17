@@ -56,10 +56,14 @@ class Spectacles
     #[ORM\Column]
     private ?\DateTimeImmutable $updatedAt = null;
 
+    #[ORM\OneToMany(mappedBy: 'spectacle', targetEntity: SpectacleComments::class)]
+    private Collection $spectacleComments;
+
     public function __construct()
     {
         $this->tickets = new ArrayCollection();
         $this->actors = new ArrayCollection();
+        $this->spectacleComments = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -241,6 +245,36 @@ class Spectacles
     public function setUpdatedAt(\DateTimeImmutable $updatedAt): self
     {
         $this->updatedAt = $updatedAt;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, SpectacleComments>
+     */
+    public function getSpectacleComments(): Collection
+    {
+        return $this->spectacleComments;
+    }
+
+    public function addSpectacleComment(SpectacleComments $spectacleComment): self
+    {
+        if (!$this->spectacleComments->contains($spectacleComment)) {
+            $this->spectacleComments->add($spectacleComment);
+            $spectacleComment->setSpectacle($this);
+        }
+
+        return $this;
+    }
+
+    public function removeSpectacleComment(SpectacleComments $spectacleComment): self
+    {
+        if ($this->spectacleComments->removeElement($spectacleComment)) {
+            // set the owning side to null (unless already changed)
+            if ($spectacleComment->getSpectacle() === $this) {
+                $spectacleComment->setSpectacle(null);
+            }
+        }
 
         return $this;
     }

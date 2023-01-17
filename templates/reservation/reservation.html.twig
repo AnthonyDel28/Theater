@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+{% block title %}Réservations{% endblock %}
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/profile.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/reservation.css') }}">
+{% endblock %}
+{% block body %}
+    <main class="container-fluid profile">
+        <div class="container profile-container">
+            <div class="row">
+                <div class="col-12 profile-section">
+                    <h1 class="text-center mt-3 mb-4">Réservations</h1>
+                   <div class="row justify-content-center">
+                       <div class="col-12 col-sm-12 col-md-9 col-lg-6 col-xl-6 informations">
+                          <h1 class="text-center mb-5">Informations</h1>
+                           <div class="text-center">
+                               <p>
+                                   Les représentations se jouent les vendredis et les samedis à 20h, et le dimanche à 16h
+                               </p>
+                               <p>Une séance supplémentaire est jouée le dernier jeudi à chaque spectacle excepté pour
+                                   "La Revue 2023" et "La Nuit des Dupes"</p>
+                               <hr>
+                               <p>Lors du réveillon du nouvel an, une soirée est organisée (en plus du spectacle "La
+                                   Revue"), réveillonez avec les comédiens dans la salle de " La Ruche verrière ".
+                                   <br>
+                                   <small>+ d'informations seront données en début de saison</small>
+                               </p>
+                           </div>
+                       </div>
+                       <div class="col-12 col-sm-12 col-md-9 col-lg-6 col-xl-6 prices">
+                           <h1 class="text-center">Tarifs</h1>
+                           <table class="table">
+                               <thead class="thead-dark">
+                               <tr>
+                                   <th scope="col">Catégorie</th>
+                                   <th scope="col">Prix</th>
+                               </tr>
+                               </thead>
+                               <tbody>
+                               <tr>
+                                   <td>Adultes</td>
+                                   <td>17€</td>
+                               </tr>
+                               <tr>
+                                   <td>Étudiants (et les moins de 25 ans)</td>
+                                   <td>9€</td>
+                               </tr>
+                               <tr>
+                                   <td>Pensionnés</td>
+                                   <td>15€</td>
+                               </tr>
+                               </tbody>
+                           </table>
+                           <h2 class="text-center">Comment réserver?</h2>
+                           <h4 class="text-center">Pour réserver, rien de plus simple!<br>
+                           Appelez le: </h4> <h1 class="phone text-center">0474/388.032</h1>
+                       </div>
+                   </div>
+                </div>
+            </div>
+        </div>
+    </main>
+{% endblock %}

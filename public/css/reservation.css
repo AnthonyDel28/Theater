@@ -1,0 +1,33 @@
+/* CSS FILE FOR THE RESERVATION PAGE */
+
+
+.informations {
+    height: 600px;
+    margin-bottom: 100px;
+    color: white;
+}
+
+.informations p {
+    font-size: 25px;
+}
+
+.prices {
+    height: 600px;*
+    color: white;
+}
+
+table {
+    font-size: 25px;
+    color: white;
+    margin-top: 100px;
+}
+
+table td,
+table th {
+    color: white;
+}
+
+.phone {
+    color: #6C4007;
+    font-size: 65px;
+}

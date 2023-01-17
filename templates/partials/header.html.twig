@@ -10,7 +10,7 @@
         </div>
     {% endfor %}
     <nav class="navbar">
-        <div class="navbar-container container">
+        <div class="navbar-container container-fluid">
             <input type="checkbox" name="" id="">
             <h1 class="logo">Le Petit Théâtre de la Ruelle</h1>
             <div class="hamburger-lines">
@@ -22,6 +22,7 @@
                 <li><a href="{{ path('home') }}">Accueil</a></li>
                 <li><a href="{{ path('app_spectacles') }}">Spectacles</a></li>
                 <li><a href="{{ path('app_news') }}">Actualités</a></li>
+                <li><a href="{{ path('reservation') }}">Réserver</a></li>
                 <li><a href="{{ path('app_contactus') }}">Contact</a></li>
                 {% if not app.user %}
                     <li><a href="{{ path('app_login') }}" type="button" class="btn btn-outline-light btn-sm"><i class="icofont-sign-in"></i> S'identifier</a></li>
@@ -35,8 +36,6 @@
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                             <a class="dropdown-item" href="{{ path('app_profile') }}">Mon profil</a>
-                            <a class="dropdown-item" href="#">Éditer profil</a>
-                            <a class="dropdown-item" href="#">Changer mon mot de passe</a>
                             {% if is_granted('ROLE_ADMIN') or is_granted('ROLE_SUPER_ADMIN') %}
                                 <a class="dropdown-item" href="{{ path('app_admin') }}" style="color: green;"><b>Administration</b></a>
                             {% endif %}

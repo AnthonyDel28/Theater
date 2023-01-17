@@ -9,6 +9,7 @@
             <thead>
             <tr>
                 <th>Destinataire</th>
+                <th>Expéditeur</th>
                 <th>Sujet</th>
                 <th>Message</th>
                 <th>Date d'expédition</th>
@@ -18,6 +19,7 @@
             <tbody>
             {% for mail in emails %}
                 <tr>
+                    <td>{{ mail.email }} </td>
                     <td>{{ mail.user }} </td>
                     <td>{{ mail.subject }} </td>
                     <td>{{ mail.message|raw }}</td>

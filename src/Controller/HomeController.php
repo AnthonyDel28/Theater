@@ -30,4 +30,10 @@ class HomeController extends AbstractController {
         ]);
     }
 
+    #[Route('/reservation', name: 'reservation')]
+    public function reservation()
+    {
+        return $this->render('reservation/reservation.html.twig');
+    }
+
 }

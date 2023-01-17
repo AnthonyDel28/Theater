@@ -67,10 +67,14 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface, Seriali
     #[ORM\OneToMany(mappedBy: 'user', targetEntity: Like::class)]
     private Collection $likes;
 
+    #[ORM\OneToMany(mappedBy: 'user', targetEntity: SpectacleComments::class)]
+    private Collection $spectacleComments;
+
     public function __construct()
     {
         $this->news = new ArrayCollection();
         $this->likes = new ArrayCollection();
+        $this->spectacleComments = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -319,6 +323,36 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface, Seriali
             // set the owning side to null (unless already changed)
             if ($like->getUser() === $this) {
                 $like->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, SpectacleComments>
+     */
+    public function getSpectacleComments(): Collection
+    {
+        return $this->spectacleComments;
+    }
+
+    public function addSpectacleComment(SpectacleComments $spectacleComment): self
+    {
+        if (!$this->spectacleComments->contains($spectacleComment)) {
+            $this->spectacleComments->add($spectacleComment);
+            $spectacleComment->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeSpectacleComment(SpectacleComments $spectacleComment): self
+    {
+        if ($this->spectacleComments->removeElement($spectacleComment)) {
+            // set the owning side to null (unless already changed)
+            if ($spectacleComment->getUser() === $this) {
+                $spectacleComment->setUser(null);
             }
         }
 

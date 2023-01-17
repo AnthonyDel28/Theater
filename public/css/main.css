@@ -95,6 +95,10 @@ html {
     transition: color 0.3s ease-in-out;
 }
 
+.navbar li .btn {
+    margin-top: -10px;
+}
+
 .navbar a:hover{
     color: #a86600;
 }

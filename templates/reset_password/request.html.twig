@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/reset.css') }}">
+{% endblock %}
+{% block title %}Récupération de mot de passe{% endblock %}
+
+{% block body %}
+    {% for flash_error in app.flashes('reset_password_error') %}
+        <div class="alert alert-danger" role="alert">{{ flash_error }}</div>
+    {% endfor %}
+    <div class="container reset">
+        <div class="row justify-content-center">
+            <div class="col-12 col-sm-12 col-lg-8 col-xl-8 text-center">
+                <h1 class="my-5 text-center display-1">Mot de passe oublié?</h1>
+                <p>
+                    Vous avez oublié votre mot de passe? Pas de soucis! Entrez l'adresse e-mail de votre compte,
+                    ensuite vous recevrez un mail de confirmation vous donnant un lien pour obtenir un nouveau mot de
+                    passe!
+                </p>
+                {{ form_start(requestForm) }}
+                {{ form_row(requestForm.email) }}
+                <div>
+                    <small>
+                        Entrez votre adresse e-mail et vérifiez ensuite votre boite mail!
+                    </small>
+                </div>
+
+                <button class="btn btn-primary mt-5">Confirmer mon e-mail</button>
+                {{ form_end(requestForm) }}
+            </div>
+        </div>
+    </div>
+{% endblock %}

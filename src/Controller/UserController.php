@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Form\EditProfilePictureType;
 use App\Form\EditProfileType;
 use App\Repository\CommentsRepository;
+use App\Repository\SpectacleCommentsRepository;
 use App\Repository\TicketsRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -16,7 +17,8 @@ class UserController extends AbstractController
 {
     #[Route('/profile', name: 'app_profile')]
     public function profile(\Symfony\Component\HttpFoundation\Request $request, EntityManagerInterface $manager,
-                            CommentsRepository $commentsRepository, TicketsRepository $ticketsRepository):
+                            CommentsRepository $commentsRepository, TicketsRepository $ticketsRepository,
+                            SpectacleCommentsRepository $spectacleCommentsRepository):
     Response
     {
         $user = $this->getUser();
@@ -24,6 +26,7 @@ class UserController extends AbstractController
         $form = $this->createForm(EditProfileType::class, $user);
         $form->handleRequest($request);
         $comments = $commentsRepository->findBy(['user' => $user_id]);
+        $spectacle_comments = $spectacleCommentsRepository->findBy(['user' => $user_id]);
         $profile_picture_form = $this->createForm(EditProfilePictureType::class, $user);
         $profile_picture_form->handleRequest($request);
         $tickets = $ticketsRepository->findBy(['user' => $user_id]);
@@ -46,6 +49,7 @@ class UserController extends AbstractController
             'form' => $form,
             'profile_picture_form' => $profile_picture_form,
             'comments' => $comments,
+            'spectacle_comments' => $spectacle_comments,
             'tickets' => $tickets,
         ]);
     }

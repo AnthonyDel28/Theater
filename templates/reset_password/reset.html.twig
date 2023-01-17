@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/reset.css') }}">
+{% endblock %}
+{% block title %}Récupération de mot de passe{% endblock %}
+
+{% block body %}
+    <div class="container reset">
+        <div class="row justify-content-center">
+            <div class="col-12 col-sm-12 col-lg-8 col-xl-8 text-center justify-content-center">
+                <h1 class="my-5 text-center display-1">Nouveau mot de passe</h1>
+                <p>
+                    Bingo! Vous voici sur la page de réinitialisation de votre mot de passe, nous vous invitons à
+                    choisir un mot de passe sécurisé, contenant des lettes mais aussi des chiffres et/ou des symboles!
+                </p>
+
+                <div class="row justify-content-center">
+                   <div class="col-6">
+                       {{ form_start(resetForm) }}
+                       {{ form_row(resetForm.plainPassword) }}
+                       <button class="btn btn-primary mt-3">Réinitialiser mot de passe</button>
+                       {{ form_end(resetForm) }}
+                   </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+

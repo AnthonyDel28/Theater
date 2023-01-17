@@ -27,7 +27,7 @@
                     <td><img src="{{ asset('assets/img/user/') ~ post.user.imageName }}"  class="admin-news-img"></td>
                     <td>{{ post.user.firstName }} {{ post.user.lastName }}</td>
                     <td>{{ post.news.title }} </td>
-                    <td>{{ post.content[:25] ~ '...' }}</td>
+                    <td>{{ post.content|raw }}</td>
                     <td>{{ post.createdAt|date('d/m/Y h:m') }}</td>
                     <td>
                         <a href="{{ path('app_delete_comment', {'id': post.id}) }}" class="btn btn-outline-light"
