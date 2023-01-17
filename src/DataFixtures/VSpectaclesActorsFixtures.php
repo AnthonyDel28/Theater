@@ -26,6 +26,8 @@ class VSpectaclesActorsFixtures extends Fixture
         $michael = $this->getReference('Michael Peigneux');
         $cindy = $this->getReference('Cindy Detrogh');
         $francis = $this->getReference('Francis Dehasseleer');
+        $alain = $this->getReference('Alain Boivin');
+        $wesley = $this->getReference('Wesley Mayence');
 
         // GETTING THE SPECTACLES DATA USING THE REFERENCES //
 
@@ -90,6 +92,23 @@ class VSpectaclesActorsFixtures extends Fixture
             $gerard->addSpectacle($show3);
             $show3->addActor($beatrice);
             $beatrice->addSpectacle($show3);
+
+            $show4->addActor($alexandra);
+            $alexandra->addSpectacle($show4);
+            $show4->addActor($salvatore);
+            $salvatore->addSpectacle($show4);
+            $show4->addActor($alain);
+            $salvatore->addSpectacle($show4);
+
+
+            $show5->addActor($jacques);
+            $jacques->addSpectacle($show5);
+            $show5->addActor($jacquesD);
+            $jacquesD->addSpectacle($show5);
+            $show5->addActor($salvatore);
+            $salvatore->addSpectacle($show5);
+            $show5->addActor($wesley);
+            $wesley->addSpectacle($show5);
 
         $manager->persist($show1);
         $manager->persist($show2);

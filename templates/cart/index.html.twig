@@ -42,16 +42,16 @@
                     {% endfor %}
                     </tbody>
                     <tfoot class="mt-5">
-                        <tr class="mt-5">
-                            <td colspan="3">Total</td>
-                            <td class="text-end">{{ total }}€</td>
-                           {% if data %}
-                                <td><a href="{{ path('app_delete_cart') }}" class="btn
+                    <tr class="mt-5">
+                        <td colspan="3">Total</td>
+                        <td class="text-end">{{ total }}€</td>
+                        {% if data %}
+                            <td><a href="{{ path('app_delete_cart') }}" class="btn
                                     btn-outline-light" style="color: red"><i class="icofont-error"></i> Supprimer
-                                        tous les tickets</a>
-                                </td>
-                            {% endif %}
-                        </tr>
+                                    tous les tickets</a>
+                            </td>
+                        {% endif %}
+                    </tr>
                     </tfoot>
                 </table>
                 <div class="row justify-content-center">
@@ -66,4 +66,3 @@
         </div>
     </div>
 {% endblock %}
-

@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/contactus.css') }}">
+{% endblock %}
+{% block body %}
+   <div class="container contact">
+       <div class="row justify-content-center">
+           <div class="col-12 col-sm-12 col-lg-8 col-xl-8">
+               <h1 class="my-5 text-center">Nous contacter</h1>
+               {{ form_start(form)}}
+               {{form_widget(form)}}
+               <button type="submit" class="btn btn-outline-light mt-4" style="color: black">Envoyer le message</button>
+               {{form_end(form)}}
+           </div>
+       </div>
+   </div>
+{% endblock %}

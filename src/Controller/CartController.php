@@ -14,6 +14,9 @@ use Symfony\Component\HttpKernel\KernelInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Dompdf\Dompdf;
 use Dompdf\Options;
+use DateTimeImmutable;
+use Faker\Core\DateTime;
+use Faker;
 
 class CartController extends AbstractController
 {
@@ -100,43 +103,46 @@ class CartController extends AbstractController
     public function buyTickets(SessionInterface $session, EntityManagerInterface $manager, Request $request,
                                KernelInterface $kernel)
     {
+        $user = $this->getUser();
+        $faker = Faker\Factory::create();
         $cart = $session->get("cart", []);
         $pdfOptions = new Options();
         $pdfOptions->set('isRemoteEnabled',true);
         $dompdf = new Dompdf($pdfOptions);
+        $countCart = count($cart);
         if($this->getUser()){
-            foreach($cart as $id => $amount){
-                $spectacle = $manager->getRepository(Spectacles::class)->find($id);
-                $ticket = new Tickets();
-                $ticket->setPrice(18);
-                $ticket->setSpectacle($spectacle);
-                $ticket->setUser($this->getUser());
-                $ticket->setPurchasedAt(new \DateTimeImmutable());
-                $html = $this->renderView('tickets/ticket' . $ticket->getId() .'.html.twig', [
-                    'spectacle' => $ticket->getSpectacle()->getTitre(),
-                    'img' => $ticket->getSpectacle()->getImageName() ,
-                    'user' => $ticket->getUser()->getFirstName() . ' ' . $ticket->getUser()->getLastName(),
-                    'date' => $ticket->getSpectacle()->getPeriod(),
-                ]);
+                foreach($cart as $id => $amount) {
+                    $spectacle = $manager->getRepository(Spectacles::class)->find($id);
+                    $ticket = new Tickets();
+                    $ticket->setPrice(18 * $amount);
+                    $ticket->setSpectacle($spectacle);
+                    $ticket->setPersons($amount);
+                    $ticket->setUser($this->getUser());
+                    $ticket->setPurchasedAt(new \DateTimeImmutable());
+                    $html = $this->renderView('tickets/ticket' . $ticket->getId() . '.html.twig', [
+                        'spectacle' => $ticket->getSpectacle()->getTitre(),
+                        'img' => $ticket->getSpectacle()->getImageName(),
+                        'user' => $ticket->getUser()->getFirstName() . ' ' . $ticket->getUser()->getLastName(),
+                        'date' => $ticket->getSpectacle()->getPeriod(),
+                        'persons' => $amount,
+                        'price' => $ticket->getPrice(),
+                        'code' => $faker->randomNumber(7, false),
+                    ]);
 
-                $dompdf->loadHtml($html);
-                $dompdf->setPaper('A4', 'portrait');
-                $dompdf->render();
-                $output = $dompdf->output();
+                    $dompdf->loadHtml($html);
+                    $dompdf->setPaper('A4', 'portrait');
+                    $dompdf->render();
+                    $output = $dompdf->output();
 
-                // In this case, we want to write the file in the public directory
-                $publicDirectory = $kernel->getProjectDir() . '/public/tickets';
-                // e.g /var/www/project/public/mypdf.pdf
-                $pdfFilepath = $publicDirectory . '/ticket'. $ticket->getUser()->getId() .'.pdf';
-
-                // Write file to the desired path
-                file_put_contents($pdfFilepath, $output);
-
-                // Send some text response
-                $manager->persist($ticket);
-                $manager->flush();
-                $session->remove("cart");
-            }
+                    $publicDirectory = $kernel->getProjectDir() . '/public/tickets';
+                    $filename = 'ticket' . $ticket->getUser()->getId() . '_' . $faker->randomNumber(7, false) . '.pdf';
+                    $pdfFilepath = $publicDirectory . '/' . $filename;
+                    $ticket->setFile($filename);
+                    file_put_contents($pdfFilepath, $output);
+                    $manager->persist($ticket);
+                    $manager->flush();
+                    $session->remove("cart");
+                }
         } else {
             $session->set("not_logged", TRUE);
             $this->addFlash(

@@ -1,57 +1,52 @@
 {% block navbar %}
-    <section class="header">
-        <div class="container-fluid p-0">
-            <div class="row nav-bar justify-content-between text-center">
-                {% for message in app.flashes('success') %}
-                    <div class="alert alert-success text-center">
-                        {{ message }}
-                    </div>
-                {% endfor %}
-                {% for message in app.flashes('warning') %}
-                    <div class="alert alert-warning text-center">
-                        {{ message }}
-                    </div>
-                {% endfor %}
-                <div class="col-12 col-xl-4 col-lg-4 align-middle mb-xl-2">
-                    <h2 class="nav-title">
-                        <img src="{{ asset('assets/img/icons/masks2.png') }}" alt="" style="width: 6%">
-                        Le Petit Théatre de la Ruelle
-                    </h2>
-                </div>
-                <div class="col-12 col-xl-4 col-lg-4 nav-menu mt-xl-4 mt-lg-4">
-                    <ul>
-                        <li><a href="{{ path('home') }}">Accueil</a></li>
-                        <li><a href="{{ path('app_spectacles') }}">Spectacles</a></li>
-                        <li><a href="{{ path('app_news') }}">Actualités</a></li>
-                        <li><a href="{{ path('app_contact') }}">Contact</a></li>
-                        <li><a href="#">Réservation</a></li>
-                    </ul>
-                </div>
-                <div class="col-12 col-xl-4 col-lg-4 nav-right-items mt-3 mb-2">
-                        {% if not app.user %}
-                            <a href="{{ path('app_login') }}" type="button" class="btn btn-outline-light btn-sm"><i class="icofont-sign-in"></i> S'identifier</a>
-                            <a href="{{path('app_register')}}" class="btn btn-outline-light btn-sm"><i class="icofont-user-alt-4"></i> S'enregistrer</a>
-                        {% else %}
-                            <div class="dropdown show">
-                                <a class="btn btn-outline-light dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <img src="{{ asset('assets/img/user/' ~ app.user.imageName) }}" alt=""
-                                         class="img-avatar">
-                                    <p>{{ app.user.firstName }} {{ app.user.lastName }}</p>
-                                </a>
-                                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                    <a class="dropdown-item" href="{{ path('app_profile') }}">Mon profil</a>
-                                    <a class="dropdown-item" href="#">Éditer profil</a>
-                                    <a class="dropdown-item" href="#">Changer mon mot de passe</a>
-                                    {% if is_granted('ROLE_ADMIN') or is_granted('ROLE_SUPER_ADMIN') %}
-                                        <a class="dropdown-item" href="{{ path('app_admin') }}" style="color: green;"><b>Administration</b></a>
-                                    {% endif %}
-                                    <a class="dropdown-item" href="{{path('app_logout')}}" style="color:
-                                    red;"><b>Déconnexion</b></a>
-                                </div>
-                            </div>
-                        {% endif %}
-                </div>
-            </div>
+    {% for message in app.flashes('success') %}
+        <div class="alert alert-success text-center" style="margin-bottom: 0; border-radius: 0">
+            {{ message }}
         </div>
-    </section>
+    {% endfor %}
+    {% for message in app.flashes('warning') %}
+        <div class="alert alert-warning text-center" style="margin-bottom: 0; border-radius: 0">
+            {{ message }}
+        </div>
+    {% endfor %}
+    <nav class="navbar">
+        {{ dump(app.session.get('cart')) }}
+        <div class="navbar-container container">
+            <input type="checkbox" name="" id="">
+            <h1 class="logo">Le Petit Théâtre de la Ruelle</h1>
+            <div class="hamburger-lines">
+                <span class="line line1"></span>
+                <span class="line line2"></span>
+                <span class="line line3"></span>
+            </div>
+            <ul class="menu-items">
+                <li><a href="{{ path('home') }}">Accueil</a></li>
+                <li><a href="{{ path('app_spectacles') }}">Spectacles</a></li>
+                <li><a href="{{ path('app_news') }}">Actualités</a></li>
+                <li><a href="{{ path('app_contactus') }}">Contact</a></li>
+                {% if not app.user %}
+                    <li><a href="{{ path('app_login') }}" type="button" class="btn btn-outline-light btn-sm"><i class="icofont-sign-in"></i> S'identifier</a></li>
+                    <li><a href="{{path('app_register')}}" class="btn btn-outline-light btn-sm"><i class="icofont-user-alt-4"></i> S'enregistrer</a></li>
+                {% else %}
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <img src="{{ asset('assets/img/user/' ~ app.user.imageName) }}" alt=""
+                                 class="nav-img-avatar">
+                            {{ app.user.firstName }} {{ app.user.lastName }}
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="{{ path('app_profile') }}">Mon profil</a>
+                            <a class="dropdown-item" href="#">Éditer profil</a>
+                            <a class="dropdown-item" href="#">Changer mon mot de passe</a>
+                            {% if is_granted('ROLE_ADMIN') or is_granted('ROLE_SUPER_ADMIN') %}
+                                <a class="dropdown-item" href="{{ path('app_admin') }}" style="color: green;"><b>Administration</b></a>
+                            {% endif %}
+                            <a class="dropdown-item" href="{{path('app_logout')}}" style="color:
+                               #810202;"><b>Déconnexion</b></a>
+                        </div>
+                    </div>
+                {% endif %}
+            </ul>
+        </div>
+    </nav>
 {% endblock %}

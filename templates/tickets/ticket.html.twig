@@ -1,61 +1,66 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:o="urn:schemas-microsoft-com:office:office">
 <head>
     <meta charset="UTF-8">
-    <title>Ticket</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="x-apple-disable-message-reformatting">
+    <title></title>
+    <!--[if mso]>
+    <noscript>
+        <xml>
+            <o:OfficeDocumentSettings>
+                <o:PixelsPerInch>96</o:PixelsPerInch>
+            </o:OfficeDocumentSettings>
+        </xml>
+    </noscript>
+    <![endif]-->
     <style>
-        /* Mise en page globale */
-        body {
-            font-family: Arial, sans-serif;
-            padding: 20px;
-        }
-
-        /* Mise en forme de la table */
-        table {
-            border-collapse: collapse;
-            width: 100%;
-        }
-
-        /* Style des cellules de la table */
-        td {
-            border: 1px solid #ccc;
-            padding: 8px;
-        }
-
-        /* Style de l'en-tête de la table */
-        th {
-            background-color: #f2f2f2;
-            border: 1px solid #ccc;
-            padding: 8px;
-            text-align: left;
-        }
-
-        /* Style du numéro de ticket */
-        .ticket-number {
-            font-size: 1.5em;
-            font-weight: bold;
-        }
+        table, td, div, h1, p {font-family: Arial, sans-serif;}
     </style>
 </head>
-<body>
-<table>
+<body style="margin:0;padding:0;">
+<table role="presentation" style="width:100%;border-collapse:collapse;border:0;border-spacing:0;background:#ffffff;">
     <tr>
-        <th colspan="2">Ticket</th>
-    </tr>
-    <tr>
-        <td>Numéro de ticket :</td>
-        <td>
-            <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Qrcode_wikipedia_fr_v2clean.png" alt=""
-                 style="width: 300px">
+        <td align="center" style="padding:0;">
+            <table role="presentation" style="width:602px;border-collapse:collapse;border:1px solid #cccccc;border-spacing:0;text-align:left;">
+                <tr>
+                    <td style="padding:36px 30px 42px 30px;background-color: black">
+                        <table role="presentation" style="width:100%;border-collapse:collapse;border:0;border-spacing:0;">
+                            <tr>
+                                <td style="padding:0 0 36px 0;color:#ffffff;text-align: center">
+                                    <h1 style="font-size:50px;margin:0 0 20px 0;font-family:Times New Roman, Times,
+                                    serif">Ticket No {{ code }}</h1>
+                                    <img src="https://i.ibb.co/NYDMd8D/IMG-9579.jpg" alt="" width="70%"
+                                         style="height:auto;object-fit: cover;
+                        display:block;" />
+                                    <p style="margin:0 0 12px 0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;">
+                                        Merci pour votre achat, voici votre ticket! Il est valable pour assister à une
+                                        représentation du spectacle suivant:
+                                    </p>
+                                    <h3 style="margin-bottom: 10px">{{ spectacle }}</h3><br>
+                                    <p><b>Informations:</b></p>
+                                    <p><b>Nom:</b> {{ user }}</p>
+                                    <p><b>Validité:</b> {{ date }}</p>
+                                    <p><b>Valable pour:</b> {{ persons }} personnes</p>
+                                    <h3>{{ price }}€</h3>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="padding:30px;background:#ffffff;">
+                        <table role="presentation" style="width:100%;border-collapse:collapse;border:0;border-spacing:0;font-size:9px;font-family:Arial,sans-serif;">
+                            <tr>
+                                <td style="padding:0;width:50%;" align="left">
+                                    <img src="https://i.ibb.co/G5Gc0j3/barres.png" alt="" style="width: 300px">
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
         </td>
-    </tr>
-    <tr>
-        <td>Nom :</td>
-        <td>{{ user }}</td>
-    </tr>
-    <tr>
-        <td>Date :</td>
-        <td>{{ date }}</td>
     </tr>
 </table>
 </body>

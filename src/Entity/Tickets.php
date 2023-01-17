@@ -27,6 +27,12 @@ class Tickets
     #[ORM\Column]
     private ?\DateTimeImmutable $purchasedAt = null;
 
+    #[ORM\Column]
+    private ?int $persons = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $file = null;
+
 
     public function getId(): ?int
     {
@@ -77,6 +83,30 @@ class Tickets
     public function setPurchasedAt(\DateTimeImmutable $purchasedAt): self
     {
         $this->purchasedAt = $purchasedAt;
+
+        return $this;
+    }
+
+    public function getPersons(): ?int
+    {
+        return $this->persons;
+    }
+
+    public function setPersons(int $persons): self
+    {
+        $this->persons = $persons;
+
+        return $this;
+    }
+
+    public function getFile(): ?string
+    {
+        return $this->file;
+    }
+
+    public function setFile(string $file): self
+    {
+        $this->file = $file;
 
         return $this;
     }

@@ -16,9 +16,22 @@
     margin-bottom: 100px;
 }
 
-@media (max-width: 992px) {
-    .profile-section {
-        margin-top: 300px;
+input[type='file'] {
+    color: transparent;
+    margin-left: 120px;
+}
+
+@media (min-width: 992px) {
+    input[type='file'] {
+        color: transparent;
+        margin-left: 25px;
+    }
+}
+
+@media (min-width: 1280px) {
+    input[type='file'] {
+        color: transparent;
+        margin-left: 50px;
     }
 }
 

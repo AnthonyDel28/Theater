@@ -5,21 +5,11 @@
 }
 
 .news-main-title {
-    margin-top: 200px;
+    padding-top: 150px;
 }
 
 .news-divider {
     margin-top: -30px;
-}
-@media (min-width: 992px) {
-    .news-main-title {
-        margin-top: 110px;
-    }
-}
-@media (min-width: 1400px) {
-     .news-divider {
-        margin-top: -50px;
-    }
 }
 
 .first-header-news h2,
