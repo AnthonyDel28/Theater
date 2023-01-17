@@ -1,0 +1,16 @@
+{% extends 'admin/base.html.twig' %}
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/admin/users.css') }}">
+{% endblock %}
+{% block body %}
+    <div class="col-12 col-sm-12 col-lg-10 col-xl-10">
+        <h2 class="my-5 text-center">Envoyer un mail</h2>
+        <p class="text-center" style="color: red;">
+            <i class="icofont-warning-alt"></i> Attention! <i class="icofont-warning-alt"></i> <br>
+        </p>
+        {{ form_start(form)}}
+        {{form_widget(form)}}
+        <button type="submit" class="btn btn-outline-light mt-4" style="color: black">Envoyer</button>
+        {{form_end(form)}}
+    </div>
+{% endblock %}

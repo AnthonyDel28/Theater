@@ -1,0 +1,34 @@
+{% extends 'admin/base.html.twig' %}
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/admin/news.css') }}">
+{% endblock %}
+{% block body %}
+    <div class="col-12 col-sm-12 col-lg-10 col-xl-10">
+        <h2 class="my-5 text-center">Vos e-mails</h2>
+        <table id="table-admin" class="table table-hover">
+            <thead>
+            <tr>
+                <th>Expéditeur</th>
+                <th>Sujet</th>
+                <th>Message</th>
+                <th>Date de réception,</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for mail in emails %}
+                <tr>
+                    <td>{{ mail.firstName }} {{ mail.lastName }}</td>
+                    <td>{{ mail.subject }} </td>
+                    <td>{{ mail.message }}</td>
+                    <td>{{ mail.date|date('d/m/Y h:m') }}</td>
+                    <td>
+                        <a href="{{ path('app_admin_delete_mail', {id: mail.id}) }}" class="btn btn-outline-light"
+                           style="color: red"><i class="icofont-ui-delete"></i></a>&nbsp;
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}
