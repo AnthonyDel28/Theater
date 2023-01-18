@@ -41,7 +41,7 @@ Créez la database, et ensuite faites un load des fixtures
 - Informations utiles
 - Tarifs  
 
-### Page de Contact
+### :information_source: Page de Contact 
 - Formulaire de contact (permettant d'envoyer un mail directement au Théâtre)  
   (En local les emails seront interceptés par mailtrap)  
 
@@ -50,7 +50,7 @@ Créez la database, et ensuite faites un load des fixtures
 - Envoi de mail de confirmation à l'inscription, template ultra design à l'image du Théâtre
 - Fonction "Mot de passe oublié?" 100% fonctionnelle par Token & Email  
 
-### Page de profil
+### :girl: Page de profil
 - Photo de profil (et formulaire pour la modifier)
 - Informations du compte (et formulaire pour les modifier)
 - Liste des commentaires écrits par l'user
