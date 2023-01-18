@@ -2,9 +2,9 @@
 
 
 .informations {
-    height: 600px;
-    margin-bottom: 100px;
-    color: white;
+    height: auto;
+    color: black;
+    background-color: whitesmoke;
 }
 
 .informations p {
@@ -12,19 +12,20 @@
 }
 
 .prices {
-    height: 600px;*
-    color: white;
+    height: auto;
+    color: black;
+    background-color: whitesmoke;
 }
 
 table {
     font-size: 25px;
-    color: white;
+    color: black;
     margin-top: 100px;
 }
 
 table td,
 table th {
-    color: white;
+    color: black;
 }
 
 .phone {

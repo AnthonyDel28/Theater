@@ -35,8 +35,6 @@ class Slider
     #[ORM\Column]
     private ?bool $active = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $textPosition = null;
 
     public function getId(): ?int
     {
@@ -119,15 +117,4 @@ class Slider
         return $this;
     }
 
-    public function getTextPosition(): ?string
-    {
-        return $this->textPosition;
-    }
-
-    public function setTextPosition(string $textPosition): self
-    {
-        $this->textPosition = $textPosition;
-
-        return $this;
-    }
 }

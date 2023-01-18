@@ -96,7 +96,9 @@
                         <h2 class="twin-text">
                             Envie de rejoindre l'équipe des Molières & Mocassins?
                         </h2>
-                        <button class="btn btn-outline-light news-btn">Nous rejoindre</button>
+                        <a href="{{ path('app_contactus') }}">
+                            <button class="btn btn-light">Contactez nous</button>
+                        </a>
                     </div>
                 </div>
                 <div class="twin2 col-xl-6 ccol-lg-6 col-sm-12 col-12">
@@ -105,7 +107,7 @@
                             La Revue 2023 pointe enfin le bout de son nez
                         </h2>
                         <a href="{{ path('spectacle', {slug: 'La-Revue-2023'}) }}">
-                            <button class="btn btn-outline-light news-btn">Découvrir</button>
+                            <button class="btn btn-light">Découvrir</button>
                         </a>
 
                     </div>
@@ -130,12 +132,14 @@
                                     </p>
                                     <span class="card-home-news-date">{{ post.createdAt|date('d/m/Y') }}</span>
                                 </div>
-                                <div class="card-home-news-body-bottom p-3">
-                                    <a href="{{ path('app_post', {slug:post.slug}) }}"
-                                       class="card-home-news-link"><button
-                                                class="btn
-                                    btn-outline-light">Lire l'article</button></a>
-                                </div>
+                                    <div class="col-7 news-bottom">
+                                        <div class="card-home-news-body-bottom p-3">
+                                            <a href="{{ path('app_post', {slug:post.slug}) }}"
+                                               class="card-home-news-link"><button
+                                                        class="btn
+                                    btn-outline-light news-btn">Lire l'article</button></a>
+                                        </div>
+                                    </div>
                             </div>
                         {% endfor %}
                     </div>

@@ -45,15 +45,6 @@ class NewSliderFormType extends AbstractType
                     'class' => 'form-control'
                 ]
             ])
-            ->add('textPosition', ChoiceType::class, [
-                'label' => 'Position du texte',
-                'attr'  => [
-                    'class' => 'mt-5',
-                ],
-                'choices'  => [
-                    'Droite' => 'right',
-                    'Gauche' => 'left',
-                ]])
         ;
     }
 

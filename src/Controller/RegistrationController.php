@@ -48,18 +48,18 @@ class RegistrationController extends AbstractController
             $entityManager->persist($newsletter);
             $entityManager->flush();
             $email = new TemplatedEmail();
-                $email->from('contact@petittheatredelaruelle.be')
+            $email->from('contact@petittheatredelaruelle.be')
                 ->to($user->getEmail())
                 ->subject('Le Petit Théâtre vous souhaite la bienvenue!')
                 ->text('Sending emails is fun again!')
                 ->htmlTemplate('contact/registration.html.twig')
-                    ->context(
-                        [
-                            'firstName' => $user->getFirstName(),
-                            'lastName' => $user->getLastName(),
-                            'user_email' => $user->getEmail(),
-                        ]
-                    );
+                ->context(
+                    [
+                        'firstName' => $user->getFirstName(),
+                        'lastName' => $user->getLastName(),
+                        'user_email' => $user->getEmail(),
+                    ]
+                );
 
             $mailer->send($email);
             $this->addFlash(

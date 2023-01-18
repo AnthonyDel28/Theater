@@ -2,6 +2,11 @@
 
 namespace App\Controller\Admin;
 
+use App\Repository\CommentsRepository;
+use App\Repository\LikeRepository;
+use App\Repository\SpectacleCommentsRepository;
+use App\Repository\TicketsRepository;
+use Doctrine\ORM;
 use App\Entity\User;
 use App\Form\EditUserFormType;
 use App\Form\NewUserFormType;
@@ -60,7 +65,26 @@ class AdminUsersController extends AbstractController
     }
 
     #[Route('/admin/user/{id}', name: 'app_admin_delete_user')]
-    public function deleteUser(User $user, EntityManagerInterface $manager) :response {
+    public function deleteUser(User $user, EntityManagerInterface $manager, CommentsRepository $commentsRepository,
+                               SpectacleCommentsRepository $spectacleCommentsRepository, TicketsRepository
+                               $ticketsRepository, LikeRepository $likeRepository)
+    :response {
+        $tickets = $ticketsRepository->findBy(['user' => $user->getId()]);
+        $comments = $commentsRepository->findBy(['user' => $user->getId()]);
+        $spectacleComments = $spectacleCommentsRepository->findBy(['user' => $user->getId()]);
+        $likes = $likeRepository->findBy(['user' => $user->getId()]);
+        foreach ($comments as $comment){
+            $manager->remove($comment);
+        }
+        foreach($tickets as $ticket){
+            $manager->remove($ticket);
+        }
+        foreach($spectacleComments as $spectacleComment){
+            $manager->remove($spectacleComment);
+        }
+        foreach($likes as $like){
+            $manager->remove($like);
+        }
         $manager->remove($user);
         $manager->flush();
         $this->addFlash(

@@ -490,3 +490,9 @@ anchors are inline so you need ot make them block to go full width
     display: block;
     width:100%;
 }
+
+
+.news-bottom {
+    position: absolute;
+    bottom: 10px;
+}

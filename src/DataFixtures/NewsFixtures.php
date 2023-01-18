@@ -32,6 +32,9 @@ class NewsFixtures extends Fixture implements OrderedFixtureInterface
             $news->setIsPublished(TRUE);
             $news->setSlug($slugify->slugify($title));
             $news->setImportant(mt_rand(0, 2));
+            if($index == 11){
+                $news->setImportant(2);
+            }
             $news->setAuthor($authors[mt_rand(0,2)]);
             $manager->persist($news);
             $index++;

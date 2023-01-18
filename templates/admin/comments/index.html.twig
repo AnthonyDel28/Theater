@@ -36,6 +36,21 @@
                     </td>
                 </tr>
             {% endfor %}
+            {% for post in spectacle_comments %}
+                <tr>
+                    <td><img src="{{ asset('assets/img/user/') ~ post.user.imageName }}"  class="admin-news-img"></td>
+                    <td>{{ post.user.firstName }} {{ post.user.lastName }}</td>
+                    <td>{{ post.spectacle.titre }} </td>
+                    <td>{{ post.content|raw }}</td>
+                    <td>{{ post.createdAt|date('d/m/Y h:m') }}</td>
+                    <td>
+                        <a href="{{ path('app_delete_spectacle_comment', {'id': post.id}) }}" class="btn
+                        btn-outline-light"
+                           style="color: red"><i
+                                    class="icofont-ui-delete"></i></a>&nbsp;
+                    </td>
+                </tr>
+            {% endfor %}
             </tbody>
         </table>
     </div>

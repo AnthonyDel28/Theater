@@ -152,6 +152,10 @@ class CartController extends AbstractController
             );
             return $this->redirectToRoute('app_login');
         }
+        $this->addFlash(
+            'success',
+            'Billets achetés avec succès, rendez-vous dans votre page de profil pour les télécharger!',
+        );
         return $this->redirectToRoute('home');
     }
 }

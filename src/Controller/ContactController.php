@@ -18,7 +18,7 @@ class ContactController extends AbstractController
 {
     #[Route('/mail', name: 'app_contactus')]
     public function contact(MailerInterface $mailer, \Symfony\Component\HttpFoundation\Request $request,
-    EntityManagerInterface $manager) :Response
+                            EntityManagerInterface $manager) :Response
     {
         $contact = new Contact();
         $form = $this->createForm(ContactType::class, $contact);

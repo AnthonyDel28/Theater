@@ -74,7 +74,8 @@ class RegistrationFormType extends AbstractType
                     ]),
                 ],
             ])
-            ->add('recaptcha', ReCaptchaType::class)
+            ->add('recaptcha', ReCaptchaType::class, [
+            ])
         ;
     }
 

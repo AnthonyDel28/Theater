@@ -20,7 +20,7 @@ class UserFixtures extends Fixture implements OrderedFixtureInterface
     {
             $slugify = new Slugify();
             $index = 0;
-            while($index < 3){
+            while($index < 4){
                 $user = new User();
                 $user->setFirstName($this->data[$index][0]);
                 $user->setLastName($this->data[$index][1]);
@@ -61,6 +61,12 @@ class UserFixtures extends Fixture implements OrderedFixtureInterface
             "Salvatore",
             "Vullo",
             "salvatore@gmail.com",
+            "password",
+        ],
+        [
+            "Pat",
+            "Mar",
+            "patmar@gmail.com",
             "password",
         ]
     ];
