@@ -16,45 +16,45 @@ composer install
 Créez la database, et ensuite faites un load des fixtures
 
 ### Contenu
-- Site destiné à un Théâtre 
+- Site destiné à un Théâtre  
 ####Page d'accueil : :house:
 - Navbar Responsive 
 - Slider dynamique 
 - Les 4 news les plus récentes 
-- Widgets et un footer
+- Widgets et un footer  
 ####Page des spectacles :accordion:
 - Tous les spectacles de cette année
 - Tous les comédiens de chaque spectacle
 - Un bouton pour acheter un Ticket (ne sera pas déployé en ligne)
 - Un widget pour partager le post sur facebook
-- Un formulaire pour écrire un commentaire
+- Un formulaire pour écrire un commentaire  
 ####Page des actualités :page_with_curl:
 - Toutes les news
 - Un bouton pour partager la news sur facebook
 - Un bouton pour liker / disliker la news
-- Un formulaire pour écrire un commentaire
+- Un formulaire pour écrire un commentaire  
 ####Page de réservation :tickets:
 - Informations utiles
-- Tarifs 
+- Tarifs  
 ####Page de Contact
 - Formulaire de contact (permettant d'envoyer un mail directement au Théâtre)  
-  (En local les emails seront interceptés par mailtrap)
+  (En local les emails seront interceptés par mailtrap)  
 #### Page de connexion et d'inscription :e-mail:
 - Formulaires de connexion et d'inscription, protégés par un captcha Google
 - Envoi de mail de confirmation à l'inscription, template ultra design à l'image du Théâtre
-- Fonction "Mot de passe oublié?" 100% fonctionnelle par Token & Email
+- Fonction "Mot de passe oublié?" 100% fonctionnelle par Token & Email  
 #### Page de profil
 - Photo de profil (et formulaire pour la modifier)
 - Informations du compte (et formulaire pour les modifier)
 - Liste des commentaires écrits par l'user
-- Liste des tickets achetés par l'user, permettant de les télécharger en PDF
+- Liste des tickets achetés par l'user, permettant de les télécharger en PDF  
 ####Administration :black_nib:
 - Page d'administration affichant un message de bienvenue et quelques stats
 - Permet de gérer les spectacles, les comédiens, les news, les commentaires, les users,
 les tickets
 - Permet de lister les emails reçus et envoyés
 - Permet d'écrire un email avec un template à l'image du Théâtre
-- Permet de changer les sliders, leurs images et leur ordre ainsi que la caption
+- Permet de changer les sliders, leurs images et leur ordre ainsi que la caption  
 ####Autre :desktop_computer:
 - Les pages d'erreur ont été customisées (visible uniquement en prod)
 - La fonction d'achat de ticket ne sera pas déployée sur le domaine
