@@ -30,7 +30,8 @@ class RegistrationController extends AbstractController
         $form = $this->createForm(RegistrationFormType::class, $user);
         $form->handleRequest($request);
         $newsletter = new Newsletter();
-        if ($form->isSubmitted() && $form->isValid()) {
+        $submittedToken = $request->request->get('token');
+        if ($form->isSubmitted() && $form->isValid() && $this->isCsrfTokenValid('delete-item', $submittedToken)) {
             $user   ->setPassword(
                 $userPasswordHasher->hashPassword(
                     $user,
