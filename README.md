@@ -18,34 +18,34 @@ Créez la database, et ensuite faites un load des fixtures
 ## Contenu
 - Site destiné à un Théâtre 
 
-###Page d'accueil : :house:
+### :house: Page d'accueil : 
 - Navbar Responsive 
 - Slider dynamique 
 - Les 4 news les plus récentes 
 - Widgets et un footer  
 
-###Page des spectacles :accordion:
+### :accordion: Page des spectacles 
 - Tous les spectacles de cette année
 - Tous les comédiens de chaque spectacle
 - Un bouton pour acheter un Ticket (ne sera pas déployé en ligne)
 - Un widget pour partager le post sur facebook
 - Un formulaire pour écrire un commentaire  
 
-###Page des actualités :page_with_curl:
+### :page_with_curl: Page des actualités 
 - Toutes les news
 - Un bouton pour partager la news sur facebook
 - Un bouton pour liker / disliker la news
 - Un formulaire pour écrire un commentaire  
 
-### Page de connexion et d'inscription :e-mail:
+### :tickets: Page de réservation 
 - Informations utiles
 - Tarifs  
 
-### Page de connexion et d'inscription :e-mail:
+### Page de Contact
 - Formulaire de contact (permettant d'envoyer un mail directement au Théâtre)  
   (En local les emails seront interceptés par mailtrap)  
 
-### Page de connexion et d'inscription :e-mail:
+### :e-mail: Page de connexion et d'inscription 
 - Formulaires de connexion et d'inscription, protégés par un captcha Google
 - Envoi de mail de confirmation à l'inscription, template ultra design à l'image du Théâtre
 - Fonction "Mot de passe oublié?" 100% fonctionnelle par Token & Email  
@@ -56,7 +56,7 @@ Créez la database, et ensuite faites un load des fixtures
 - Liste des commentaires écrits par l'user
 - Liste des tickets achetés par l'user, permettant de les télécharger en PDF  
 
-###Administration :black_nib:
+### :black_nib: Administration 
 - Page d'administration affichant un message de bienvenue et quelques stats
 - Permet de gérer les spectacles, les comédiens, les news, les commentaires, les users,
 les tickets
@@ -64,7 +64,7 @@ les tickets
 - Permet d'écrire un email avec un template à l'image du Théâtre
 - Permet de changer les sliders, leurs images et leur ordre ainsi que la caption  
 
-###Autre :desktop_computer:
+### :desktop_computer: Autre 
 - Les pages d'erreur ont été customisées (visible uniquement en prod)
 - La fonction d'achat de ticket ne sera pas déployée sur le domaine
 - Toutes les fonctions de mail ne seront pas visibles à 100% en mode Dev
@@ -75,7 +75,7 @@ les tickets
 ![PHPSTORM](https://img.shields.io/badge/PhpStorm-IDE-purple)
 ![JavaScript](https://img.shields.io/badge/JavaScript-JS-green)
 
-###Ce site sera déployé d'ici quelques jours sur l'adresse suivante:
-##www.petittheatredelaruelle.be
+### Ce site sera déployé d'ici quelques jours sur l'adresse suivante:
+## www.petittheatredelaruelle.be
 
 Made with :heart: by Anthony D.
