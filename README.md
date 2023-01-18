@@ -37,11 +37,11 @@ Créez la database, et ensuite faites un load des fixtures
 - Un bouton pour liker / disliker la news
 - Un formulaire pour écrire un commentaire  
 
-###Page de réservation :tickets:
+### Page de connexion et d'inscription :e-mail:
 - Informations utiles
 - Tarifs  
 
-###Page de Contact
+### Page de connexion et d'inscription :e-mail:
 - Formulaire de contact (permettant d'envoyer un mail directement au Théâtre)  
   (En local les emails seront interceptés par mailtrap)  
 
